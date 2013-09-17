@@ -1,0 +1,11 @@
+Install:
+
+1º Node
+2º Yeoman:
+    http://yeoman.io/index.html
+    https://github.com/yeoman/generator-angular
+3º Compass:
+    http://compass-style.org/install/
+    http://ericdfields.com/post/installing-compass-frameworks-in-a-yeoman-project
+4º Jade:
+    https://gist.github.com/passy/5229305
