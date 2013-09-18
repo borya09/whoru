@@ -1,6 +1,8 @@
 who R U
 =======
 
+[![Build Status](https://travis-ci.org/borya09/whoru.png)](https://travis-ci.org/borya09/whoru)
+
 who R U (whoru) is a tool that will allow you to build a web cv to introduce yourself to visitors & companies; 
 and interview these ones to discover what they can offer you, their technologies & metodologies,...
 
