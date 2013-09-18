@@ -11,9 +11,8 @@ Installation
 ### From Zero
 
 
-    1º Node
+    1º Node & yeoman
         http://nodejs.org/
-    2º Yeoman:
         http://yeoman.io/index.html
     3º Angular generator from yeoman
         https://github.com/yeoman/generator-angular
@@ -27,11 +26,11 @@ Installation
 
 ### Clone this repo
 
-
-    1º Node
+    1º Node & yeoman
         http://nodejs.org/
-    2º Install proyect dependencies:
-        $ npm install
+         http://yeoman.io/index.html
+    2º Install project dependencies:
+        $ bower install
     3º Compass Core:
         http://compass-style.org/install/
 
