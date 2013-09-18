@@ -1,9 +1,15 @@
-Installation:
-==================
+who R U
+=======
 
+who R U (whoru) is a tool that will allow you to build a web cv to introduce yourself to visitors & companies; 
+and interview these ones to discover what they can offer you, their technologies & metodologies,...
 
-From Zero
+Installation
 ------------
+
+
+### From Zero
+
 
     1º Node
         http://nodejs.org/
@@ -19,8 +25,8 @@ From Zero
         https://gist.github.com/passy/5229305
 
 
-Clone this repo
-------------
+### Clone this repo
+
 
     1º Node
         http://nodejs.org/
@@ -29,3 +35,12 @@ Clone this repo
     3º Compass Core:
         http://compass-style.org/install/
 
+
+about
+---------
+TODO
+
+
+license
+--------
+TODO
