@@ -7,5 +7,3 @@ before_script:
   - 'ruby -v'
   - 'gem update --system && gem install compass'
   - 'bower install'
-
-
