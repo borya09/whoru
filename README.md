@@ -10,32 +10,25 @@ Installation
 ------------
 
 
+
+
 ### From Zero
 
-
-    1º Node & yeoman
-        http://nodejs.org/
-        http://yeoman.io/index.html
-    3º Angular generator from yeoman
-        https://github.com/yeoman/generator-angular
-    4º Compass Core:
-        http://compass-style.org/install/
-    5º Config Compass in grunt
-        http://ericdfields.com/post/installing-compass-frameworks-in-a-yeoman-project
-    6º Config Jade in grunt
-        https://gist.github.com/passy/5229305
+* [nodejs](http://nodejs.org/)
+* [yeoman](http://yeoman.io/index.html)
+* [Angular generator for yeoman](https://github.com/yeoman/generator-angular)
+* [Compass Core](http://compass-style.org/install/)
+* [Config Compass in grunt] (http://ericdfields.com/post/installing-compass-frameworks-in-a-yeoman-project)
+* [Config Jade in grunt] (https://gist.github.com/passy/5229305)
 
 
-### Clone this repo
+### From this repo
 
-    1º Node & yeoman
-        http://nodejs.org/
-         http://yeoman.io/index.html
-    2º Install project dependencies:
-        $ bower install
-    3º Compass Core:
-        http://compass-style.org/install/
-
+* [nodejs](http://nodejs.org/)
+* [yeoman](http://yeoman.io/index.html)
+* [Angular generator for yeoman](https://github.com/yeoman/generator-angular)
+* [Compass Core](http://compass-style.org/install/)
+* Install project dependencies -- `bower install`
 
 about
 ---------
