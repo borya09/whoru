@@ -1,13 +1,13 @@
-!!! 5
+doctype
 //if lt IE 7
-  html.no-js.lt-ie9.lt-ie8.lt-ie7
+  <html class="no-js lt-ie9 lt-ie8 lt-ie7">
 //if IE 7
-  html.no-js.lt-ie9.lt-ie8
+  <html class="no-js lt-ie9 lt-ie8">
 //if IE 8
-  html.no-js.lt-ie9
-// [if gt IE 8] <!
+  <html class="no-js lt-ie9">
+//[if gt IE 8]><!
 html.no-js
-  // <![endif]
+  //<![endif]
   head
     meta(charset='utf-8')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
@@ -41,6 +41,10 @@ html.no-js
       ga('send', 'pageview');
     script(src='bower_components/jquery/jquery.js')
     script(src='bower_components/angular/angular.js')
+    // build:js scripts/modules.js
+    script(src='bower_components/angular-cookies/angular-cookies.js')
+    script(src='bower_components/angular-sanitize/angular-sanitize.js')
+    // endbuild
     // build:js({.tmp,app}) scripts/scripts.js
     script(src='scripts/app.js')
     script(src='scripts/controllers/main.js')
