@@ -450,6 +450,11 @@ module.exports = function (grunt) {
 		'connect:e2e',
 		'karma:e2e'
 	]);
+	
+	grunt.registerTask('test', [
+		'test:unit',
+		'test:e2e'
+	]);
 
 	grunt.registerTask('build', [
 		'clean:dist',
