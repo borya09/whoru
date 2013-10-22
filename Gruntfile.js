@@ -287,7 +287,8 @@ module.exports = function (grunt) {
 							'.htaccess',
 							'bower_components/**/*',
 							'images/{,*/}*.{gif,webp}',
-							'styles/fonts/*'
+							'styles/fonts/*',
+							'data/*.json'
 						]
 					},
 					{
@@ -371,6 +372,13 @@ module.exports = function (grunt) {
 					'<%= yeoman.dist %>/scripts/scripts.js': [
 						'<%= yeoman.dist %>/scripts/scripts.js'
 					]
+				}
+			}
+		},
+		minjson: {
+			dist: {
+				files: {
+					'<%= yeoman.dist %>/data/cv.json': '<%= yeoman.dist %>/data/cv.json'
 				}
 			}
 		},
@@ -468,7 +476,8 @@ module.exports = function (grunt) {
 		'cssmin',
 		'uglify',
 		'rev',
-		'usemin'
+		'usemin',
+		'minjson:dist'
 	]);
 
 	grunt.registerTask('default', [
