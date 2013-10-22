@@ -1,7 +1,5 @@
-.hero-unit
-  h1 'Allo, 'Allo!
-  p You now have
-  ul
-    li(ng-repeat='thing in awesomeThings') {{thing}}
-  p installed.
-  h3 Enjoy coding! - Yeoman
+.hero-unit(ng-controller="CvCtrl")
+  p nombre: {{cv.name}}
+  p(ng-if="cv.age") edad: {{cv.age}}
+  p(ng-if="cv.description") descripción: {{cv.description}}
+  p(ng-if="cv.phone") teléfono: {{cv.phone}}
