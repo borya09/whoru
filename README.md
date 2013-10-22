@@ -29,6 +29,7 @@ Installation
 * [Angular generator for yeoman](https://github.com/yeoman/generator-angular)
 * [Compass Core](http://compass-style.org/install/)
 * Install project dependencies -- `bower install`
+* Install node dependencies -- `npm install`
 
 about
 ---------

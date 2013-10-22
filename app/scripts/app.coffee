@@ -6,6 +6,9 @@ angular.module('whoruApp', ['ngRoute'])
       .when '/',
         templateUrl: 'views/main.html'
         controller: 'MainCtrl'
+      .when '/questions',
+        templateUrl: 'views/questions.html',
+        controller: 'QuestionsCtrl'
       .otherwise
         redirectTo: '/'
   ]

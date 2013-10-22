@@ -1,0 +1,27 @@
+{
+  "title": "questionsss",
+  "version": "0.0.0",
+  "questions": [
+    {
+      "title": "¿como es que?",
+      "multiple": true,
+      "answers": {
+        "pedro": 100,
+        "sofia": 0,
+        "julian": 0,
+        "sara": 0,
+        "marta": 0
+      }
+    },
+    {
+      "title": "¿que tal",
+      "multiple": false,
+      "answers":{
+        "bien": true, 
+        "mal": false,
+        "raro":false
+      }
+    }
+  ]
+  
+}
