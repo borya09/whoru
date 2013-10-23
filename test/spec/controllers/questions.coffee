@@ -12,7 +12,7 @@ describe 'Controller: QuestionsCtrl', () ->
         @log = $log
         @controller = $controller
         @createController = (json) ->
-            @httpBackend.expectGET('/questions.json').respond(json)
+            @httpBackend.expectGET('/data/questions.json').respond(json)
             @QuestionsCtrl = @controller 'QuestionsCtrl', {
                 $scope: @scope
                 $log: @log

@@ -2,7 +2,7 @@
 
 class QuestionsService
         constructor: ($log, $http) ->
-                urlBase = '/questions.json'
+                urlBase = '/data/questions.json'
 
                 QuestionsService::load = ->
                     #console.log 'entramos en load de questionsservice'   
