@@ -6,7 +6,7 @@ describe 'Service: QuestionsService', () ->
   beforeEach module 'whoruApp'
 
   # instantiate service
-  
+
   beforeEach inject (_questionsService_) ->
     @questionsService = _questionsService_
 
