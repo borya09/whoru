@@ -4,7 +4,4 @@ section.hero-unit(ng-controller="CvCtrl")
     p(ng-if="cv.description") descripción: {{cv.description}}
     p(ng-if="cv.phone") teléfono: {{cv.phone}}
 footer.wh-footer(ng-controller="CvCtrl")
-    ul.wh-contacts
-        li(ng-repeat='contact in cv.contacts')
-            a(ng-href='{{contact.value}}', data-wh-icon="{{contact.icon}}", title="{{contact.value}}").wh-contact
-                span {{contact.value}}
+    wh-contacts(data-contacts='cv.contacts')

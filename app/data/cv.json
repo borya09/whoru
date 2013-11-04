@@ -10,12 +10,12 @@
 		},
 		{
 			"type":"phone",
-			"value":"tel:666999666",
+			"value":"666999666",
 			"icon":"2"
 		},
 		{
 			"type":"mail",
-			"value":"mailto:borya09@gmail.com",
+			"value":"borya09@gmail.com",
 			"icon":"1"
 		}
 	]

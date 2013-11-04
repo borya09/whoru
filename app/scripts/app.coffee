@@ -1,7 +1,7 @@
 'use strict'
 
 angular.module('whoruApp', ['ngRoute'])
-  .config ['$routeProvider', ($routeProvider) ->
+  .config(['$routeProvider', ($routeProvider) ->
     $routeProvider
       .when '/',
         templateUrl: 'views/main.html'
@@ -11,4 +11,7 @@ angular.module('whoruApp', ['ngRoute'])
         controller: 'QuestionsCtrl'
       .otherwise
         redirectTo: '/'
-  ]
+  ])
+  .config(['$compileProvider', ($compileProvider) ->
+    $compileProvider.aHrefSanitizationWhitelist(/^\s*(https?|ftp|mailto|file|tel):/)
+  ])
