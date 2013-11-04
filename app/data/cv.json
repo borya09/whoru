@@ -1,5 +1,22 @@
 {
 	"name": "borja",
 	"description": "Geek cule de bilbao",
-	"age": 10
+	"age": 10,
+	"contacts":[
+		{
+			"type":"web",
+			"value":"http://www.as.com",
+			"icon":"3"
+		},
+		{
+			"type":"phone",
+			"value":"tel:666999666",
+			"icon":"2"
+		},
+		{
+			"type":"mail",
+			"value":"mailto:borya09@gmail.com",
+			"icon":"1"
+		}
+	]
 }

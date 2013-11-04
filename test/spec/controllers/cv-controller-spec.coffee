@@ -1,34 +1,75 @@
 'use strict'
 
 describe 'Controller: CvCtrl', () ->
-  beforeEach module 'whoruApp'
 
-  beforeEach inject ($controller, $rootScope, $q, cvService) ->
+
+  beforeEach module("whoruApp", ($provide) ->
+    $provide.value 'CV_REQUIRED_FIELDS', [
+        'name'
+        'description'
+      ]
+    undefined
+  )
+
+  beforeEach inject ($controller, $rootScope, $httpBackend, cvService) ->
+
     @cvService = cvService
-
-    cv =
-      name: 'borja'
-      age: 23
-
-    @cv = cv
-
-    spyOn(@cvService, 'get').andCallFake ->
-      @ret = $q.defer()
-      @ret.resolve cv
-      @ret.promise
+    @httpBackend = $httpBackend
+    @controller = $controller
 
     @scope = $rootScope.$new()
-    @MainCtrl = $controller 'CvCtrl', {
-      $scope: @scope
-      cvService: @cvService
-    }
 
-  describe 'when init', ->
+    spyOn(@cvService, 'get').andCallThrough()
+
+
+    @createController = (json) ->
+
+      @httpBackend.expectGET('/data/cv.json').respond(json)
+
+      @CvCtrl = @controller 'CvCtrl', {
+        $scope: @scope
+        cvService: @cvService
+      }
+
+      do @httpBackend.flush
+
+
+  describe 'when init with correct cv', ->
+
+    cv = undefined
+
+    beforeEach ->
+      cv =
+        name: 'borja'
+        age: 23
+        description: 'desc!!!'
+
+      @createController cv
 
     it 'should call \'cvService.get\' method', () ->
-      do @scope.$apply
       expect(@cvService.get).toHaveBeenCalled()
 
     it 'should attach the cv to the scope', () ->
-      do @scope.$apply
-      expect(@scope.cv).toBe @cv
+      expect(@scope.cv).toBe cv
+
+
+  describe 'when init with NO correct cv', ->
+
+    beforeEach ->
+      cv =
+        nameee: 'borja'
+        age: 23
+
+      @error = undefined
+
+      try
+        @createController cv
+      catch e
+        @error = e.message
+
+    it 'should throw an exception', () ->
+
+      expect(@error).toMatch('- name')
+      expect(@error).toMatch('- description')
+
+
