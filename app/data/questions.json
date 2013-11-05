@@ -1,9 +1,9 @@
 {
-  "title": "questionsss",
-  "version": "0.0.0",
+	"version": "0.0.0",
+  "title": "Questions:",
   "questions": [
     {
-      "title": "¿como es que?",
+      "title": "¿Cómo es que?",
       "multiple": true,
       "answers": {
         "pedro": 100,
@@ -14,7 +14,7 @@
       }
     },
     {
-      "title": "¿que tal",
+      "title": "¿Qué tal",
       "multiple": false,
       "answers":{
         "bien": true, 

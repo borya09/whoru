@@ -1,17 +1,31 @@
 {
+	"version": "0.0.0",
 	"name": "borja",
-	"description": "Geek cule de bilbao",
-	"age": 10,
+	"surname1": "andres",
+	"surname2": "marroquín",
+	"intro": "Geek cule de bilbao",
+	"description": "Geek cule de bilbao Geek cule de bilbao Geek cule de bilbao Geek cule de bilbao Geek cule de bilbao Geek cule de bilbao",
+	"age": 28,
 	"contacts":[
 		{
 			"type":"web",
 			"value":"http://www.as.com",
-			"icon":"3"
+			"icon":"Z"
+		},
+		{
+			"type":"web",
+			"value":"https://github.com/borya09/",
+			"icon":"t"
+		},
+		{
+			"type":"web",
+			"value":"https://twitter.com/borya09",
+			"icon":"b"
 		},
 		{
 			"type":"phone",
 			"value":"666999666",
-			"icon":"2"
+			"icon":"U"
 		},
 		{
 			"type":"mail",

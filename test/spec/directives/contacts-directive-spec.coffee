@@ -1,12 +1,28 @@
 'use strict'
 
 describe 'Directive: whContacts', ->
+
+  html = "<div><wh-contacts data-contacts='contacts'></wh-contacts></div>"
+
+  compileDirective = (compile, scope) ->
+    elto = compile(html)(scope)
+    scope.$digest()
+    elto
+
+  itContactsNotRendered = ->
+    it 'should NOT render the list of contacts', ->
+      elto = compileDirective(@compile, @scope)
+
+      expect(elto.find('ul').length).toBe 0
+      expect(elto.find('.wh-contact').length).toBe 0
+
+
   beforeEach module 'whoruApp'
 
   beforeEach inject ($compile, $rootScope) ->
     @compile = $compile
-    @scope = $rootScope.$new();
-    @html = "<div><wh-contacts data-contacts='contacts'></wh-contacts></div>"
+    @scope = $rootScope.$new()
+
 
   describe 'with 4 valid contacts', ->
     beforeEach ->
@@ -30,8 +46,7 @@ describe 'Directive: whContacts', ->
 
     it 'should render a list with one phone, two webs, and one mail', ->
 
-      elto = @compile(@html)(@scope)
-      @scope.$digest()
+      elto = compileDirective(@compile, @scope)
 
       expect(elto.find('ul').length).toBe 1
       expect(elto.find('.wh-contact').length).toBe 4
@@ -40,16 +55,18 @@ describe 'Directive: whContacts', ->
       expect(elto.find('.wh-contact.web').last().attr('href')).toBe 'http://www.google2.es'
       expect(elto.find('.wh-contact.mail').attr('href')).toBe 'mailto:email@gmail.com'
 
+
   describe 'with NO contacts', ->
     beforeEach ->
       @scope.contacts = [
       ]
 
-    it 'should render a list with one phone, two webs, and one mail', ->
+    do itContactsNotRendered
 
-      elto = @compile(@html)(@scope)
-      @scope.$digest()
 
-      expect(elto.find('ul').length).toBe 0
-      expect(elto.find('.wh-contact').length).toBe 0
+  describe 'without contacts', ->
+    beforeEach ->
+      @scope.contacts = undefined
+
+    do itContactsNotRendered
 

@@ -1,7 +1,0 @@
-section.hero-unit(ng-controller="CvCtrl")
-    p nombre: {{cv.name}}
-    p(ng-if="cv.age") edad: {{cv.age}}
-    p(ng-if="cv.description") descripción: {{cv.description}}
-    p(ng-if="cv.phone") teléfono: {{cv.phone}}
-footer.wh-footer(ng-controller="CvCtrl")
-    wh-contacts(data-contacts='cv.contacts')

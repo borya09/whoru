@@ -4,7 +4,7 @@ angular.module('whoruApp')
   .value 'CV_REQUIRED_FIELDS',
     [
       'name'
-      'description'
+      'intro'
     ]
 
   .controller 'CvCtrl', ['$scope', 'cvService', 'CV_REQUIRED_FIELDS', ($scope, cvService, requiredFields) ->
