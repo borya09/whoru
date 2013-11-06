@@ -4,7 +4,7 @@ class CvService
 
   constructor:($log, $http) ->
 
-    urlBase = '/data/cv.json'
+    urlBase = 'data/cv.json'
 
     CvService::get = ->
       $http.get(urlBase)

@@ -24,7 +24,7 @@ describe 'Controller: CvCtrl', () ->
 
     @createController = (json) ->
 
-      @httpBackend.expectGET('/data/cv.json').respond(json)
+      @httpBackend.expectGET(/data\/cv.json/).respond(json)
 
       @CvCtrl = @controller 'CvCtrl', {
         $scope: @scope
@@ -75,35 +75,3 @@ describe 'Controller: CvCtrl', () ->
         expect(@error).toMatch('- description')
 
 
-  ###describe 'contacts', ->
-
-    describe 'with one mail, one phone and two webs', ->
-
-      cv = undefined
-
-      beforeEach ->
-        cv =
-          name: 'borja'
-          age: 23
-          description: 'desc!!!'
-          contacts: [
-            type: "web"
-            value: "http://www.as.com"
-            icon: "3"
-          ,
-            type: "phone"
-            value: "666999666"
-            icon: "2"
-          ,
-            type: "mail"
-            value: "borya09@gmail.com"
-            icon: "1"
-          ]
-
-
-        @createController cv
-
-      it 'should call \'cvService.get\' method', () ->
-        expect(@scope.cv).toHaveBeenCalled()
-
-  ###
