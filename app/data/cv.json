@@ -4,33 +4,39 @@
 	"surname1": "andres",
 	"surname2": "marroquín",
 	"intro": "Geek cule de bilbao",
+	"image": "http://photos1.meetupstatic.com/photos/member/c/5/3/2/member_129770482.jpeg",
 	"description": "Geek cule de bilbao Geek cule de bilbao Geek cule de bilbao Geek cule de bilbao Geek cule de bilbao Geek cule de bilbao",
 	"age": 28,
-	"contacts":[
+	"contacts": [
 		{
-			"type":"web",
-			"value":"http://www.as.com",
-			"icon":"Z"
+			"type": "web",
+			"value": "http://www.as.com",
+			"icon": "Z"
 		},
 		{
-			"type":"web",
-			"value":"https://github.com/borya09/",
-			"icon":"t"
+			"type": "web",
+			"value": "https://github.com/borya09/",
+			"icon": "t"
 		},
 		{
-			"type":"web",
-			"value":"https://twitter.com/borya09",
-			"icon":"b"
+			"type": "web",
+			"value": "https://twitter.com/borya09",
+			"icon": "b"
 		},
 		{
-			"type":"phone",
-			"value":"666999666",
-			"icon":"U"
+			"type": "phone",
+			"value": "666999666",
+			"icon": "U"
 		},
 		{
-			"type":"mail",
-			"value":"borya09@gmail.com",
-			"icon":"1"
+			"type": "mail",
+			"value": "borya09@gmail.com",
+			"icon": "1"
+		},
+		{
+			"type": "web",
+			"value": "https://plus.google.com/+BorjaAndres",
+			"icon": "6"
 		}
 	]
 }

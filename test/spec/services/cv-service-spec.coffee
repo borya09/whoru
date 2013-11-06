@@ -25,7 +25,8 @@ describe 'Service: cvService', ->
 
       do @$httpBackend.flush
 
-      expect(cv).toEqual @cv
+      expect(cv.name).toBe @cv.name
+      expect(cv.age).toBe @cv.age
 
     afterEach ->
       do @$httpBackend.verifyNoOutstandingExpectation

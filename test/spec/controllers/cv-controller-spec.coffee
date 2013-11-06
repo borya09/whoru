@@ -52,7 +52,9 @@ describe 'Controller: CvCtrl', () ->
         expect(@cvService.get).toHaveBeenCalled()
 
       it 'should attach the cv to the scope', () ->
-        expect(@scope.cv).toBe cv
+        expect(@scope.cv.name).toBe cv.name
+        expect(@scope.cv.age).toBe cv.age
+        expect(@scope.cv.description).toBe cv.description
 
 
     describe 'with NO correct cv', ->

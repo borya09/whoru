@@ -3,3 +3,5 @@ h1.wh-fullname
     .wh-surname1(ng-if="cv.surname1") {{cv.surname1}}
     .wh-surname2(ng-if="cv.surname2") {{cv.surname2}}
 h2.wh-intro {{cv.intro}}
+a(ng-href="{{cv.image}}", title="{{cv.fullname}}")
+    img(ng-src="{{cv.image}}", title="{{cv.fullname()}}")
