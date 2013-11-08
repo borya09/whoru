@@ -1,0 +1,14 @@
+<div ng-controller="QuestionsCtrl" class="wh-questions">
+  <h3>{{ question.title }}</h3>
+  <ol>
+    <li ng-repeat="question in questions" class="wh-question">
+      <h4 class="wh-question-statement">{{ question.question }}</h4>
+      <ol>
+        <li ng-repeat="option in question.options" class="wh-question-option">
+          <input type="{{question.type}}" id="{{option.id}}" name="{{option.name}}" ng-model="option.checked" ng-change="questionsSubmit()">
+          <label for="{{option.id}}">{{option.title}}</label>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</div>
