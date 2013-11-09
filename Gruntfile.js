@@ -411,6 +411,12 @@ module.exports = function (grunt) {
 					}
 				]
 			}
+		},
+		'gh-pages': {
+			options: {
+				base: 'dist'
+			},
+			src: ['**']
 		}
 	});
 
@@ -485,4 +491,7 @@ module.exports = function (grunt) {
 		'test:e2e',
 		'build'
 	]);
+
+	grunt.loadNpmTasks('grunt-gh-pages');
+
 };
