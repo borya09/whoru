@@ -492,6 +492,11 @@ module.exports = function (grunt) {
 		'build'
 	]);
 
+	grunt.registerTask('dist', [
+		'default',
+		'gh-pages'
+	]);
+
 	grunt.loadNpmTasks('grunt-gh-pages');
 
 };
