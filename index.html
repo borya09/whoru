@@ -42,9 +42,24 @@
           <div ng-if="cv.surname2" class="wh-surname2">{{cv.surname2}}</div>
         </h1>
         <h2 class="wh-intro">{{cv.intro}}</h2><a ng-href="{{cv.image}}" title="{{cv.fullname()}}"><img ng-src="{{cv.image}}" title="{{cv.fullname()}}"></a>
-        <div class="wh-cv">
-          <p ng-if="cv.age">edad: {{cv.age}}</p>
-          <p ng-if="cv.description">descripción: {{cv.description}}</p>
+        <p ng-if="cv.description" ng-bind-html="cv.description"></p>
+        <div ng-if="cv.sections" class="wh-cv">
+          <section ng-repeat="section in cv.sections" ng-class="section.cssClass" class="wh-cv-section">
+            <h3 class="wh-cv-section-title">{{section.title}}</h3>
+            <p ng-if="section.getType() == &quot;description&quot;" ng-bind-html="section.content"></p>
+            <ol ng-if="section.getType() == &quot;list&quot;">
+              <li ng-repeat="item in section.content" class="wh-section-item">
+                <section>
+                  <h4 ng-if="item.title" class="wh-cv-section-item-title">{{item.title}}</h4>
+                  <div ng-if="item.from || item.until" class="wh-cv-section-item-date"><span class="wh-cv-section-item-date-from">{{item.from}}</span><span class="wh-cv-section-item-date-until">{{item.until}}</span></div><a ng-if="item.image" ng-href="{{item.image.link}}" title="{{item.image.link}}"><img ng-src="{{item.image.src}}" title="{{item.image.link}}"></a>
+                  <p ng-if="item.description" ng-bind-html="item.description" class="wh-cv-section-item-description"></p>
+                  <ol class="wh-section-item-content">
+                    <li ng-repeat="content in item.content" class="wh-section-item-content-element">{{content}}</li>
+                  </ol>
+                </section>
+              </li>
+            </ol>
+          </section>
         </div>
         <div ng-controller="QuestionsCtrl" class="wh-questions">
           <h3>{{ question.title }}</h3>
@@ -79,6 +94,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="scripts/b2e10d90.modules.js"></script>
-    <script src="scripts/6fb687c4.scripts.js"></script>
+    <script src="scripts/3bd70ab8.scripts.js"></script>
   </body>
 </html>
