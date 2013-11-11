@@ -1,10 +1,26 @@
 'use strict'
 
 
+class CvSection
+  constructor: (section) ->
+    @title = section.title
+    @content = section.content
+    @cssClass = section.key
+  getType: ->
+    switch typeof @content
+      when 'string' then 'description'
+      when 'object' then 'list'
+
 class Cv
   constructor: (cv) ->
     for key of cv
-      @[key] = cv[key]
+      value = cv[key]
+      if key == 'sections'
+        @sections = []
+        for section in value
+          @sections.push new CvSection section
+      else
+        @[key] = value
 
   fullname: ->
     fullname = @name

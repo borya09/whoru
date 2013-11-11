@@ -5,3 +5,4 @@ h1.wh-fullname
 h2.wh-intro {{cv.intro}}
 a(ng-href="{{cv.image}}", title="{{cv.fullname()}}")
     img(ng-src="{{cv.image}}", title="{{cv.fullname()}}")
+p(ng-if="cv.description", ng-bind-html="cv.description")

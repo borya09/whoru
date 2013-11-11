@@ -1,5 +1,16 @@
-.wh-cv
-    p(ng-if="cv.age")
-        | edad: {{cv.age}}
-    p(ng-if="cv.description")
-        | descripción: {{cv.description}}
+.wh-cv(ng-if='cv.sections')
+    section.wh-cv-section(ng-repeat='section in cv.sections', ng-class='section.cssClass')
+        h3.wh-cv-section-title {{section.title}}
+        p(ng-if='section.getType() == "description"', ng-bind-html="section.content")
+        ol(ng-if='section.getType() == "list"')
+            li.wh-section-item(ng-repeat='item in section.content')
+                section
+                    h4.wh-cv-section-item-title(ng-if='item.title') {{item.title}}
+                    .wh-cv-section-item-date(ng-if='item.from || item.until')
+                        span.wh-cv-section-item-date-from {{item.from}}
+                        span.wh-cv-section-item-date-until {{item.until}}
+                    a(ng-if='item.image', ng-href="{{item.image.link}}", title="{{item.image.link}}")
+                        img(ng-src="{{item.image.src}}", title="{{item.image.link}}")
+                    p.wh-cv-section-item-description(ng-if='item.description', ng-bind-html="item.description")
+                    ol.wh-section-item-content
+                        li.wh-section-item-content-element(ng-repeat='content in item.content') {{content}}
