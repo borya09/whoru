@@ -45,25 +45,25 @@
           <h2 class="wh-intro-summary">{{intro.summary}}</h2><a ng-href="{{intro.image}}" title="{{intro.fullname()}}" class="wh-intro-image"><img ng-src="{{intro.image}}" title="{{intro.fullname()}}"></a>
           <p ng-if="intro.description" ng-bind-html="intro.description" class="wh-intro-description"></p>
         </section>
-        <div ng-controller="CvCtrl" ng-show="cv.length&gt;0" class="wh-cv">
-          <section ng-repeat="section in cv" ng-class="section.cssClass" class="wh-cv-section">
-            <h3 class="wh-cv-section-title">{{section.title}}</h3>
+        <section ng-controller="CvCtrl" ng-show="cv.length" class="wh-cv">
+          <article ng-repeat="section in cv" ng-class="section.cssClass" class="wh-cv-section">
+            <header>
+              <h3 class="wh-cv-section-title">{{section.title}}</h3>
+            </header>
             <p ng-if="section.getType() == &quot;description&quot;" ng-bind-html="section.content"></p>
             <ol ng-if="section.getType() == &quot;list&quot;">
               <li ng-repeat="item in section.content" class="wh-section-item">
-                <section>
-                  <h4 ng-if="item.title" class="wh-cv-section-item-title">{{item.title}}</h4>
-                  <div ng-if="item.from || item.until" class="wh-cv-section-item-date"><span class="wh-cv-section-item-date-from">{{item.from}}</span><span class="wh-cv-section-item-date-until">{{item.until}}</span></div><a ng-if="item.image" ng-href="{{item.image.link}}" title="{{item.image.link}}"><img ng-src="{{item.image.src}}" title="{{item.image.link}}"></a>
-                  <p ng-if="item.description" ng-bind-html="item.description" class="wh-cv-section-item-description"></p>
-                  <ol class="wh-section-item-content">
-                    <li ng-repeat="content in item.content" class="wh-section-item-content-element">{{content}}</li>
-                  </ol>
-                </section>
+                <h4 ng-if="item.title" class="wh-cv-section-item-title">{{item.title}}</h4>
+                <div ng-if="item.from || item.until" class="wh-cv-section-item-date"><span class="wh-cv-section-item-date-from">{{item.from}}</span><span class="wh-cv-section-item-date-until">{{item.until}}</span></div><a ng-if="item.image" ng-href="{{item.image.link}}" title="{{item.image.link}}"><img ng-src="{{item.image.src}}" title="{{item.image.link}}"></a>
+                <p ng-if="item.description" ng-bind-html="item.description" class="wh-cv-section-item-description"></p>
+                <ol class="wh-section-item-content">
+                  <li ng-repeat="content in item.content" class="wh-section-item-content-element">{{content}}</li>
+                </ol>
               </li>
             </ol>
-          </section>
-        </div>
-        <div ng-controller="QuestionsCtrl" ng-show="questions.length" class="wh-questions">
+          </article>
+        </section>
+        <section ng-controller="QuestionsCtrl" ng-show="questions.length" class="wh-questions">
           <h3>{{ title }}</h3>
           <p class="wh-questions-description">{{ description }}</p>
           <ol>
@@ -77,7 +77,7 @@
               </ol>
             </li>
           </ol>
-        </div>
+        </section>
       </div>
     </div>
     <div class="footer-container">
