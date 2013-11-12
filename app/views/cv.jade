@@ -1,11 +1,12 @@
 section.wh-cv(ng-controller="CvCtrl", ng-show='cv.length')
+    h3.wh-cv-title Cv
     article.wh-cv-section(ng-repeat='section in cv', ng-class='section.cssClass')
-        header
-            h3.wh-cv-section-title {{section.title}}
-        p(ng-if='section.getType() == "description"', ng-bind-html="section.content")
+        header.wh-cv-section-header
+            h4.wh-cv-section-title {{section.title}}
+        p.wh-cv-section-description(ng-if='section.getType() == "description"', ng-bind-html="section.content")
         ol(ng-if='section.getType() == "list"')
             li.wh-section-item(ng-repeat='item in section.content')
-                h4.wh-cv-section-item-title(ng-if='item.title') {{item.title}}
+                h5.wh-cv-section-item-title(ng-if='item.title') {{item.title}}
                 .wh-cv-section-item-date(ng-if='item.from || item.until')
                     span.wh-cv-section-item-date-from {{item.from}}
                     span.wh-cv-section-item-date-until {{item.until}}
