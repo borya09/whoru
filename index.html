@@ -47,18 +47,18 @@
         </section>
         <section ng-controller="CvCtrl" ng-show="cv.length" class="wh-cv">
           <h3 class="wh-cv-title">Cv</h3>
-          <article ng-repeat="section in cv" ng-class="section.cssClass" class="wh-cv-section">
-            <header class="wh-cv-section-header">
-              <h4 class="wh-cv-section-title">{{section.title}}</h4>
+          <article ng-repeat="part in cv" ng-class="part.cssClass" class="wh-cv-part">
+            <header class="wh-cv-part-header">
+              <h4 class="wh-cv-part-title">{{part.title}}</h4>
             </header>
-            <p ng-if="section.description" ng-bind-html="section.description" class="wh-cv-section-description"></p>
-            <ol ng-if="section.content">
-              <li ng-repeat="item in section.content" class="wh-section-item">
-                <h5 ng-if="item.title" class="wh-cv-section-item-title">{{item.title}}</h5>
-                <div ng-if="item.from || item.until" class="wh-cv-section-item-date"><span class="wh-cv-section-item-date-from">{{item.from}}</span><span class="wh-cv-section-item-date-until">{{item.until}}</span></div><a ng-if="item.image" ng-href="{{item.image.link}}" title="{{item.image.link}}"><img ng-src="{{item.image.src}}" title="{{item.image.link}}"></a>
-                <p ng-if="item.description" ng-bind-html="item.description" class="wh-cv-section-item-description"></p>
-                <ol class="wh-section-item-content">
-                  <li ng-repeat="content in item.content" class="wh-section-item-content-element">{{content}}</li>
+            <p ng-if="part.description" ng-bind-html="part.description" class="wh-cv-part-description"></p>
+            <ol ng-if="part.content">
+              <li ng-repeat="item in part.content" class="wh-part-item">
+                <h5 ng-if="item.title" class="wh-cv-part-item-title">{{item.title}}</h5>
+                <div ng-if="item.from || item.until" class="wh-cv-part-item-date"><span class="wh-cv-part-item-date-from">{{item.from}}</span><span class="wh-cv-part-item-date-until">{{item.until}}</span></div><a ng-if="item.image" ng-href="{{item.image.link}}" title="{{item.image.link}}"><img ng-src="{{item.image.src}}" title="{{item.image.link}}"></a>
+                <p ng-if="item.description" ng-bind-html="item.description" class="wh-cv-part-item-description"></p>
+                <ol class="wh-part-item-content">
+                  <li ng-repeat="content in item.content" class="wh-part-item-content-element">{{content}}</li>
                 </ol>
               </li>
             </ol>
@@ -100,6 +100,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="scripts/b2e10d90.modules.js"></script>
-    <script src="scripts/4cc23b06.scripts.js"></script>
+    <script src="scripts/3a38268a.scripts.js"></script>
   </body>
 </html>
