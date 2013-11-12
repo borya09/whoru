@@ -12,7 +12,7 @@ describe 'Service: CvService', ->
     beforeEach ->
       @cv =
         version: '0.0.1'
-        sections: [
+        parts: [
           title: 'Sección 1'
           key: 'sec1'
           content: 'contenido de la sección 1'
@@ -29,7 +29,7 @@ describe 'Service: CvService', ->
       @cvService.get()
       do @httpBackend.flush
 
-    it 'should return an array of two CvSection\'s', ->
+    it 'should return an array of two CvPart\'s', ->
       cv = {}
 
       @cvService.get()
@@ -42,10 +42,10 @@ describe 'Service: CvService', ->
       expect(typeof cv).toBe 'object'
       expect(cv.length).toBe 2
 
-      section1 = cv[0]
-      expect(section1 instanceof CvSection).toBeTruthy()
-      expect(section1.title).toBe 'Sección 1'
-      expect(section1.content).toBe 'contenido de la sección 1'
+      part1 = cv[0]
+      expect(part1 instanceof CvPart).toBeTruthy()
+      expect(part1.title).toBe 'Sección 1'
+      expect(part1.content).toBe 'contenido de la sección 1'
 
     afterEach ->
       do @httpBackend.verifyNoOutstandingExpectation
