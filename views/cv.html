@@ -1,12 +1,13 @@
 <section ng-controller="CvCtrl" ng-show="cv.length" class="wh-cv">
+  <h3 class="wh-cv-title">Cv</h3>
   <article ng-repeat="section in cv" ng-class="section.cssClass" class="wh-cv-section">
-    <header>
-      <h3 class="wh-cv-section-title">{{section.title}}</h3>
+    <header class="wh-cv-section-header">
+      <h4 class="wh-cv-section-title">{{section.title}}</h4>
     </header>
-    <p ng-if="section.getType() == &quot;description&quot;" ng-bind-html="section.content"></p>
+    <p ng-if="section.getType() == &quot;description&quot;" ng-bind-html="section.content" class="wh-cv-section-description"></p>
     <ol ng-if="section.getType() == &quot;list&quot;">
       <li ng-repeat="item in section.content" class="wh-section-item">
-        <h4 ng-if="item.title" class="wh-cv-section-item-title">{{item.title}}</h4>
+        <h5 ng-if="item.title" class="wh-cv-section-item-title">{{item.title}}</h5>
         <div ng-if="item.from || item.until" class="wh-cv-section-item-date"><span class="wh-cv-section-item-date-from">{{item.from}}</span><span class="wh-cv-section-item-date-until">{{item.until}}</span></div><a ng-if="item.image" ng-href="{{item.image.link}}" title="{{item.image.link}}"><img ng-src="{{item.image.src}}" title="{{item.image.link}}"></a>
         <p ng-if="item.description" ng-bind-html="item.description" class="wh-cv-section-item-description"></p>
         <ol class="wh-section-item-content">
