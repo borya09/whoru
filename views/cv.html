@@ -4,8 +4,8 @@
     <header class="wh-cv-section-header">
       <h4 class="wh-cv-section-title">{{section.title}}</h4>
     </header>
-    <p ng-if="section.getType() == &quot;description&quot;" ng-bind-html="section.content" class="wh-cv-section-description"></p>
-    <ol ng-if="section.getType() == &quot;list&quot;">
+    <p ng-if="section.description" ng-bind-html="section.description" class="wh-cv-section-description"></p>
+    <ol ng-if="section.content">
       <li ng-repeat="item in section.content" class="wh-section-item">
         <h5 ng-if="item.title" class="wh-cv-section-item-title">{{item.title}}</h5>
         <div ng-if="item.from || item.until" class="wh-cv-section-item-date"><span class="wh-cv-section-item-date-from">{{item.from}}</span><span class="wh-cv-section-item-date-until">{{item.until}}</span></div><a ng-if="item.image" ng-href="{{item.image.link}}" title="{{item.image.link}}"><img ng-src="{{item.image.src}}" title="{{item.image.link}}"></a>
