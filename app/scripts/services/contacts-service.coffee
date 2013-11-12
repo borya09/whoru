@@ -1,0 +1,15 @@
+'use strict'
+
+class ContactsService
+
+  constructor:($log, $http) ->
+
+    urlBase = 'data/contacts.json'
+
+    ContactsService::get = ->
+      $http.get(urlBase)
+        .then (response) ->
+          response.data.contacts
+
+
+angular.module('whoruApp').service 'ContactsService', ['$log', '$http', ContactsService]

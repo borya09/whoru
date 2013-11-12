@@ -1,5 +1,5 @@
-.wh-cv(ng-if='cv.sections')
-    section.wh-cv-section(ng-repeat='section in cv.sections', ng-class='section.cssClass')
+.wh-cv(ng-controller="CvCtrl", ng-show='cv.length>0')
+    section.wh-cv-section(ng-repeat='section in cv', ng-class='section.cssClass')
         h3.wh-cv-section-title {{section.title}}
         p(ng-if='section.getType() == "description"', ng-bind-html="section.content")
         ol(ng-if='section.getType() == "list"')

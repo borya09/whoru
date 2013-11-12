@@ -2,14 +2,17 @@
 
 class CvService
 
-  constructor:($log, $http, Cv) ->
+  constructor:($log, $http, CvSection) ->
 
     urlBase = 'data/cv.json'
 
     CvService::get = ->
       $http.get(urlBase)
         .then (response) ->
-          new Cv(response.data)
+          cv = []
+          for section in response.data.sections
+            cv.push new CvSection(section)
+          cv
 
 
-angular.module('whoruApp').service 'cvService', ['$log', '$http', 'Cv', CvService]
+angular.module('whoruApp').service 'CvService', ['$log', '$http', 'CvSection', CvService]

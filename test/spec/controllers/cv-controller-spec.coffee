@@ -2,18 +2,11 @@
 
 describe 'Controller: CvCtrl', () ->
 
+  beforeEach module "whoruApp"
 
-  beforeEach module("whoruApp", ($provide) ->
-    $provide.value 'CV_REQUIRED_FIELDS', [
-        'name'
-        'description'
-      ]
-    undefined
-  )
+  beforeEach inject ($controller, $rootScope, $httpBackend, CvService) ->
 
-  beforeEach inject ($controller, $rootScope, $httpBackend, cvService) ->
-
-    @cvService = cvService
+    @cvService = CvService
     @httpBackend = $httpBackend
     @controller = $controller
 
@@ -21,14 +14,13 @@ describe 'Controller: CvCtrl', () ->
 
     spyOn(@cvService, 'get').andCallThrough()
 
-
     @createController = (json) ->
 
-      @httpBackend.expectGET(/data\/cv.json/).respond(json)
+      @httpBackend.whenGET(/cv.json/).respond(json)
 
       @CvCtrl = @controller 'CvCtrl', {
         $scope: @scope
-        cvService: @cvService
+        CvService: @cvService
       }
 
       do @httpBackend.flush
@@ -36,44 +28,32 @@ describe 'Controller: CvCtrl', () ->
 
   describe 'initialization', ->
 
-    describe 'with correct cv', ->
+    beforeEach ->
+      @cv =
+        version: '0.0.1'
+        sections: [
+          title: 'Sección 1'
+          key: 'sec1'
+          content: 'contenido de la sección 1'
+        ,
+          title: 'Sección 2'
+          key: 'sec2'
+          content: 'contenido de la sección 2'
+        ]
 
-      cv = undefined
+      @createController @cv
 
-      beforeEach ->
-        cv =
-          name: 'borja'
-          age: 23
-          description: 'desc!!!'
+    it 'should call \'cvService.get\' method', () ->
+      expect(@cvService.get).toHaveBeenCalled()
 
-        @createController cv
+    it 'should attach the cv to the scope', () ->
+      expect(@scope.cv.length).toBe 2
 
-      it 'should call \'cvService.get\' method', () ->
-        expect(@cvService.get).toHaveBeenCalled()
-
-      it 'should attach the cv to the scope', () ->
-        expect(@scope.cv.name).toBe cv.name
-        expect(@scope.cv.age).toBe cv.age
-        expect(@scope.cv.description).toBe cv.description
+      section1 = @scope.cv[0]
+      expect(section1 instanceof CvSection).toBeTruthy()
+      expect(section1.title).toBe 'Sección 1'
+      expect(section1.content).toBe 'contenido de la sección 1'
 
 
-    describe 'with NO correct cv', ->
-
-      beforeEach ->
-        cv =
-          nameee: 'borja'
-          age: 23
-
-        @error = undefined
-
-        try
-          @createController cv
-        catch e
-          @error = e.message
-
-      it 'should throw an exception', () ->
-
-        expect(@error).toMatch('- name')
-        expect(@error).toMatch('- description')
 
 

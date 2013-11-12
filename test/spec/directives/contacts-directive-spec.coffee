@@ -1,3 +1,4 @@
+###
 'use strict'
 
 describe 'Directive: whContacts', ->
@@ -70,3 +71,4 @@ describe 'Directive: whContacts', ->
 
     do itContactsNotRendered
 
+###

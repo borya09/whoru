@@ -1,5 +1,6 @@
-.wh-questions(ng-controller="QuestionsCtrl")
-    h3 {{ question.title }}
+.wh-questions(ng-controller="QuestionsCtrl", ng-show='questions.length')
+    h3 {{ title }}
+    p.wh-questions-description {{ description }}
     ol
         li(ng-repeat='question in questions').wh-question
             h4.wh-question-statement {{ question.question }}

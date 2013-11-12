@@ -1,3 +1,4 @@
+###
 'use strict'
 
 angular.module('whoruApp')
@@ -18,4 +19,4 @@ angular.module('whoruApp')
         </ul>
       '''
     }
-  )
+  )###

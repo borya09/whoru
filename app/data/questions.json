@@ -1,6 +1,7 @@
 {
 	"version": "0.0.0",
   "title": "Questions:",
+  "description": "Explicación de por qué te entrevisto como empresa:",
   "questions": [
     {
       "title": "¿Cómo es que?",

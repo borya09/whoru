@@ -1,34 +1,53 @@
 'use strict'
 
-describe 'Service: cvService', ->
+describe 'Service: CvService', ->
   beforeEach module 'whoruApp'
 
-  beforeEach inject((cvService, $httpBackend) ->
-    @cvService = cvService
-    @$httpBackend = $httpBackend
-  )
+  beforeEach inject (CvService, $httpBackend) ->
+    @cvService = CvService
+    @httpBackend = $httpBackend
 
-  describe '\'get\' method', ->
+
+  describe '\'get\' method, when called', ->
     beforeEach ->
       @cv =
-        name: 'borja'
-        age: 23
+        version: '0.0.1'
+        sections: [
+          title: 'Sección 1'
+          key: 'sec1'
+          content: 'contenido de la sección 1'
+        ,
+          title: 'Sección 2'
+          key: 'sec2'
+          content: 'contenido de la sección 2'
+        ]
 
-      @$httpBackend.when('GET', /cv.json$/).respond @cv
+      @httpBackend.when('GET', /cv.json$/).respond @cv
 
-    it 'should return cv json object', ->
+    it 'should GET \'cv.json\' file', ->
+      @httpBackend.expectGET(/cv.json$/).respond @cv
+      @cvService.get()
+      do @httpBackend.flush
+
+    it 'should return an array of two CvSection\'s', ->
       cv = {}
 
       @cvService.get()
         .then (data) ->
           cv = data
 
-      do @$httpBackend.flush
+      do @httpBackend.flush
 
-      expect(cv.name).toBe @cv.name
-      expect(cv.age).toBe @cv.age
+
+      expect(typeof cv).toBe 'object'
+      expect(cv.length).toBe 2
+
+      section1 = cv[0]
+      expect(section1 instanceof CvSection).toBeTruthy()
+      expect(section1.title).toBe 'Sección 1'
+      expect(section1.content).toBe 'contenido de la sección 1'
 
     afterEach ->
-      do @$httpBackend.verifyNoOutstandingExpectation
-      do @$httpBackend.verifyNoOutstandingRequest
+      do @httpBackend.verifyNoOutstandingExpectation
+      do @httpBackend.verifyNoOutstandingRequest
 

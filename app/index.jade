@@ -20,7 +20,7 @@ html.no-js
     // endbuild
     script(type='text/javascript').
         document.write('<base href="' + document.location + '" />');
-  body(ng-app='whoruApp', ng-controller="CvCtrl", ng-cloak)
+  body(ng-app='whoruApp', ng-cloak)
     //if lt IE 7
       p.browsehappy
         | You are using an
@@ -45,7 +45,7 @@ html.no-js
 
     .footer-container
         footer.wh-footer.wrapper
-            wh-contacts(data-contacts='cv.contacts')
+            include views/contacts
 
 
     // Google Analytics: change UA-XXXXX-X to be your site's ID
@@ -65,10 +65,19 @@ html.no-js
     // endbuild
     // build:js({.tmp,app}) scripts/scripts.js
     script(src='scripts/app.js')
-    script(src='scripts/factories/cv.js')
-    script(src='scripts/directives/contacts-directive.js')
+
     script(src='scripts/services/questions-service.js')
     script(src='scripts/controllers/questions-controller.js')
+
+    script(src='scripts/factories/cv_section-factory.js')
     script(src='scripts/services/cv-service.js')
     script(src='scripts/controllers/cv-controller.js')
+
+    script(src='scripts/factories/intro-factory.js')
+    script(src='scripts/services/intro-service.js')
+    script(src='scripts/controllers/intro-controller.js')
+
+    //script(src='scripts/directives/contacts-directive.js')
+    script(src='scripts/services/contacts-service.js')
+    script(src='scripts/controllers/contacts-controller.js')
     // endbuild
