@@ -1,8 +1,8 @@
 section.wh-intro(ng-controller="IntroCtrl")
     h1.wh-intro-fullname
         .wh-intro-name {{intro.name}}
-        .wh-intro-surname1(ng-if="cv.surname1") {{intro.surname1}}
-        .wh-intro-surname2(ng-if="cv.surname2") {{intro.surname2}}
+        .wh-intro-surname1(ng-if="intro.surname1") {{intro.surname1}}
+        .wh-intro-surname2(ng-if="intro.surname2") {{intro.surname2}}
     h2.wh-intro-summary {{intro.summary}}
     a(ng-href="{{intro.image}}", title="{{intro.fullname()}}").wh-intro-image
         img(ng-src="{{intro.image}}", title="{{intro.fullname()}}")
