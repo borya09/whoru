@@ -11,6 +11,6 @@ class Intro
     fullname += " #{@surname2}" if @surname2
     fullname
 
-#TODO: unit test!!!
+
 angular.module('whoruApp').factory "Intro", -> Intro
 

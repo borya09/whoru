@@ -4,7 +4,7 @@
 		{
 			"title": "Sección 1",
 			"key":"sec1",
-			"content": "contenido de la sección 1"
+			"description": "contenido de la sección 1"
 		},
 		{
 			"title": "Sección 2",
