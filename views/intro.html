@@ -1,7 +1,9 @@
-<h1 class="wh-fullname">
-  <div class="wh-name">{{cv.name}}</div>
-  <div ng-if="cv.surname1" class="wh-surname1">{{cv.surname1}}</div>
-  <div ng-if="cv.surname2" class="wh-surname2">{{cv.surname2}}</div>
-</h1>
-<h2 class="wh-intro">{{cv.intro}}</h2><a ng-href="{{cv.image}}" title="{{cv.fullname()}}"><img ng-src="{{cv.image}}" title="{{cv.fullname()}}"></a>
-<p ng-if="cv.description" ng-bind-html="cv.description"></p>
+<section ng-controller="IntroCtrl" class="wh-intro">
+  <h1 class="wh-intro-fullname">
+    <div class="wh-intro-name">{{intro.name}}</div>
+    <div ng-if="cv.surname1" class="wh-intro-surname1">{{intro.surname1}}</div>
+    <div ng-if="cv.surname2" class="wh-intro-surname2">{{intro.surname2}}</div>
+  </h1>
+  <h2 class="wh-intro-summary">{{intro.summary}}</h2><a ng-href="{{intro.image}}" title="{{intro.fullname()}}" class="wh-intro-image"><img ng-src="{{intro.image}}" title="{{intro.fullname()}}"></a>
+  <p ng-if="intro.description" ng-bind-html="intro.description" class="wh-intro-description"></p>
+</section>

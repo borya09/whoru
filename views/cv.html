@@ -1,5 +1,5 @@
-<div ng-if="cv.sections" class="wh-cv">
-  <section ng-repeat="section in cv.sections" ng-class="section.cssClass" class="wh-cv-section">
+<div ng-controller="CvCtrl" ng-show="cv.length&gt;0" class="wh-cv">
+  <section ng-repeat="section in cv" ng-class="section.cssClass" class="wh-cv-section">
     <h3 class="wh-cv-section-title">{{section.title}}</h3>
     <p ng-if="section.getType() == &quot;description&quot;" ng-bind-html="section.content"></p>
     <ol ng-if="section.getType() == &quot;list&quot;">

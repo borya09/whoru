@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="styles/194241d3.main.css">
     <script type="text/javascript">document.write('<base href="' + document.location + '" />');</script>
   </head>
-  <body ng-app="whoruApp" ng-controller="CvCtrl" ng-cloak="">
+  <body ng-app="whoruApp" ng-cloak="">
     <!--[if lt IE 7]>
     <p class="browsehappy">You are using an<strong>outdated</strong>browser. Please<a href="http://browsehappy.com/">upgrade your browser</a>to improve your experience.</p>
     <![endif]-->
@@ -36,15 +36,17 @@
     </div>
     <div class="main-container">
       <div class="wh-main wrapper">
-        <h1 class="wh-fullname">
-          <div class="wh-name">{{cv.name}}</div>
-          <div ng-if="cv.surname1" class="wh-surname1">{{cv.surname1}}</div>
-          <div ng-if="cv.surname2" class="wh-surname2">{{cv.surname2}}</div>
-        </h1>
-        <h2 class="wh-intro">{{cv.intro}}</h2><a ng-href="{{cv.image}}" title="{{cv.fullname()}}"><img ng-src="{{cv.image}}" title="{{cv.fullname()}}"></a>
-        <p ng-if="cv.description" ng-bind-html="cv.description"></p>
-        <div ng-if="cv.sections" class="wh-cv">
-          <section ng-repeat="section in cv.sections" ng-class="section.cssClass" class="wh-cv-section">
+        <section ng-controller="IntroCtrl" class="wh-intro">
+          <h1 class="wh-intro-fullname">
+            <div class="wh-intro-name">{{intro.name}}</div>
+            <div ng-if="cv.surname1" class="wh-intro-surname1">{{intro.surname1}}</div>
+            <div ng-if="cv.surname2" class="wh-intro-surname2">{{intro.surname2}}</div>
+          </h1>
+          <h2 class="wh-intro-summary">{{intro.summary}}</h2><a ng-href="{{intro.image}}" title="{{intro.fullname()}}" class="wh-intro-image"><img ng-src="{{intro.image}}" title="{{intro.fullname()}}"></a>
+          <p ng-if="intro.description" ng-bind-html="intro.description" class="wh-intro-description"></p>
+        </section>
+        <div ng-controller="CvCtrl" ng-show="cv.length&gt;0" class="wh-cv">
+          <section ng-repeat="section in cv" ng-class="section.cssClass" class="wh-cv-section">
             <h3 class="wh-cv-section-title">{{section.title}}</h3>
             <p ng-if="section.getType() == &quot;description&quot;" ng-bind-html="section.content"></p>
             <ol ng-if="section.getType() == &quot;list&quot;">
@@ -61,8 +63,9 @@
             </ol>
           </section>
         </div>
-        <div ng-controller="QuestionsCtrl" class="wh-questions">
-          <h3>{{ question.title }}</h3>
+        <div ng-controller="QuestionsCtrl" ng-show="questions.length" class="wh-questions">
+          <h3>{{ title }}</h3>
+          <p class="wh-questions-description">{{ description }}</p>
           <ol>
             <li ng-repeat="question in questions" class="wh-question">
               <h4 class="wh-question-statement">{{ question.question }}</h4>
@@ -79,7 +82,9 @@
     </div>
     <div class="footer-container">
       <footer class="wh-footer wrapper">
-        <wh-contacts data-contacts="cv.contacts"></wh-contacts>
+        <ul ng-controller="ContactsCtrl" ng-show="contacts.length" class="wh-contacts">
+          <li ng-repeat="contact in contacts"><a ng-href="{{contact.type=='phone'?'tel:':contact.type=='mail'?'mailto:':''}}{{contact.value}}" title="{{contact.value}}" data-wh-icon="{{contact.icon}}" ng-class="contact.type" class="wh-contact">{{contact.value}}</a></li>
+        </ul>
       </footer>
     </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID-->
@@ -94,6 +99,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="scripts/b2e10d90.modules.js"></script>
-    <script src="scripts/3bd70ab8.scripts.js"></script>
+    <script src="scripts/b9edb866.scripts.js"></script>
   </body>
 </html>

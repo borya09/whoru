@@ -1,50 +1,5 @@
 {
 	"version": "0.0.1",
-	"name": "borja",
-	"surname1": "andres",
-	"surname2": "marroquín",
-	"intro": "Geek cule de bilbao",
-	"image": "http://photos1.meetupstatic.com/photos/member/c/5/3/2/member_129770482.jpeg",
-	"description": "Geek cule de bilbao Geek cule <br/>de bilbao Geek cule de bilbao Geek cule d<br/>e bilbao Geek cule de bilbao Geek cule de bilbao",
-	"sections": [
-		{
-			"title": "Sección 1",
-			"key":"sec1",
-			"content": "contenido de la sección 1"
-		},
-		{
-			"title": "Sección 2",
-			"key":"sec2",
-			"content": [
-				{
-					"title": "Subsección 2.1",
-					"description":"Descripción de la subsección 2.1",
-					"from":"2005",
-					"until":"2010",
-					"image":{
-						"link":"http://placehold.it/",
-						"src":"http://placehold.it/350x150"
-					}
-				},
-				{
-					"title": "Subsección 2.2",
-					"from":"2008",
-					"image":{
-						"link":"http://placehold.it/",
-						"src":"http://placehold.it/150x150"
-					},
-					"content":[
-						"aa",
-						"bb",
-						"cc"
-					]
-				},
-				{
-					"title": "Subsección 2.3"
-				}
-			]
-		}
-	],
 	"contacts": [
 		{
 			"type": "web",
