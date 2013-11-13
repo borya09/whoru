@@ -417,7 +417,16 @@ module.exports = function (grunt) {
 				base: 'dist'
 			},
 			src: ['**']
+		},
+		docco: {
+			debug: {
+				src: ['app/scripts/{,*/}*.coffee'],
+				options: {
+					output: 'docs/'
+				}
+			}
 		}
+
 	});
 
 
@@ -498,5 +507,5 @@ module.exports = function (grunt) {
 	]);
 
 	grunt.loadNpmTasks('grunt-gh-pages');
-
+	grunt.loadNpmTasks('grunt-docco');
 };
