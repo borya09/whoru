@@ -1,0 +1,7 @@
+nav
+    ul
+        li.wh-header-locales
+            ul
+                li.wh-header-locale(ng-repeat='locale in locales')
+                    a(href, ng-click="setLocale(locale.key)", title="{{locale.text}}")
+                        img(ng-src="{{locale.image}}", title="{{locale.text}}")

@@ -20,7 +20,7 @@ html.no-js
     // endbuild
     script(type='text/javascript').
         document.write('<base href="' + document.location + '" />');
-  body(ng-app='whoruApp', ng-cloak)
+  body(ng-app='whoruApp', ng-controller='MainCtrl', ng-cloak)
     //if lt IE 7
       p.browsehappy
         | You are using an
@@ -34,8 +34,8 @@ html.no-js
     // Add your site or application content here
     .header-container
       header.wh-header.wrapper
-        nav
-          ul
+        include views/header
+
 
     .main-container
       .wh-main.wrapper
@@ -65,6 +65,8 @@ html.no-js
     // endbuild
     // build:js({.tmp,app}) scripts/scripts.js
     script(src='scripts/app.js')
+    script(src='scripts/controllers/main-controller.js')
+    script(src='scripts/services/data_translator-service.js')
 
     script(src='scripts/services/questions-service.js')
     script(src='scripts/controllers/questions-controller.js')
