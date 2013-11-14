@@ -7,3 +7,14 @@ global.$FIXTURES.config =
         "default": true
         key: "en"
       ]
+  b:
+    locales: [
+      "default": true
+      key: "en"
+    ,
+      key: "es"
+    ]
+  c:
+    actual: true
+    text: 'EN'
+    key: "en"

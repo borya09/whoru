@@ -12,8 +12,10 @@ class ControllerSpec
       undefined
     )
 
-    beforeEach inject ($controller, $rootScope, $httpBackend) ->
+    beforeEach inject ($controller, $rootScope, $httpBackend, $q) ->
       @controller = $controller
       @scope = $rootScope.$new()
+      @rootScope = $rootScope
       @httpBackend = $httpBackend
+      @q = $q
 

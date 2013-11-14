@@ -2,8 +2,6 @@
 
 
 # **Controller _'MainCtrl'_**
-
-#TODO: TEST
 angular.module('whoruApp')
   .controller 'MainCtrl', ['$scope', '$rootScope', 'DataTranslatorService', ($scope, $rootScope, dataTranslatorService) ->
 
