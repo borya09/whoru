@@ -1,18 +1,27 @@
 'use strict'
 
+# **CvService:**
+# Service responsible for the management of the Cv
 class CvService
 
-  constructor:($log, $http, CvPart) ->
+  constructor:($log, $http, CvPart, dataTranslatorService) ->
 
-    urlBase = 'data/cv.json'
+    #Seed of the name of the cv file
+    file = 'cv'
 
+    #Returns a promise with an array of the parts of the cv
     CvService::get = ->
-      $http.get(urlBase)
-        .then (response) ->
-          cv = []
-          for part in response.data.parts
-            cv.push new CvPart(part)
-          cv
+
+      dataTranslatorService.getDataFilePath(file)
+        .then (filePath) ->
+
+          $http.get(filePath)
+            .then (response) ->
+
+              cv = []
+              for part in response.data.parts
+                cv.push new CvPart(part)
+              cv
 
 
-angular.module('whoruApp').service 'CvService', ['$log', '$http', 'CvPart', CvService]
+angular.module('whoruApp').service 'CvService', ['$log', '$http', 'CvPart', 'DataTranslatorService', CvService]

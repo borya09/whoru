@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>intro-factory.coffee</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="app.html">
+                app.coffee
+              </a>
+            
+              
+              <a class="source" href="contacts-controller.html">
+                contacts-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="cv-controller.html">
+                cv-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="intro-controller.html">
+                intro-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="main-controller.html">
+                main-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="questions-controller.html">
+                questions-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="contacts-directive.html">
+                contacts-directive.coffee
+              </a>
+            
+              
+              <a class="source" href="cv_part-factory.html">
+                cv_part-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="intro-factory.html">
+                intro-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="contacts-service.html">
+                contacts-service.coffee
+              </a>
+            
+              
+              <a class="source" href="cv-service.html">
+                cv-service.coffee
+              </a>
+            
+              
+              <a class="source" href="data_translator-service.html">
+                data_translator-service.coffee
+              </a>
+            
+              
+              <a class="source" href="intro-service.html">
+                intro-service.coffee
+              </a>
+            
+              
+              <a class="source" href="questions-service.html">
+                questions-service.coffee
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>intro-factory.coffee</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="string">'use strict'</span>
+
+<span class="class"><span class="keyword">class</span> <span class="title">Intro</span></span>
+  <span class="attribute">constructor</span>: <span class="function"><span class="params">(intro)</span> -&gt;</span>
+    <span class="keyword">for</span> key <span class="keyword">of</span> intro
+      @[key] = intro[key]
+
+  <span class="attribute">fullname</span>:<span class="function"> -&gt;</span>
+    fullname = <span class="property">@name</span>
+    fullname += <span class="string">" <span class="subst">#{<span class="property">@surname1</span>}</span>"</span> <span class="keyword">if</span> <span class="property">@surname1</span>
+    fullname += <span class="string">" <span class="subst">#{<span class="property">@surname2</span>}</span>"</span> <span class="keyword">if</span> <span class="property">@surname2</span>
+    fullname
+
+
+angular.<span class="built_in">module</span>(<span class="string">'whoruApp'</span>).factory <span class="string">"Intro"</span>,<span class="function"> -&gt;</span> Intro</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

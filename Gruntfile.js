@@ -377,7 +377,7 @@ module.exports = function (grunt) {
 		minjson: {
 			dist: {
 				files: {
-					'<%= yeoman.dist %>/data/cv.json': '<%= yeoman.dist %>/data/cv.json'
+					'<%= yeoman.dist %>/data/cv.json': '<%= yeoman.dist %>/data/cv_es.json'
 				}
 			}
 		},

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>data_translator-service.coffee</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="app.html">
+                app.coffee
+              </a>
+            
+              
+              <a class="source" href="contacts-controller.html">
+                contacts-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="cv-controller.html">
+                cv-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="intro-controller.html">
+                intro-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="main-controller.html">
+                main-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="questions-controller.html">
+                questions-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="contacts-directive.html">
+                contacts-directive.coffee
+              </a>
+            
+              
+              <a class="source" href="cv_part-factory.html">
+                cv_part-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="intro-factory.html">
+                intro-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="contacts-service.html">
+                contacts-service.coffee
+              </a>
+            
+              
+              <a class="source" href="cv-service.html">
+                cv-service.coffee
+              </a>
+            
+              
+              <a class="source" href="data_translator-service.html">
+                data_translator-service.coffee
+              </a>
+            
+              
+              <a class="source" href="intro-service.html">
+                intro-service.coffee
+              </a>
+            
+              
+              <a class="source" href="questions-service.html">
+                questions-service.coffee
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>data_translator-service.coffee</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="string">'use strict'</span>;</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p><strong>DataTranslatorService:</strong>
+Service responsible for the internationalization of all the user data.</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="class"><span class="keyword">class</span> <span class="title">DataTranslatorService</span></span>
+  <span class="attribute">constructor</span>: <span class="function"><span class="params">($log, $http, $q)</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>base path</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    dataBasePath = <span class="string">'data'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>user data config file</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    configFile = <span class="string">'_config.json'</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>Initializes this service, and resolves a promise(loadingPromise) when done, so consumers have to wait until it</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="property">@init</span> =<span class="function"> -&gt;</span>
+      deferred = $q.defer()
+      $http.get(<span class="string">"<span class="subst">#{dataBasePath}</span>/<span class="subst">#{configFile}</span>"</span>)
+        .<span class="keyword">then</span> <span class="function"><span class="params">(response)</span> =&gt;</span>
+          <span class="property">@config</span> = response.data.config
+          <span class="keyword">for</span> locale <span class="keyword">in</span> <span class="property">@config</span>.locales
+            <span class="keyword">if</span> locale.<span class="reserved">default</span>
+              <span class="property">@setLocale</span>(locale)
+              <span class="keyword">break</span>
+          <span class="keyword">do</span> deferred.resolve
+
+      <span class="property">@loadingPromise</span> = deferred.promise</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>Fires initialization</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="keyword">do</span> <span class="property">@init</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>Returns the loadingPromise which will be fullfilled when service is successfully loaded</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="property">@waitUntilLoaded</span> =<span class="function"> -&gt;</span>
+      <span class="property">@loadingPromise</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>Returns a promise with an array of available locales</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="attribute">DataTranslatorService</span>::<span class="function"><span class="title">getAvailablesLocales</span> = -&gt;</span>
+      <span class="property">@waitUntilLoaded</span>()
+        .<span class="keyword">then</span><span class="function"> =&gt;</span>
+          <span class="property">@config</span>.locales</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-9">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-9">&#182;</a>
+              </div>
+              <p>Set actual locale</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="attribute">DataTranslatorService</span>::<span class="function"><span class="title">setLocale</span> = <span class="params">(locale)</span> -&gt;</span>
+      <span class="keyword">if</span> <span class="property">@locale</span>
+        <span class="property">@locale</span>.actual = <span class="literal">false</span>
+      <span class="property">@locale</span> = locale
+      <span class="property">@locale</span>.actual = <span class="literal">true</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-10">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-10">&#182;</a>
+              </div>
+              <p>Depending on current locale, returns a promise with suitable file path</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="attribute">DataTranslatorService</span>::<span class="function"><span class="title">getDataFilePath</span> = <span class="params">(file)</span> -&gt;</span>
+      <span class="property">@waitUntilLoaded</span>()
+        .<span class="keyword">then</span><span class="function"> =&gt;</span>
+          <span class="string">"<span class="subst">#{dataBasePath}</span>/<span class="subst">#{file}</span>_<span class="subst">#{<span class="property">@locale</span>.key}</span>.json"</span>
+
+angular.<span class="built_in">module</span>(<span class="string">'whoruApp'</span>).service <span class="string">'DataTranslatorService'</span>, [<span class="string">'$log'</span>, <span class="string">'$http'</span>, <span class="string">'$q'</span>, DataTranslatorService]</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

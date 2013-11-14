@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>questions-controller.coffee</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="app.html">
+                app.coffee
+              </a>
+            
+              
+              <a class="source" href="contacts-controller.html">
+                contacts-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="cv-controller.html">
+                cv-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="intro-controller.html">
+                intro-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="main-controller.html">
+                main-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="questions-controller.html">
+                questions-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="contacts-directive.html">
+                contacts-directive.coffee
+              </a>
+            
+              
+              <a class="source" href="cv_part-factory.html">
+                cv_part-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="intro-factory.html">
+                intro-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="contacts-service.html">
+                contacts-service.coffee
+              </a>
+            
+              
+              <a class="source" href="cv-service.html">
+                cv-service.coffee
+              </a>
+            
+              
+              <a class="source" href="data_translator-service.html">
+                data_translator-service.coffee
+              </a>
+            
+              
+              <a class="source" href="intro-service.html">
+                intro-service.coffee
+              </a>
+            
+              
+              <a class="source" href="questions-service.html">
+                questions-service.coffee
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>questions-controller.coffee</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="string">'use strict'</span>
+
+<span class="class"><span class="keyword">class</span> <span class="title">QuestionsController</span></span>
+  <span class="attribute">constructor</span>: <span class="function"><span class="params">($scope, $log, questionsService)</span> -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>console.log questionsService</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>    <span class="function"><span class="title">setQuestions</span> = =&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>console.log &#39;setquestions llamado!&#39;</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      questionsService.get()
+        .<span class="keyword">then</span> <span class="function"><span class="params">(data)</span> =&gt;</span>
+          questions = data.questions</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>console.log &#39;obtenemos las questions:&#39;
+console.log questions</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>          $scope.title = data.title
+          $scope.description = data.description
+          $scope.questions = []
+
+          <span class="keyword">for</span> question, qvalue <span class="keyword">of</span> questions</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-5">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-5">&#182;</a>
+              </div>
+              <p>console.log question + &#39; title is &#39; + qvalue.title
+console.log question + &#39; multiple is &#39; + qvalue.multiple</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>            res =
+              <span class="attribute">question</span>: qvalue.title
+              <span class="attribute">multiple</span>: qvalue.multiple
+              <span class="attribute">options</span>: []
+              <span class="attribute">type</span>: <span class="keyword">if</span> qvalue.multiple <span class="keyword">is</span> <span class="literal">true</span> <span class="keyword">then</span> <span class="string">'checkbox'</span> <span class="keyword">else</span> <span class="string">'radio'</span>
+
+            $scope.questions.push res
+            nameMultiple = qvalue.title.replace(<span class="string">' '</span>, <span class="string">''</span>);
+
+            <span class="keyword">for</span> answer, avalue <span class="keyword">of</span> qvalue.answers</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-6">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-6">&#182;</a>
+              </div>
+              <p>console.log res
+console.log answer + &#39; are pondered &#39; + avalue
+console.log typeof avalue
+check if is a boolean and then pondered to 100 or 0</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>              <span class="keyword">if</span> <span class="keyword">typeof</span> avalue <span class="keyword">isnt</span> <span class="string">'number'</span>
+                avalue = <span class="keyword">if</span> avalue <span class="keyword">is</span> <span class="literal">true</span> <span class="keyword">then</span> <span class="number">100</span> <span class="keyword">else</span> <span class="number">0</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-7">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-7">&#182;</a>
+              </div>
+              <p>console.log &#39;qvalue.multiple &#39; + qvalue.multiple</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>              ansewrObj =
+                <span class="attribute">id</span>: answer.replace(<span class="string">' '</span>, <span class="string">''</span>)
+                <span class="attribute">name</span>: <span class="keyword">if</span> qvalue.multiple <span class="keyword">is</span> <span class="literal">false</span> <span class="keyword">then</span> nameMultiple <span class="keyword">else</span> answer
+                <span class="attribute">title</span>: answer
+                <span class="attribute">checked</span>: <span class="literal">false</span>
+                <span class="attribute">pondered</span>: avalue
+
+              res.options.push ansewrObj
+
+
+    $scope.<span class="function"><span class="title">questionsSubmit</span> = -&gt;</span></pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-8">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-8">&#182;</a>
+              </div>
+              <p>TODO</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>      console.log $scope.questions
+      <span class="literal">undefined</span>
+
+    <span class="keyword">do</span> setQuestions
+
+angular.<span class="built_in">module</span>(<span class="string">'whoruApp'</span>).controller <span class="string">'QuestionsCtrl'</span>, [<span class="string">'$scope'</span>, <span class="string">'$log'</span>, <span class="string">'QuestionsService'</span>, QuestionsController]</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

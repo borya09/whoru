@@ -1,11 +1,9 @@
 'use strict'
 
 describe 'Controller: CvCtrl', () ->
-
   beforeEach module "whoruApp"
 
   beforeEach inject ($controller, $rootScope, $httpBackend, CvService) ->
-
     @cvService = CvService
     @httpBackend = $httpBackend
     @controller = $controller
@@ -16,7 +14,16 @@ describe 'Controller: CvCtrl', () ->
 
     @createController = (json) ->
 
-      @httpBackend.whenGET(/cv.json/).respond(json)
+      #TODO: Put this method in a helper file for unit testing
+      @httpBackend.whenGET(/_config.json/).respond(
+        config:
+          locales: [
+            "default": true
+            "key": "en"
+          ]
+      )
+
+      @httpBackend.whenGET(/cv_en.json/).respond(json)
 
       @CvCtrl = @controller 'CvCtrl', {
         $scope: @scope
@@ -27,7 +34,6 @@ describe 'Controller: CvCtrl', () ->
 
 
   describe 'initialization', ->
-
     beforeEach ->
       @cv =
         version: '0.0.1'

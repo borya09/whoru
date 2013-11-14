@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>intro-controller.coffee</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="app.html">
+                app.coffee
+              </a>
+            
+              
+              <a class="source" href="contacts-controller.html">
+                contacts-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="cv-controller.html">
+                cv-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="intro-controller.html">
+                intro-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="main-controller.html">
+                main-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="questions-controller.html">
+                questions-controller.coffee
+              </a>
+            
+              
+              <a class="source" href="contacts-directive.html">
+                contacts-directive.coffee
+              </a>
+            
+              
+              <a class="source" href="cv_part-factory.html">
+                cv_part-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="intro-factory.html">
+                intro-factory.coffee
+              </a>
+            
+              
+              <a class="source" href="contacts-service.html">
+                contacts-service.coffee
+              </a>
+            
+              
+              <a class="source" href="cv-service.html">
+                cv-service.coffee
+              </a>
+            
+              
+              <a class="source" href="data_translator-service.html">
+                data_translator-service.coffee
+              </a>
+            
+              
+              <a class="source" href="intro-service.html">
+                intro-service.coffee
+              </a>
+            
+              
+              <a class="source" href="questions-service.html">
+                questions-service.coffee
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>intro-controller.coffee</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="string">'use strict'</span>
+
+angular.<span class="built_in">module</span>(<span class="string">'whoruApp'</span>)
+  .value <span class="string">'CV_REQUIRED_FIELDS'</span>,
+    [
+      <span class="string">'name'</span>
+      <span class="string">'summary'</span>
+    ]
+
+  .controller <span class="string">'IntroCtrl'</span>, [<span class="string">'$scope'</span>, <span class="string">'IntroService'</span>, <span class="string">'CV_REQUIRED_FIELDS'</span>, <span class="function"><span class="params">($scope, introService, requiredFields)</span> -&gt;</span>
+
+    <span class="function"><span class="title">introHasErrors</span> = <span class="params">(intro)</span>-&gt;</span>
+      error = <span class="string">''</span>
+      <span class="keyword">for</span> field <span class="keyword">in</span> requiredFields
+        error += <span class="keyword">if</span> intro[field] <span class="keyword">is</span> <span class="literal">undefined</span> <span class="keyword">then</span> <span class="string">" - <span class="subst">#{field}</span>\n"</span> <span class="keyword">else</span> <span class="string">''</span>
+      error
+
+    introService.get()
+      .<span class="keyword">then</span> <span class="function"><span class="params">(intro)</span> -&gt;</span>
+        <span class="keyword">if</span> errors = introHasErrors intro
+          <span class="keyword">throw</span> <span class="keyword">new</span> Error <span class="string">"Required fields:\n <span class="subst">#{errors}</span>"</span>
+        <span class="keyword">else</span>
+          $scope.intro = intro
+
+    <span class="keyword">return</span>
+
+  ]</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

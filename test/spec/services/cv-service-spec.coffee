@@ -22,10 +22,19 @@ describe 'Service: CvService', ->
           content: 'contenido de la sección 2'
         ]
 
-      @httpBackend.when('GET', /cv.json$/).respond @cv
+      #TODO: Put this method in a helper file for unit testing
+      @httpBackend.whenGET(/_config.json/).respond(
+        config:
+          locales: [
+            "default": true
+            "key": "en"
+          ]
+      )
 
-    it 'should GET \'cv.json\' file', ->
-      @httpBackend.expectGET(/cv.json$/).respond @cv
+      @httpBackend.whenGET(/cv_en.json/).respond @cv
+
+    it 'should GET \'cv_es.json\' file', ->
+      @httpBackend.expectGET(/cv_en.json$/).respond @cv
       @cvService.get()
       do @httpBackend.flush
 
