@@ -11,7 +11,7 @@ class DataTranslatorService
     # base path
     dataBasePath = 'data'
     # user data config file
-    configFile = '_config.json'
+    configFile = 'config.json'
 
 
     # Initializes this service, and resolves a promise(loadingPromise) when done, so consumers have to wait until it

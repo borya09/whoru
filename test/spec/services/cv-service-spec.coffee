@@ -23,7 +23,7 @@ describe 'Service: CvService', ->
         ]
 
       #TODO: Put this method in a helper file for unit testing
-      @httpBackend.whenGET(/_config.json/).respond(
+      @httpBackend.whenGET(/config.json/).respond(
         config:
           locales: [
             "default": true
