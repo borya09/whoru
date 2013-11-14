@@ -1,0 +1,42 @@
+{
+	"version": "0.0.1",
+	"parts": [
+		{
+			"title": "Section 1",
+			"key":"sec1",
+			"description": "Content of section 1"
+		},
+		{
+			"title": "Section 2",
+			"key":"sec2",
+			"content": [
+				{
+					"title": "Subsection 2.1",
+					"description":"Description of subsection 2.1",
+					"from":"2005",
+					"until":"2010",
+					"image":{
+						"link":"http://placehold.it/",
+						"src":"http://placehold.it/350x150"
+					}
+				},
+				{
+					"title": "Subsection 2.2",
+					"from":"2008",
+					"image":{
+						"link":"http://placehold.it/",
+						"src":"http://placehold.it/150x150"
+					},
+					"content":[
+						"aa",
+						"bb",
+						"cc"
+					]
+				},
+				{
+					"title": "Subsection 2.3"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,19 @@
+{
+	"version": "0.0.1",
+	"config": {
+		"locales": [
+			{
+
+				"key": "es",
+				"image": "http://media.infobetting.com/bandiere/20x13/Spain.gif",
+				"text": "ES"
+			},
+			{
+				"default":true,
+				"key": "en",
+				"image": "http://media.infobetting.com/bandiere/20x13/England.gif",
+				"text": "EN"
+			}
+		]
+	}
+}

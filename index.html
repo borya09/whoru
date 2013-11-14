@@ -15,10 +15,10 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory-->
-    <link rel="stylesheet" href="styles/194241d3.main.css">
+    <link rel="stylesheet" href="styles/200dfb5b.main.css">
     <script type="text/javascript">document.write('<base href="' + document.location + '" />');</script>
   </head>
-  <body ng-app="whoruApp" ng-cloak="">
+  <body ng-app="whoruApp" ng-controller="MainCtrl" ng-cloak="">
     <!--[if lt IE 7]>
     <p class="browsehappy">You are using an<strong>outdated</strong>browser. Please<a href="http://browsehappy.com/">upgrade your browser</a>to improve your experience.</p>
     <![endif]-->
@@ -30,7 +30,13 @@
     <div class="header-container">
       <header class="wh-header wrapper">
         <nav>
-          <ul></ul>
+          <ul>
+            <li class="wh-header-locales">
+              <ul>
+                <li ng-repeat="locale in locales" ng-class="{actual: locale.actual}" class="wh-header-locale"><a href="" ng-click="setLocale(locale)" title="{{locale.text}}"><img ng-src="{{locale.image}}" title="{{locale.text}}"></a></li>
+              </ul>
+            </li>
+          </ul>
         </nav>
       </header>
     </div>
@@ -100,6 +106,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="scripts/b2e10d90.modules.js"></script>
-    <script src="scripts/3a38268a.scripts.js"></script>
+    <script src="scripts/eeaefbbb.scripts.js"></script>
   </body>
 </html>
