@@ -1,44 +1,42 @@
 'use strict'
 
-describe 'Service: IntroService', ->
 
-  beforeEach module 'whoruApp'
+class IntroServiceSpec extends ServiceSpec
 
-  beforeEach inject (IntroService, $httpBackend) ->
-    @introService = IntroService
-    @httpBackend = $httpBackend
+  test: ->
 
+    fixtures = @fixtures
 
-  describe '\'get\' method, when called', ->
-    beforeEach ->
-      @intro =
-        version: "0.0.1"
-        intro:
-          name: "borja"
-          surname1: "andres"
-
-      @httpBackend.when('GET', /intro.json$/).respond @intro
+    beforeEach inject (IntroService) ->
+      @introService = IntroService
 
 
-    it 'should GET \'intro.json\' file', ->
-      @httpBackend.expectGET(/intro.json$/).respond @intro
-      @introService.get()
-      do @httpBackend.flush
-
-    it 'should return an Intro object with data', ->
-      intro = {}
-
-      @introService.get()
-        .then (data) ->
-          intro = data
-
-      do @httpBackend.flush
+    describe '\'get\' method, when called', ->
+      beforeEach ->
+        @intro = fixtures.intro.a
+        @httpBackend.when('GET', /intro.json$/).respond @intro
 
 
-      expect(intro instanceof Intro).toBeTruthy()
-      expect(intro.name).toBe 'borja'
+      it 'should GET \'intro.json\' file', ->
+        @httpBackend.expectGET(/intro.json$/).respond @intro
+        @introService.get()
+        do @httpBackend.flush
+
+      it 'should return an Intro object with data', ->
+        intro = {}
+
+        @introService.get()
+          .then (data) ->
+            intro = data
+
+        do @httpBackend.flush
+
+        expect(intro instanceof Intro).toBeTruthy()
+        expect(intro.name).toBe 'borja'
 
     afterEach ->
       do @httpBackend.verifyNoOutstandingExpectation
       do @httpBackend.verifyNoOutstandingRequest
+
+describe 'Service: IntroService', () -> do new IntroServiceSpec().test
 

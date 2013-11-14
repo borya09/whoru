@@ -1,80 +1,68 @@
 'use strict'
 
-describe 'Controller: IntroCtrl', () ->
 
 
-  beforeEach module("whoruApp", ($provide) ->
-    $provide.value 'CV_REQUIRED_FIELDS', [
-        'name'
-        'description'
-      ]
-    undefined
-  )
+class IntroControllerSpec extends ControllerSpec
 
-  beforeEach inject ($controller, $rootScope, $httpBackend, IntroService) ->
+  test: ->
 
-    @introService = IntroService
-    @httpBackend = $httpBackend
-    @controller = $controller
-
-    @scope = $rootScope.$new()
-
-    spyOn(@introService, 'get').andCallThrough()
+    fixtures = @fixtures
 
 
-    @createController = (json) ->
+    beforeEach inject (IntroService) ->
+      @introService = IntroService
+      spyOn(@introService, 'get').andCallThrough()
 
-      @httpBackend.whenGET(/intro.json/).respond
-        intro:json
+      @createController = (json) ->
 
-      @IntroCtrl = @controller 'IntroCtrl', {
-        $scope: @scope
-        IntroService: @introService
-      }
+        @httpBackend.whenGET(/intro.json/).respond json
 
-      do @httpBackend.flush
+        @IntroCtrl = @controller 'IntroCtrl', {
+          $scope: @scope
+          IntroService: @introService
+        }
 
-
-  describe 'initialization', ->
-
-    describe 'with correct intro', ->
-
-      intro = undefined
-
-      beforeEach ->
-        intro =
-          name: 'borja'
-          age: 23
-          description: 'desc!!!'
-
-        @createController intro
-
-      it 'should call \'introService.get\' method', () ->
-        expect(@introService.get).toHaveBeenCalled()
-
-      it 'should attach the intro to the scope', () ->
-        expect(@scope.intro.name).toBe intro.name
-        expect(@scope.intro.age).toBe intro.age
-        expect(@scope.intro.description).toBe intro.description
+        do @httpBackend.flush
 
 
-    describe 'with NO correct intro', ->
+    describe 'initialization', ->
 
-      beforeEach ->
-        intro =
-          nameee: 'borja'
-          age: 23
+      describe 'with correct intro', ->
 
-        @error = undefined
+        fixture = undefined
 
-        try
-          @createController intro
-        catch e
-          @error = e.message
+        beforeEach ->
+          fixture = fixtures.intro.a
 
-      it 'should throw an exception', () ->
+          @createController fixture
 
-        expect(@error).toMatch('- name')
-        expect(@error).toMatch('- description')
+        it 'should call \'introService.get\' method', () ->
+          expect(@introService.get).toHaveBeenCalled()
+
+        it 'should attach the intro to the scope', () ->
+          expect(@scope.intro.name).toBe fixture.intro.name
+          expect(@scope.intro.age).toBe fixture.intro.age
+          expect(@scope.intro.description).toBe fixture.intro.description
+
+
+      describe 'with NO correct intro', ->
+
+        beforeEach ->
+          fixture = fixtures.intro.b
+
+          @error = undefined
+
+          try
+            @createController fixture
+          catch e
+            @error = e.message
+
+        it 'should throw an exception', () ->
+
+          expect(@error).toMatch('- name')
+          expect(@error).toMatch('- description')
+
+
+describe 'Controller: IntroCtrl', () -> do new IntroControllerSpec().test
 
 
