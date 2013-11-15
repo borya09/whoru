@@ -1,16 +1,16 @@
 <section ng-controller="CvCtrl" ng-show="cv.length" class="wh-cv">
-  <h3 class="wh-cv-title">Cv</h3>
+  <h3 class="wh-cv-title">{{cv.title}}</h3>
   <article ng-repeat="part in cv" ng-class="part.cssClass" class="wh-cv-part">
-    <header class="wh-cv-part-header">
+    <header ng-if="part.title" class="wh-cv-part-header">
       <h4 class="wh-cv-part-title">{{part.title}}</h4>
     </header>
     <p ng-if="part.description" ng-bind-html="part.description" class="wh-cv-part-description"></p>
     <ol ng-if="part.content">
       <li ng-repeat="item in part.content" class="wh-part-item">
         <h5 ng-if="item.title" class="wh-cv-part-item-title">{{item.title}}</h5>
-        <div ng-if="item.from || item.until" class="wh-cv-part-item-date"><span class="wh-cv-part-item-date-from">{{item.from}}</span><span class="wh-cv-part-item-date-until">{{item.until}}</span></div><a ng-if="item.image" ng-href="{{item.image.link}}" title="{{item.image.link}}"><img ng-src="{{item.image.src}}" title="{{item.image.link}}"></a>
+        <div ng-if="item.when || item.from || item.until" class="wh-cv-part-item-date"><span ng-if="item.when" class="wh-cv-part-item-date-when">{{item.when}}</span><span ng-if="item.from" class="wh-cv-part-item-date-from">{{item.from}}</span><span ng-if="item.until" class="wh-cv-part-item-date-until">{{item.until}}</span></div><a ng-if="item.image" ng-href="{{item.image.link}}" title="{{item.image.link}}"><img ng-src="{{item.image.src}}" title="{{item.image.link}}"></a>
         <p ng-if="item.description" ng-bind-html="item.description" class="wh-cv-part-item-description"></p>
-        <ol class="wh-part-item-content">
+        <ol ng-if="item.content" class="wh-part-item-content">
           <li ng-repeat="content in item.content" class="wh-part-item-content-element">{{content}}</li>
         </ol>
       </li>
