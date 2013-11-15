@@ -10,6 +10,7 @@ class CvServiceSpec extends ServiceSpec
       @cvService = CvService
 
     describe '\'get\' method, when called', ->
+
       beforeEach ->
         @cv = fixtures.cv.a
         @httpBackend.whenGET(/config.json/).respond fixtures.config.a

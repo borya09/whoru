@@ -1,7 +1,6 @@
 'use strict'
 
 # **CvService:**
-# Service responsible for the management of the Cv
 class CvService
 
   constructor:($log, $http, CvPart, dataTranslatorService) ->

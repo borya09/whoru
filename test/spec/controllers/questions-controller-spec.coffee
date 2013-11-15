@@ -11,8 +11,13 @@ class QuestionsControllerSpec extends ControllerSpec
 
       @questionsService = QuestionsService
 
-      @createController = (json) ->
-        @httpBackend.whenGET(/questions.json/).respond json
+      @createController = (fixture) ->
+
+        @httpBackend.whenGET(/config.json/).respond fixtures.config.a
+        @httpBackend.whenGET(/questions_en.json/).respond fixture
+
+        spyOn(@questionsService, 'get').andCallThrough()
+
         @QuestionsCtrl = @controller 'QuestionsCtrl', {
           $scope: @scope
           QuestionsService: @questionsService
@@ -20,73 +25,84 @@ class QuestionsControllerSpec extends ControllerSpec
         do @httpBackend.flush
 
 
+    describe 'initialization', ->
 
-    it 'should attach a list of questions with answers to scope', () ->
+      it 'should call \'questionsService.get\' method', () ->
+        @createController fixtures.questions.b
 
-      @createController fixtures.questions.b
-
-      expect(@scope.questions).not.toBeUndefined()
-      expect(@scope.questions.length).toEqual 1
-
-
-    it 'should transform json data to array with question title', () ->
-
-      @createController fixtures.questions.c
-
-      expect(@scope.questions[0].question).toBe 'hola!'
+        expect(@questionsService.get).toHaveBeenCalled()
 
 
-    it 'should transform json data to array with options', () ->
+      it 'should attach a list of questions with answers to scope', () ->
+        @createController fixtures.questions.b
 
-      @createController fixtures.questions.d
-
-      expect(@scope.questions[0].options.length).toEqual 5
-
-    it 'should transform json data to options with ttle', () ->
-
-      @createController fixtures.questions.e
-
-      expect(@scope.questions[0].options[0].title).toBe 'pedro'
-      expect(@scope.questions[0].options[1].title).toBe 'juan'
+        expect(@scope.questions).not.toBeUndefined()
+        expect(@scope.questions.length).toEqual 1
 
 
-    it 'should transform json data with multiple to false to options with same name', () ->
+      it 'should transform json data to array with question title', () ->
+        @createController fixtures.questions.c
 
-      @createController fixtures.questions.f
-
-      expect(@scope.questions[0].options[0].name).toBe 'hola!'
-      expect(@scope.questions[0].options[1].name).toBe 'hola!'
-
-    it 'should transform json data with multiple options with diferents names', () ->
-
-      @createController fixtures.questions.g
-
-      expect(@scope.questions[0].options[0].name).toBe 'pedro'
-      expect(@scope.questions[0].options[1].name).toBe 'juan'
+        expect(@scope.questions[0].question).toBe 'hola!'
 
 
-    it 'should transform json data with multiple options with diferents names', () ->
+      it 'should transform json data to array with options', () ->
+        @createController fixtures.questions.d
 
-      @createController fixtures.questions.h
-
-      expect(@scope.questions[0].options[0].name).toBe 'pedro'
-      expect(@scope.questions[0].options[1].name).toBe 'juan'
+        expect(@scope.questions[0].options.length).toEqual 5
 
 
-    it 'should transform json data with multiple to checkbox and not multiple to radio', () ->
+      it 'should transform json data to options with ttle', () ->
+        @createController fixtures.questions.e
 
-      @createController fixtures.questions.i
-
-      expect(@scope.questions[0].type).toBe 'radio'
-      expect(@scope.questions[1].type).toBe 'checkbox'
+        expect(@scope.questions[0].options[0].title).toBe 'pedro'
+        expect(@scope.questions[0].options[1].title).toBe 'juan'
 
 
-    it 'shoud transform json data with boolean answers to number (0 o 100)', () ->
+      it 'should transform json data with multiple to false to options with same name', () ->
+        @createController fixtures.questions.f
 
-      @createController fixtures.questions.j
+        expect(@scope.questions[0].options[0].name).toBe 'hola!'
+        expect(@scope.questions[0].options[1].name).toBe 'hola!'
 
-      expect(@scope.questions[0].options[0].pondered).toEqual 0
-      expect(@scope.questions[0].options[1].pondered).toEqual 100
+
+      it 'should transform json data with multiple options with diferents names', () ->
+        @createController fixtures.questions.g
+
+        expect(@scope.questions[0].options[0].name).toBe 'pedro'
+        expect(@scope.questions[0].options[1].name).toBe 'juan'
+
+
+      it 'should transform json data with multiple options with diferents names', () ->
+        @createController fixtures.questions.h
+
+        expect(@scope.questions[0].options[0].name).toBe 'pedro'
+        expect(@scope.questions[0].options[1].name).toBe 'juan'
+
+
+      it 'should transform json data with multiple to checkbox and not multiple to radio', () ->
+        @createController fixtures.questions.i
+
+        expect(@scope.questions[0].type).toBe 'radio'
+        expect(@scope.questions[1].type).toBe 'checkbox'
+
+
+      it 'shoud transform json data with boolean answers to number (0 o 100)', () ->
+        @createController fixtures.questions.j
+
+        expect(@scope.questions[0].options[0].pondered).toEqual 0
+        expect(@scope.questions[0].options[1].pondered).toEqual 100
+
+
+    describe '\'locale_changed\' event broadcasted', ->
+      beforeEach ->
+        @createController fixtures.questions.c
+        @rootScope.$broadcast('locale_changed')
+        do @httpBackend.flush
+
+      it 'should call \'questionsService.get\' method', () ->
+        expect(@questionsService.get).toHaveBeenCalled()
+
 
     afterEach ->
       do @httpBackend.verifyNoOutstandingExpectation

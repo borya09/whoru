@@ -1,10 +1,10 @@
 {
-	"version": "0.0.0",
+	"version": "0.0.1",
   "title": "Questions:",
-  "description": "Explicación de por qué te entrevisto como empresa:",
+  "description": "Explanation about the reason I interview U:",
   "questions": [
     {
-      "title": "¿Cómo es que?",
+      "title": "How is?",
       "multiple": true,
       "answers": {
         "pedro": 100,
@@ -15,7 +15,7 @@
       }
     },
     {
-      "title": "¿Qué tal",
+      "title": "What's up?",
       "multiple": false,
       "answers":{
         "bien": true, 

@@ -3,7 +3,7 @@
 # **Controller _'CvCtrl'_**
 angular.module('whoruApp')
 
-  .controller 'CvCtrl', ['$scope', '$rootScope', 'CvService', ($scope, $rootScope, cvService) ->
+  .controller 'CvCtrl', ['$scope',  'CvService', ($scope,  cvService) ->
 
     # Retrieves and publish in the $scope the cv
     get = ->
@@ -12,6 +12,7 @@ angular.module('whoruApp')
           $scope.cv = cv
 
     # Listens to 'locale_changed' event
+    #TODO TEST
     $scope.$on 'locale_changed', ->
       do get
 

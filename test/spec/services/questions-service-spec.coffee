@@ -9,17 +9,15 @@ class QuestionsServiceSpec extends ServiceSpec
     beforeEach inject (QuestionsService) ->
       @questionsService = QuestionsService
 
-
     describe '\'get\' method, when called', ->
 
       beforeEach ->
-
         @questions = fixtures.questions.a
+        @httpBackend.whenGET(/config.json/).respond fixtures.config.a
+        @httpBackend.whenGET(/questions_en.json/).respond @questions
 
-        @httpBackend.when('GET', /questions.json$/).respond @questions
-
-      it 'should GET \'questions.json\' file', ->
-        @httpBackend.expectGET(/questions.json$/).respond @questions
+      it 'should GET \'questions_en.json\' file', ->
+        @httpBackend.expectGET(/questions_en.json/).respond @questions
         @questionsService.get()
         do @httpBackend.flush
 

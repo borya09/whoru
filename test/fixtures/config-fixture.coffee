@@ -18,3 +18,23 @@ global.$FIXTURES.config =
     actual: true
     text: 'EN'
     key: "en"
+  d:
+    version: "0.0.1"
+    config:
+      locales: [
+        key: "es"
+        image: "image1"
+        text: "ES"
+      ,
+        "default":true
+        key: "en"
+        image: "image2"
+        text: "EN"
+      ]
+
+  e:
+    version: "0.0.1"
+    config:
+      locales: []
+
+

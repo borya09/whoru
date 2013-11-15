@@ -11,20 +11,19 @@ class CvControllerSpec extends ControllerSpec
       @cvService = CvService
       spyOn(@cvService, 'get').andCallThrough()
 
-      @createController = (json) ->
-        @httpBackend.whenGET(/config.json/).respond fixtures.config.a
-        @httpBackend.whenGET(/cv_en.json/).respond json
-        @CvCtrl = @controller 'CvCtrl', {
-          $scope: @scope
-          CvService: @cvService
-        }
-        do @httpBackend.flush
+      @cv = fixtures.cv.a
+      @httpBackend.whenGET(/config.json/).respond fixtures.config.a
+      @httpBackend.whenGET(/cv_en.json/).respond fixtures.cv.a
+
+      @CvCtrl = @controller 'CvCtrl', {
+        $scope: @scope
+        CvService: @cvService
+      }
+
+      do @httpBackend.flush
 
 
     describe 'initialization', ->
-      beforeEach ->
-        @cv = fixtures.cv.a
-        @createController @cv
 
       it 'should call \'cvService.get\' method', () ->
         expect(@cvService.get).toHaveBeenCalled()
@@ -35,6 +34,15 @@ class CvControllerSpec extends ControllerSpec
         expect(part1 instanceof CvPart).toBeTruthy()
         expect(part1.title).toBe 'Sección 1'
         expect(part1.content).toBe 'contenido de la sección 1'
+
+    describe '\'locale_changed\' event broadcasted', ->
+      beforeEach ->
+        @rootScope.$broadcast('locale_changed')
+        do @httpBackend.flush
+
+      it 'should call \'cvService.get\' method', () ->
+        expect(@cvService.get).toHaveBeenCalled()
+
 
 
     afterEach ->

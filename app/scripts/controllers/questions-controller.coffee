@@ -1,8 +1,10 @@
 'use strict'
 
+# **Controller _'QuestionsCtrl'_**
 class QuestionsController
   constructor: ($scope, $log, questionsService) ->
-    #console.log questionsService
+
+    # Retrieves and publish in the $scope the questions
     setQuestions = =>
       #console.log 'setquestions llamado!'
       questionsService.get()
@@ -49,6 +51,13 @@ class QuestionsController
       console.log $scope.questions
       undefined
 
+
+    # Listens to 'locale_changed' event
+    #TODO TEST
+    $scope.$on 'locale_changed', ->
+      do setQuestions
+
+    # Fires initialization (setQuestions)
     do setQuestions
 
 angular.module('whoruApp').controller 'QuestionsCtrl', ['$scope', '$log', 'QuestionsService', QuestionsController]

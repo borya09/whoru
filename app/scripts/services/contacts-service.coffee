@@ -1,5 +1,6 @@
 'use strict'
 
+# **ContactsService:**
 class ContactsService
 
   constructor:($log, $http) ->

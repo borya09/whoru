@@ -1,5 +1,6 @@
 'use strict'
 
+# **IntroService:**
 class IntroService
 
   constructor:($log, $http, Intro) ->

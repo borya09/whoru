@@ -1,13 +1,22 @@
 'use strict';
 
+# **QuestionsService:**
 class QuestionsService
-  constructor: ($log, $http) ->
 
-    urlBase = 'data/questions.json'
+  constructor: ($log, $http, dataTranslatorService) ->
 
+    #Seed of the name of the cv file
+    file = 'questions'
+
+    #Returns a promise with an array of the parts of the cv
     QuestionsService::get = ->
-      $http.get(urlBase)
-        .then (response) ->
-          response.data
 
-angular.module('whoruApp').service 'QuestionsService', ['$log', '$http', QuestionsService]
+      dataTranslatorService.getDataFilePath(file)
+        .then (filePath) ->
+
+            $http.get(filePath)
+              .then (response) ->
+
+                response.data
+
+angular.module('whoruApp').service 'QuestionsService', ['$log', '$http', 'DataTranslatorService', QuestionsService]

@@ -1,6 +1,6 @@
 'use strict'
 
-class ContanctsServiceSpec extends ServiceSpec
+class ContactsServiceSpec extends ServiceSpec
 
   test: ->
 
@@ -37,4 +37,4 @@ class ContanctsServiceSpec extends ServiceSpec
       do @httpBackend.verifyNoOutstandingExpectation
       do @httpBackend.verifyNoOutstandingRequest
 
-describe 'Service: ContactsService', () -> do new ContanctsServiceSpec().test
+describe 'Service: ContactsService', () -> do new ContactsServiceSpec().test

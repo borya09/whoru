@@ -2,9 +2,6 @@
 
 
 # **DataTranslatorService:**
-# Service responsible for the internationalization of all the user data.
-
-#TODO: TEST
 class DataTranslatorService
   constructor: ($log, $http, $q) ->
 
@@ -51,6 +48,10 @@ class DataTranslatorService
         @locale.actual = false
       @locale = locale
       @locale.actual = true
+
+    # Get actual locale
+    DataTranslatorService::getLocale = () ->
+      @locale
 
     # Depending on current locale, returns a promise with suitable file path
     DataTranslatorService::getDataFilePath = (file) ->
