@@ -1,17 +1,27 @@
 section.wh-cv(ng-controller="CvCtrl", ng-show='cv.length')
-    h3.wh-cv-title Cv
+    h3.wh-cv-title {{cv.title}}
+
     article.wh-cv-part(ng-repeat='part in cv', ng-class='part.cssClass')
-        header.wh-cv-part-header
+
+        header.wh-cv-part-header(ng-if='part.title')
             h4.wh-cv-part-title {{part.title}}
+
         p.wh-cv-part-description(ng-if='part.description', ng-bind-html="part.description")
+
         ol(ng-if='part.content')
             li.wh-part-item(ng-repeat='item in part.content')
+
                 h5.wh-cv-part-item-title(ng-if='item.title') {{item.title}}
-                .wh-cv-part-item-date(ng-if='item.from || item.until')
-                    span.wh-cv-part-item-date-from {{item.from}}
-                    span.wh-cv-part-item-date-until {{item.until}}
+
+                .wh-cv-part-item-date(ng-if='item.when || item.from || item.until')
+                    span.wh-cv-part-item-date-when(ng-if='item.when') {{item.when}}
+                    span.wh-cv-part-item-date-from(ng-if='item.from') {{item.from}}
+                    span.wh-cv-part-item-date-until(ng-if='item.until') {{item.until}}
+
                 a(ng-if='item.image', ng-href="{{item.image.link}}", title="{{item.image.link}}")
                     img(ng-src="{{item.image.src}}", title="{{item.image.link}}")
+
                 p.wh-cv-part-item-description(ng-if='item.description', ng-bind-html="item.description")
-                ol.wh-part-item-content
+
+                ol.wh-part-item-content(ng-if='item.content')
                     li.wh-part-item-content-element(ng-repeat='content in item.content') {{content}}

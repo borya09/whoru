@@ -1,40 +1,148 @@
 {
 	"version": "0.0.1",
+	"title": "CV",
 	"parts": [
 		{
-			"title": "Section 1",
-			"key":"sec1",
-			"description": "Content of section 1"
-		},
-		{
-			"title": "Section 2",
-			"key":"sec2",
+			"title": "Presentation",
+			"key":"presentation",
+			"description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc nobis videntur parum clari, fiant sollemnes in futurum."
+		},{
+			"title": "Personal Data",
+			"key":"personal_data",
 			"content": [
 				{
-					"title": "Subsection 2.1",
-					"description":"Description of subsection 2.1",
-					"from":"2005",
-					"until":"2010",
-					"image":{
-						"link":"http://placehold.it/",
-						"src":"http://placehold.it/350x150"
-					}
-				},
+					"title": "Full Name",
+					"description":"John Doe II"
+				},{
+					"title": "DNI",
+					"description":"77788899X"
+				},{
+					"title": "Place of birth",
+					"description":"Bilbo"
+				},{
+					"title": "Date of birth",
+					"description":"July, 22th 1900."
+				},{
+					"title": "Address",
+					"description":"Madrid, Spain"
+				},{
+					"title": "Marital State",
+					"description":"Single"
+				}
+			]
+		},
+		{
+			"title": "Professional Career",
+			"key":"career",
+			"content": [
 				{
-					"title": "Subsection 2.2",
-					"from":"2008",
+					"title": "Project manager",
+					"description":"Planning and execution of any kind of project in <b>Google</b>",
+					"from":"2005",
+					"until":"currently",
 					"image":{
-						"link":"http://placehold.it/",
-						"src":"http://placehold.it/150x150"
+						"link":"http://www.google.es",
+						"src":"http://www.seomofo.com/downloads/new-google-logo-official.png"
 					},
 					"content":[
-						"aa",
-						"bb",
-						"cc"
+						"Planning",
+						"Management"
 					]
 				},
 				{
-					"title": "Subsection 2.3"
+					"title": "Junior Developer",
+					"description":"Developer at <b>Yahoo</b>",
+					"from":"1999",
+					"until":"2004",
+					"image":{
+						"link":"http://www.yahoo.com",
+						"src":"http://www.omicrono.com/wp-content/uploads/2012/03/yahoo-logo.jpg"
+					},
+					"content":[
+						"Developer",
+						"Databases"
+					]
+				}
+			]
+		},
+		{
+			"title": "Technical Skills",
+			"key":"tech_skills",
+			"content": [
+				{
+					"title": "Development",
+					"content":[
+						"Java",
+						"C#",
+						"Python",
+						"JS",
+						"C"
+					]
+				},{
+					"title": "Databases",
+					"content":[
+						"Oracle",
+						"MongoDB",
+						"MySql"
+					]
+				}
+			]
+		},
+		{
+			"title": "Courses And Complementary Formation Received",
+			"key":"formation",
+			"content": [
+				{
+					"description":"Seminary in Web Applications"
+				},{
+					"description":"Several meetings about new technologies"
+				}
+			]
+		},
+		{
+			"title": "Academic Education",
+			"key":"academic",
+			"content": [
+				{
+					"description":"<b>Bachelor's degree</b> at ‘Some School’",
+					"when":"1950"
+				},{
+					"description":"<b>Technical Engineering in Management Computer Systems</b> at ‘Some University’",
+					"when":"1989"
+				},{
+					"description":"<b>Computer Engineering</b> at ‘Another University’",
+					"when":"2000"
+				}
+			]
+		},
+		{
+			"title": "Language Skills",
+			"key":"languages",
+			"content": [
+				{
+					"title": "English",
+					"content":[
+						"First Certificate in English (FCE) - 1999",
+						"Advanced (CAE) .- 2003"
+					]
+				},{
+					"title": "Spanish",
+					"content":[
+						"Native speaker"
+					]
+				}
+			]
+		},
+		{
+			"title": "Hobbies",
+			"key":"hobbies",
+			"content": [
+				{
+					"description":"cinema"
+				},{
+					"description":"sports"
+				},{
+					"description":"dance"
 				}
 			]
 		}

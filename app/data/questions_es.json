@@ -1,28 +1,36 @@
 {
 	"version": "0.0.1",
-  "title": "Preguntas:",
-  "description": "Explicación de por qué te entrevisto como empresa:",
-  "questions": [
-    {
-      "title": "¿Cómo es que?",
-      "multiple": true,
-      "answers": {
-        "pedro": 100,
-        "sofia": 0,
-        "julian": 0,
-        "sara": 0,
-        "marta": 0
-      }
-    },
-    {
-      "title": "¿Qué tal",
-      "multiple": false,
-      "answers":{
-        "bien": true, 
-        "mal": false,
-        "raro":false
-      }
-    }
-  ]
-  
+	"title": "Preguntas:",
+	"description": "Ey!, ¿Quién eres? Veámoslo",
+	"questions": [
+		{
+			"title": "Tecnologías",
+			"multiple": true,
+			"answers": {
+				"javascript": 100,
+				"java": 0,
+				"C": 20,
+				"python": 0
+			}
+		},
+		{
+			"title": "¿Se considera una buena empresa para trabajar?",
+			"multiple": false,
+			"answers":{
+				"sí": true,
+				"no": false,
+				"quizás":false
+			}
+		},
+		{
+			"title": "Metodologías",
+			"multiple": false,
+			"answers":{
+				"Modelo en cascada": 0,
+				"Prototipado": 30,
+				"Espiral": 30,
+				"Agilismo":100
+			}
+		}
+	]
 }

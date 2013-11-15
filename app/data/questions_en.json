@@ -1,28 +1,36 @@
 {
 	"version": "0.0.1",
   "title": "Questions:",
-  "description": "Explanation about the reason I interview U:",
+  "description": "Ey!, Who Are You? Let's see it",
   "questions": [
     {
-      "title": "How is?",
+      "title": "Technologies",
       "multiple": true,
       "answers": {
-        "pedro": 100,
-        "sofia": 0,
-        "julian": 0,
-        "sara": 0,
-        "marta": 0
+        "javascript": 100,
+        "java": 0,
+        "C": 20,
+        "python": 0
       }
     },
     {
-      "title": "What's up?",
+      "title": "Do you consider yourself as a good place to work?",
       "multiple": false,
       "answers":{
-        "bien": true, 
-        "mal": false,
-        "raro":false
+        "yes": true,
+        "no": false,
+        "maybe":false
+      }
+    },
+    {
+      "title": "Methodologies",
+      "multiple": false,
+      "answers":{
+        "Waterfall Model": 0,
+        "Prototyping": 30,
+        "Spiral": 30,
+        "Agile":100
       }
     }
   ]
-  
 }
