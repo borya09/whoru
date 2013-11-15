@@ -70,7 +70,7 @@
 			"key":"tech_skills",
 			"content": [
 				{
-					"title": "Development",
+					"title": "Desarrollo",
 					"content":[
 						"Java",
 						"C#",
@@ -79,7 +79,7 @@
 						"C"
 					]
 				},{
-					"title": "Databases",
+					"title": "Bases de datos",
 					"content":[
 						"Oracle",
 						"MongoDB",
@@ -89,46 +89,46 @@
 			]
 		},
 		{
-			"title": "Courses And Complementary Formation Received",
+			"title": "Formación Complementaria",
 			"key":"formation",
 			"content": [
 				{
-					"description":"Seminary in Web Applications"
+					"description":"Seminario de Aplicaciones Web"
 				},{
-					"description":"Several meetings about new technologies"
+					"description":"Charlas / Laboratorios / Meetups sobre nuevas tecnologías"
 				}
 			]
 		},
 		{
-			"title": "Academic Education",
+			"title": "Educación Académica",
 			"key":"academic",
 			"content": [
 				{
-					"description":"<b>Bachelor's degree</b> at ‘Some School’",
+					"description":"<b>Bachiller</b> en ‘Some School’",
 					"when":"1950"
 				},{
-					"description":"<b>Technical Engineering in Management Computer Systems</b> at ‘Some University’",
+					"description":"<b>Ingeniero Técnico en Informática de Gestión</b> en ‘Some University’",
 					"when":"1989"
 				},{
-					"description":"<b>Computer Engineering</b> at ‘Another University’",
+					"description":"<b>Ingeniero Superior en Informática</b> en ‘Another University’",
 					"when":"2000"
 				}
 			]
 		},
 		{
-			"title": "Language Skills",
+			"title": "Idiomas",
 			"key":"languages",
 			"content": [
 				{
-					"title": "English",
+					"title": "Inglés",
 					"content":[
-						"First Certificate in English (FCE) - 1999",
+						"First Certificate (FCE) - 1999",
 						"Advanced (CAE) .- 2003"
 					]
 				},{
-					"title": "Spanish",
+					"title": "Castellano",
 					"content":[
-						"Native speaker"
+						"Nativo"
 					]
 				}
 			]
@@ -138,11 +138,11 @@
 			"key":"hobbies",
 			"content": [
 				{
-					"description":"cinema"
+					"description":"cine"
 				},{
-					"description":"sports"
+					"description":"deportes"
 				},{
-					"description":"dance"
+					"description":"bailar"
 				}
 			]
 		}
