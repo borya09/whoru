@@ -1,0 +1,28 @@
+{
+	"version": "0.0.1",
+  "title": "Preguntas:",
+  "description": "Explicación de por qué te entrevisto como empresa:",
+  "questions": [
+    {
+      "title": "¿Cómo es que?",
+      "multiple": true,
+      "answers": {
+        "pedro": 100,
+        "sofia": 0,
+        "julian": 0,
+        "sara": 0,
+        "marta": 0
+      }
+    },
+    {
+      "title": "¿Qué tal",
+      "multiple": false,
+      "answers":{
+        "bien": true, 
+        "mal": false,
+        "raro":false
+      }
+    }
+  ]
+  
+}
