@@ -3,17 +3,17 @@
 	"contacts": [
 		{
 			"type": "web",
-			"value": "http://www.as.com",
+			"value": "http://www.JohnDoe.com",
 			"icon": "Z"
 		},
 		{
 			"type": "web",
-			"value": "https://github.com/borya09/",
+			"value": "https://github.com/JohnDoe/",
 			"icon": "t"
 		},
 		{
 			"type": "web",
-			"value": "https://twitter.com/borya09",
+			"value": "https://twitter.com/JohnDoe",
 			"icon": "b"
 		},
 		{
@@ -23,12 +23,12 @@
 		},
 		{
 			"type": "mail",
-			"value": "borya09@gmail.com",
+			"value": "john.doe@gmail.com",
 			"icon": "1"
 		},
 		{
 			"type": "web",
-			"value": "https://plus.google.com/+BorjaAndres",
+			"value": "https://plus.google.com/+JohnDoe",
 			"icon": "6"
 		}
 	]
