@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory-->
-    <link rel="stylesheet" href="styles/aaffb3d8.main.css">
+    <link rel="stylesheet" href="styles/61fc9395.main.css">
     <script type="text/javascript">document.write('<base href="' + document.location + '" />');</script>
   </head>
   <body ng-app="whoruApp" ng-controller="MainCtrl" ng-cloak="">
@@ -30,19 +30,18 @@
     <div class="header-container">
       <header class="wh-header wrapper">
         <nav>
-          <ul>
-            <li class="wh-header-locales">
-              <ul>
-                <li ng-repeat="locale in locales" ng-class="{actual: locale.actual}" class="wh-header-locale"><a href="" ng-click="setLocale(locale)" title="{{locale.text}}"><img ng-src="{{locale.image}}" title="{{locale.text}}"></a></li>
-              </ul>
-            </li>
+          <ul class="wh-header-options">
+            <li ng-repeat="option in nav | orderBy: 'order'" class="wh-header-option"><a ng-href="{{option.href}}" title="{{option.title}}">{{option.title}}</a></li>
+          </ul>
+          <ul class="wh-header-locales">
+            <li ng-repeat="locale in locales" ng-class="{actual: locale.actual}" class="wh-header-locale"><a href="" ng-click="setLocale(locale)" title="{{locale.text}}"><img ng-src="{{locale.image}}" title="{{locale.text}}"></a></li>
           </ul>
         </nav>
       </header>
     </div>
     <div class="main-container">
       <div class="wh-main wrapper">
-        <section ng-controller="IntroCtrl" class="wh-intro">
+        <section ng-controller="IntroCtrl" id="{{id}}" class="wh-intro">
           <h1 class="wh-intro-fullname">
             <div class="wh-intro-name">{{intro.name}}</div>
             <div ng-if="intro.surname1" class="wh-intro-surname1">{{intro.surname1}}</div>
@@ -53,7 +52,7 @@
         </section>
         <section ng-controller="CvCtrl" ng-show="cv.length" class="wh-cv">
           <h3 class="wh-cv-title">{{cv.title}}</h3>
-          <article ng-repeat="part in cv" ng-class="part.cssClass" class="wh-cv-part">
+          <article ng-repeat="part in cv" id="{{part.id}}" ng-class="part.cssClass" class="wh-cv-part">
             <header ng-if="part.title" class="wh-cv-part-header">
               <h4 class="wh-cv-part-title">{{part.title}}</h4>
             </header>
@@ -70,7 +69,7 @@
             </ol>
           </article>
         </section>
-        <section ng-controller="QuestionsCtrl" ng-show="questions.length" class="wh-questions">
+        <section ng-controller="QuestionsCtrl" id="{{id}}" ng-show="questions.length" class="wh-questions">
           <h3>{{ title }}</h3>
           <p class="wh-questions-description">{{ description }}</p>
           <ol>
@@ -106,6 +105,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="scripts/b2e10d90.modules.js"></script>
-    <script src="scripts/7afa1846.scripts.js"></script>
+    <script src="scripts/a5f1f80f.scripts.js"></script>
   </body>
 </html>
