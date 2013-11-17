@@ -15,7 +15,8 @@ class IntroControllerSpec extends ControllerSpec
 
       @createController = (json) ->
 
-        @httpBackend.whenGET(/intro.json/).respond json
+        @httpBackend.whenGET(/config.json/).respond fixtures.config.a
+        @httpBackend.whenGET(/intro_en.json/).respond json
 
         @IntroCtrl = @controller 'IntroCtrl', {
           $scope: @scope
@@ -43,6 +44,14 @@ class IntroControllerSpec extends ControllerSpec
           expect(@scope.intro.name).toBe fixture.intro.name
           expect(@scope.intro.age).toBe fixture.intro.age
           expect(@scope.intro.description).toBe fixture.intro.description
+
+        it 'should attach to scope/rootScope info for the header navbar', () ->
+          expect(@scope.id).toBe 'intro'
+          expect(@rootScope.nav).toEqual [
+            order : 1
+            title : fixture.intro.name + ' ' + fixture.intro.surname1
+            href : '#intro'
+          ]
 
 
       describe 'with NO correct intro', ->

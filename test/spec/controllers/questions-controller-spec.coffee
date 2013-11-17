@@ -39,6 +39,15 @@ class QuestionsControllerSpec extends ControllerSpec
         expect(@scope.questions).not.toBeUndefined()
         expect(@scope.questions.length).toEqual 1
 
+      it 'should attach to scope/rootScope info for the header navbar', () ->
+        @createController fixtures.questions.b
+
+        expect(@scope.id).toBe 'questions'
+        expect(@rootScope.nav).toEqual [
+          order: 3
+          title : 'questions json'
+          href : '#questions'
+        ]
 
       it 'should transform json data to array with question title', () ->
         @createController fixtures.questions.c

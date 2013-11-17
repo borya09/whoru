@@ -19,3 +19,5 @@ class ControllerSpec
       @httpBackend = $httpBackend
       @q = $q
 
+      @rootScope.nav = []
+

@@ -35,6 +35,19 @@ class CvControllerSpec extends ControllerSpec
         expect(part1.title).toBe 'Sección 1'
         expect(part1.content).toBe 'contenido de la sección 1'
 
+      it 'should attach to scope/rootScope info for the header navbar', () ->
+
+        expect(@rootScope.nav).toEqual [
+          order : 2,
+          title : 'Sección 1'
+          href : '#sec1'
+        ,
+          order : 2,
+          title : 'Sección 2'
+          href : '#sec2'
+        ]
+
+
     describe '\'locale_changed\' event broadcasted', ->
       beforeEach ->
         @rootScope.$broadcast('locale_changed')

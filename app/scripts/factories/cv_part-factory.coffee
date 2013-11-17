@@ -6,6 +6,7 @@ class CvPart
     @title = part.title
     @description = part.description
     @content = part.content
+    @id = part.key
     @cssClass = part.key
 
 

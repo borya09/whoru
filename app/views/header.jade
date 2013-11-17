@@ -1,7 +1,9 @@
 nav
-    ul
-        li.wh-header-locales
-            ul
-                li.wh-header-locale(ng-repeat='locale in locales', ng-class='{actual: locale.actual}')
-                    a(href, ng-click="setLocale(locale)", title="{{locale.text}}")
-                        img(ng-src="{{locale.image}}", title="{{locale.text}}")
+    ul.wh-header-options
+        li.wh-header-option(ng-repeat='option in nav | orderBy: \'order\'')
+            a(ng-href="{{option.href}}", title="{{option.title}}") {{option.title}}
+
+    ul.wh-header-locales
+        li.wh-header-locale(ng-repeat='locale in locales', ng-class='{actual: locale.actual}')
+            a(href, ng-click="setLocale(locale)", title="{{locale.text}}")
+                img(ng-src="{{locale.image}}", title="{{locale.text}}")

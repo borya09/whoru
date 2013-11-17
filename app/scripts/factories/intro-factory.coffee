@@ -1,9 +1,9 @@
 'use strict'
 
 class Intro
-  constructor: (intro) ->
-    for key of intro
-      @[key] = intro[key]
+  constructor: (data) ->
+    for key of data
+      @[key] = data[key]
 
   fullname: ->
     fullname = @name

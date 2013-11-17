@@ -5,6 +5,8 @@
 angular.module('whoruApp')
   .controller 'MainCtrl', ['$scope', '$rootScope', 'DataTranslatorService', ($scope, $rootScope, dataTranslatorService) ->
 
+    $rootScope.nav =  []
+
     # Publish on the $scope an array of avaiable locales
     dataTranslatorService.getAvailablesLocales()
       .then (locales) ->

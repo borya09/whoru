@@ -12,6 +12,17 @@ global.$FIXTURES.cv =
       key: 'sec2'
       content: 'contenido de la sección 2'
     ]
+  b:
+    version: '0.0.1'
+    parts: [
+      title: 'Section 1'
+      key: 'sec1'
+      content: 'Content #1'
+    ,
+      title: 'Section 2'
+      key: 'sec2'
+      content: 'Content #2'
+    ]
   part:
     a:
       title:'tit'

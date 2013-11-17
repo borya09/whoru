@@ -2,9 +2,18 @@
 
 # **Controller _'QuestionsCtrl'_**
 class QuestionsController
-  constructor: ($scope, $log, questionsService) ->
 
-    # Retrieves and publish in the $scope the questions
+  constructor: ($scope, $log, $rootScope, questionsService) ->
+
+    sectionId = 'questions'
+    navInfo =
+      order: 3
+      title : 'questions'
+      href : '#' + sectionId
+
+    $rootScope.nav.push navInfo
+    $scope.id = sectionId
+
     setQuestions = =>
       #console.log 'setquestions llamado!'
       questionsService.get()
@@ -12,6 +21,9 @@ class QuestionsController
           questions = data.questions
           #console.log 'obtenemos las questions:'
           #console.log questions
+
+
+          navInfo.title = data.title
           $scope.title = data.title
           $scope.description = data.description
           $scope.questions = []
@@ -60,4 +72,4 @@ class QuestionsController
     # Fires initialization (setQuestions)
     do setQuestions
 
-angular.module('whoruApp').controller 'QuestionsCtrl', ['$scope', '$log', 'QuestionsService', QuestionsController]
+angular.module('whoruApp').controller 'QuestionsCtrl', ['$scope', '$log', '$rootScope', 'QuestionsService', QuestionsController]

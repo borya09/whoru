@@ -3,15 +3,22 @@
 # **IntroService:**
 class IntroService
 
-  constructor:($log, $http, Intro) ->
+  constructor:($log, $http, Intro, dataTranslatorService) ->
 
-    urlBase = 'data/intro.json'
+    #Seed of the name of the cv file
+    file = 'intro'
 
+    #Returns a promise with the Intro
     IntroService::get = ->
-      $http.get(urlBase)
-        .then (response) ->
-          new Intro(response.data.intro)
+
+      dataTranslatorService.getDataFilePath(file)
+        .then (filePath) ->
+
+            $http.get(filePath)
+              .then (response) ->
+
+                new Intro(response.data.intro)
 
 
 
-angular.module('whoruApp').service 'IntroService', ['$log', '$http', 'Intro', IntroService]
+angular.module('whoruApp').service 'IntroService', ['$log', '$http', 'Intro', 'DataTranslatorService', IntroService]

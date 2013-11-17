@@ -14,11 +14,12 @@ class IntroServiceSpec extends ServiceSpec
     describe '\'get\' method, when called', ->
       beforeEach ->
         @intro = fixtures.intro.a
-        @httpBackend.when('GET', /intro.json$/).respond @intro
+        @httpBackend.whenGET(/config.json/).respond fixtures.config.a
+        @httpBackend.when('GET', /intro_en.json$/).respond @intro
 
 
-      it 'should GET \'intro.json\' file', ->
-        @httpBackend.expectGET(/intro.json$/).respond @intro
+      it 'should GET \'intro_en.json\' file', ->
+        @httpBackend.expectGET(/intro_en.json$/).respond @intro
         @introService.get()
         do @httpBackend.flush
 
