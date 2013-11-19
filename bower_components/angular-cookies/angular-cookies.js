@@ -109,7 +109,7 @@ angular.module('ngCookies', ['ng']).
           }
         }
 
-        //verify what was actually stored
+        //verify what was currently stored
         if (updated){
           updated = false;
           browserCookies = $browser.cookies();
