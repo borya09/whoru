@@ -29,23 +29,23 @@ Clone this repo and install the dependencies:
 
 scripts
 -----------
-`grunt server`
+`grunt server`: 
 Starts development environment:
 * Watch changes in coffee, sass, jade -> compile
 * live reload browser
 * unit testing
 
 
-`grunt`
+`grunt`: 
 Builds the project
 * unit/e2e testing
 * Unifies js & css
 
-`grunt dist`
+`grunt dist`: 
 Builds the project and uploads it to gh-pages
 
 
-`grunt docco`
+`grunt docco`: 
 Builds the documentation. Based on http://jashkenas.github.io/docco/
 
 
@@ -53,22 +53,45 @@ Builds the documentation. Based on http://jashkenas.github.io/docco/
 config
 ---------
 
-`config/_config.json`
+### Main config
+
+`config/_config.json`: 
+
 Config available locales, and the default one
 
-`config/intro_{LOCALE}.json`
+
+### Introduction
+
+`config/intro_{LOCALE}.json`: 
+
 ** One file per each available locale
+
 Config basic/introductory information about the cv
 
-`config/cv_{LOCALE}.json`
+
+### CV
+
+`config/cv_{LOCALE}.json`: 
+
 ** One file per each available locale
+
 Config parts (groups of information) of the cv
 
-`config/questions_{LOCALE}.json`
+
+### Questions
+
+`config/questions_{LOCALE}.json`: 
+
 ** One file per each available locale
+
 Config questions to interview the interviewers
 
-`config/contacts.json`
+
+
+### Contacts
+
+`config/contacts.json`: 
+
 Config information about contact
 * Webs
 * RRSS
@@ -85,17 +108,17 @@ Available dynamic css classes
 ------
 
 
-`html.header-fixed`
+`html.header-fixed`: 
 
 **.header-fixed** appears in the **html** element When document is scrolled more than the header navbar height
 
 
-`li.wh-header-option.current`
+`li.wh-header-option.current`: 
 
 **.current** appears when the displayed section in the browser represents that option in the navbar
 
 
-`li.wh-header-locale.current`
+`li.wh-header-locale.current`: 
 
 **.current** appears when the displayed language represents that locale in the navbar
 
