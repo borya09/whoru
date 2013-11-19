@@ -48,17 +48,17 @@ Available dynamic css classes
 
 `html.header-fixed`
 
-*.header-fixed* appears in ##html## element When document is scrolled more than the header navbar height
+**.header-fixed** appears in the **html** element When document is scrolled more than the header navbar height
 
 
 `li.wh-header-option.current`
 
-*.current* appears when the displayed section in the browser represents that option in the navbar
+**.current** appears when the displayed section in the browser represents that option in the navbar
 
 
 `li.wh-header-locale.current`
 
-*.current* appears when the displayed language represents that locale in the navbar
+**.current** appears when the displayed language represents that locale in the navbar
 
 
 
