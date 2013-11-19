@@ -26,13 +26,7 @@ angular.module('whoruApp')
       headerActualOption.actual = false if headerActualOption
       # Establish actual one
       headerActualOption = option
-
-
-      # Function that set 'actual' property to true, which will add css class 'actual'
-
-
-
-      # Workaround to fix error 'Error: $digest already in progress'
+      # Set 'actual' property to true, which will add css class 'actual'
       $scope.$apply ->
         headerActualOption.actual = true
   ]

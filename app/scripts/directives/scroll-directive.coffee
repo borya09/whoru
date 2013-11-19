@@ -2,7 +2,7 @@
 'use strict'
 
 # Directive based from http://alxhill.com/blog/articles/angular-scrollspy/
-
+# TODO: TEST
 angular.module('whoruApp')
   .directive 'scrollSpy', ($window) ->
     $spies = []
@@ -24,15 +24,31 @@ angular.module('whoruApp')
     link: (scope, elem, attrs) ->
 
       lastActualId = undefined
+      $html = $('html')
+      $header = $('.header-container')
 
       $($window).scroll ->
-        $actual = null
 
+        scrollYPos = $window.scrollY
+
+        # Finds if the scroll is enough low to set the header as fixed (set a css class 'header-fixed' in the html element)
+
+        headerHeight = $header.height()
+
+        if scrollYPos > headerHeight
+          $html.addClass('header-fixed')
+        else
+          $html.removeClass('header-fixed')
+
+
+        # Finds current section in the browser screnn, to set in the header navbar its option as the actual one
+        $actual = null
         for $spied in $spies
 
-          if ($spied.length && pos = $spied.offset().top) - $window.scrollY <= 0
+          if ($spied.length && pos = $spied.offset().top) - scrollYPos <= 0
             $spied.pos = pos
             $actual ?= $spied
+
             if $actual.pos < $spied.pos
               $actual = $spied
 
@@ -41,6 +57,7 @@ angular.module('whoruApp')
           for headerOpt in scope.header.nav
             if actualId is headerOpt.id
               if lastActualId != actualId
+
                 lastActualId = actualId
                 scope.setHeaderActualOption headerOpt
               break
