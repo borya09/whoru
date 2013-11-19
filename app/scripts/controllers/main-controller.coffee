@@ -5,7 +5,7 @@
 angular.module('whoruApp')
   .controller 'MainCtrl', ['$scope', '$rootScope', 'DataTranslatorService', ($scope, $rootScope, dataTranslatorService) ->
 
-    headerActualOption = undefined
+    headerCurrentOption = undefined
 
     $rootScope.header =  {}
     $rootScope.header.nav =  []
@@ -15,19 +15,19 @@ angular.module('whoruApp')
       .then (locales) ->
         $scope.locales = locales
 
-    # Set actual locale and broadcast that event
-    $scope.setActualLocale = (locale) ->
+    # Set current locale and broadcast that event
+    $scope.setCurrentLocale = (locale) ->
       dataTranslatorService.setLocale(locale)
       $rootScope.$broadcast 'locale_changed'
 
-    # Set header actual option
-    $scope.setHeaderActualOption = (option) ->
+    # Set header current option
+    $scope.setHeaderCurrentOption = (option) ->
       # Disable previous one
-      headerActualOption.actual = false if headerActualOption
-      # Establish actual one
-      headerActualOption = option
-      # Set 'actual' property to true, which will add css class 'actual'
+      headerCurrentOption.current = false if headerCurrentOption
+      # Establish current one
+      headerCurrentOption = option
+      # Set 'current' property to true, which will add css class 'current'
       $scope.$apply ->
-        headerActualOption.actual = true
+        headerCurrentOption.current = true
   ]
 

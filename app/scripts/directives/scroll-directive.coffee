@@ -23,7 +23,7 @@ angular.module('whoruApp')
     ]
     link: (scope, elem, attrs) ->
 
-      lastActualId = undefined
+      lastCurrentId = undefined
       $html = $('html')
       $header = $('.header-container')
 
@@ -41,25 +41,25 @@ angular.module('whoruApp')
           $html.removeClass('header-fixed')
 
 
-        # Finds current section in the browser screnn, to set in the header navbar its option as the actual one
-        $actual = null
+        # Finds current section in the browser screnn, to set in the header navbar its option as the current one
+        $current = null
         for $spied in $spies
 
           if ($spied.length && pos = $spied.offset().top) - scrollYPos <= 0
             $spied.pos = pos
-            $actual ?= $spied
+            $current ?= $spied
 
-            if $actual.pos < $spied.pos
-              $actual = $spied
+            if $current.pos < $spied.pos
+              $current = $spied
 
-        if $actual
-          actualId = $actual.attr('id')
+        if $current
+          currentId = $current.attr('id')
           for headerOpt in scope.header.nav
-            if actualId is headerOpt.id
-              if lastActualId != actualId
+            if currentId is headerOpt.id
+              if lastCurrentId != currentId
 
-                lastActualId = actualId
-                scope.setHeaderActualOption headerOpt
+                lastCurrentId = currentId
+                scope.setHeaderCurrentOption headerOpt
               break
 
   .directive 'spied', ->

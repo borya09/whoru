@@ -45,13 +45,13 @@ class MainControllerSpec extends ControllerSpec
       it 'should attach the locales to the scope', ->
         expect(@scope.locales).toBe fixtures.config.b.locales
 
-    describe '\'$scope.setActualLocale\' method', ->
+    describe '\'$scope.setCurrentLocale\' method', ->
 
       locale = fixtures.config.c
 
       beforeEach ->
         do @createController
-        @scope.setActualLocale locale
+        @scope.setCurrentLocale locale
 
       it 'should call \'dataTranslatorService.setLocale\' method with given locale', ->
         expect(@dataTranslatorService.setLocale).toHaveBeenCalledWith locale
@@ -59,7 +59,7 @@ class MainControllerSpec extends ControllerSpec
       it 'should broadcast event \'locale_changed\'', ->
         expect(@rootScope.$broadcast).toHaveBeenCalledWith 'locale_changed'
 
-    describe '\'$scope.setHeaderActualOption\' method', ->
+    describe '\'$scope.setHeaderCurrentOption\' method', ->
 
       opt1 = {
         id : '1'
@@ -72,17 +72,17 @@ class MainControllerSpec extends ControllerSpec
         do @createController
 
 
-      it 'should change actual option from null to #1 and then, to #2',  ->
-        expect(opt1.actual).not.toBeTruthy()
-        expect(opt2.actual).not.toBeTruthy()
+      it 'should change current option from null to #1 and then, to #2',  ->
+        expect(opt1.current).not.toBeTruthy()
+        expect(opt2.current).not.toBeTruthy()
 
-        @scope.setHeaderActualOption opt1
-        expect(opt1.actual).toBeTruthy()
-        expect(opt2.actual).not.toBeTruthy()
+        @scope.setHeaderCurrentOption opt1
+        expect(opt1.current).toBeTruthy()
+        expect(opt2.current).not.toBeTruthy()
 
-        @scope.setHeaderActualOption opt2
-        expect(opt1.actual).not.toBeTruthy()
-        expect(opt2.actual).toBeTruthy()
+        @scope.setHeaderCurrentOption opt2
+        expect(opt1.current).not.toBeTruthy()
+        expect(opt2.current).toBeTruthy()
 
 
 

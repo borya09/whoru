@@ -4,10 +4,10 @@ h1.title.wh-header-intro-fullname
     .wh-header-intro-surname2(ng-if="header.intro.surname2") {{header.intro.surname2}}
 nav.wh-header-nav
     ul.wh-header-options
-        li.wh-header-option(ng-repeat='option in header.nav | orderBy: \'order\'', ng-class='{actual: option.actual}')
+        li.wh-header-option(ng-repeat='option in header.nav | orderBy: \'order\'', ng-class='{current: option.current}')
             a(ng-click="smoothScroll(option)", href="javascript:void(0)", title="{{option.title}}") {{option.title}}
 
     ul.wh-header-locales(ng-if="locales.length > 1")
-        li.wh-header-locale(ng-repeat='locale in locales', ng-class='{actual: locale.actual}')
-            a(ng-click="setActualLocale(locale)", href="javascript:void(0)", title="{{locale.text}}")
+        li.wh-header-locale(ng-repeat='locale in locales', ng-class='{current: locale.current}')
+            a(ng-click="setCurrentLocale(locale)", href="javascript:void(0)", title="{{locale.text}}")
                 img(ng-src="{{locale.image}}", title="{{locale.text}}")

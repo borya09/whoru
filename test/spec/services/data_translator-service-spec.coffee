@@ -62,21 +62,21 @@ class DataTranslatorServiceSpec extends ServiceSpec
           @httpBackend.when('GET', /data\/config.json$/).respond fixtures.config.d
           do @httpBackend.flush
 
-        it 'should change actual locale from \'EN\' to \'ES\'', ->
+        it 'should change current locale from \'EN\' to \'ES\'', ->
           expect(@dataTranslatorService.getLocale().key).toBe 'en'
-          expect(localeES.actual).not.toBeTruthy()
-          expect(localeEN.actual).toBeTruthy()
+          expect(localeES.current).not.toBeTruthy()
+          expect(localeEN.current).toBeTruthy()
 
           @dataTranslatorService.setLocale localeES
 
           expect(@dataTranslatorService.getLocale().key).toBe 'es'
-          expect(localeES.actual).toBeTruthy()
-          expect(localeEN.actual).not.toBeTruthy()
+          expect(localeES.current).toBeTruthy()
+          expect(localeEN.current).not.toBeTruthy()
 
 
     describe '\'getDataFilePath\' method', ->
 
-      describe 'with EN as actual language, and \'cv\' file path is requested', ->
+      describe 'with EN as current language, and \'cv\' file path is requested', ->
 
         beforeEach ->
           @httpBackend.when('GET', /data\/config.json$/).respond fixtures.config.d

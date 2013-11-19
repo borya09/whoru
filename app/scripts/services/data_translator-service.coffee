@@ -42,14 +42,14 @@ class DataTranslatorService
           @config.locales
 
 
-    # Set actual locale
+    # Set current locale
     DataTranslatorService::setLocale = (locale) ->
       if @locale
-        @locale.actual = false
+        @locale.current = false
       @locale = locale
-      @locale.actual = true
+      @locale.current = true
 
-    # Get actual locale
+    # Get current locale
     DataTranslatorService::getLocale = () ->
       @locale
 

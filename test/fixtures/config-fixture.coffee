@@ -15,7 +15,7 @@ global.$FIXTURES.config =
       key: "es"
     ]
   c:
-    actual: true
+    current: true
     text: 'EN'
     key: "en"
   d:
