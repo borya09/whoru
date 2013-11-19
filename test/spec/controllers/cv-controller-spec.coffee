@@ -28,21 +28,24 @@ class CvControllerSpec extends ControllerSpec
       it 'should call \'cvService.get\' method', () ->
         expect(@cvService.get).toHaveBeenCalled()
 
-      it 'should attach the cv to the scope', () ->
-        expect(@scope.cv.length).toBe 2
-        part1 = @scope.cv[0]
+      it 'should attach the title of the cv and two parts to the scope', () ->
+        expect(@scope.cv.title).toBe 'CV'
+        expect(@scope.cv.parts.length).toBe 2
+        part1 = @scope.cv.parts[0]
         expect(part1 instanceof CvPart).toBeTruthy()
         expect(part1.title).toBe 'Sección 1'
         expect(part1.content).toBe 'contenido de la sección 1'
 
       it 'should attach to scope/rootScope info for the header navbar', () ->
 
-        expect(@rootScope.nav).toEqual [
-          order : 2,
+        expect(@rootScope.header.nav).toEqual [
+          id : 'sec1'
+          order : 20,
           title : 'Sección 1'
           href : '#sec1'
         ,
-          order : 2,
+          id : 'sec2'
+          order : 21,
           title : 'Sección 2'
           href : '#sec2'
         ]

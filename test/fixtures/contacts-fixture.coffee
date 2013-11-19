@@ -2,13 +2,14 @@ global = exports ? this
 global.$FIXTURES = global.$FIXTURES ? {}
 global.$FIXTURES.contacts =
   a:
-    version: "0.0.1"
+    version: "0.0.1",
+    title:"Contacts"
     contacts: [
       type: "web"
-      value: "http://www.as.com"
+      value: "http://www.google.com"
       icon: "Z"
     ,
       type: "web"
-      value: "https://github.com/borya09/"
+      value: "https://github.com/"
       icon: "t"
     ]

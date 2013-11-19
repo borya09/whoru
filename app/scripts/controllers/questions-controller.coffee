@@ -7,11 +7,12 @@ class QuestionsController
 
     sectionId = 'questions'
     navInfo =
-      order: 3
+      id : sectionId
+      order: 40
       title : 'questions'
       href : '#' + sectionId
 
-    $rootScope.nav.push navInfo
+    $rootScope.header.nav.push navInfo
     $scope.id = sectionId
 
     setQuestions = =>

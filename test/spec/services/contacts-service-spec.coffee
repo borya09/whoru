@@ -21,17 +21,20 @@ class ContactsServiceSpec extends ServiceSpec
         @contactsService.get()
         do @httpBackend.flush
 
-      it 'should return an an object with title and an array of two questions', ->
+      it 'should return an object with title and an array of two contacts', ->
         contacts = {}
+        title = undefined
 
         @contactsService.get()
           .then (data) ->
-            contacts = data
+            contacts = data.contacts
+            title = data.title
 
         do @httpBackend.flush
 
         expect(contacts instanceof Object).toBeTruthy()
         expect(contacts.length).toBe 2
+        expect(title).toBe 'Contacts'
 
     afterEach ->
       do @httpBackend.verifyNoOutstandingExpectation

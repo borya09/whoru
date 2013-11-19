@@ -17,7 +17,7 @@ class IntroService
             $http.get(filePath)
               .then (response) ->
 
-                new Intro(response.data.intro)
+                new Intro(response.data.intro, response.data.title)
 
 
 

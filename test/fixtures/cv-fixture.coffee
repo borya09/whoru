@@ -3,6 +3,7 @@ global.$FIXTURES = global.$FIXTURES ? {}
 global.$FIXTURES.cv =
   a:
     version: '0.0.1'
+    title: 'CV'
     parts: [
       title: 'Sección 1'
       key: 'sec1'
@@ -14,6 +15,7 @@ global.$FIXTURES.cv =
     ]
   b:
     version: '0.0.1'
+    title: 'CV'
     parts: [
       title: 'Section 1'
       key: 'sec1'

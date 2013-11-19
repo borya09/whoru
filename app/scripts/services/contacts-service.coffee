@@ -10,7 +10,7 @@ class ContactsService
     ContactsService::get = ->
       $http.get(urlBase)
         .then (response) ->
-          response.data.contacts
+          response.data
 
 
 angular.module('whoruApp').service 'ContactsService', ['$log', '$http', ContactsService]

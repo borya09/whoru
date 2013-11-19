@@ -1,7 +1,7 @@
-section.wh-cv(ng-controller="CvCtrl", ng-show='cv.length')
+section.wh-cv(ng-controller="CvCtrl", ng-show='cv.parts.length')
     h3.wh-cv-title {{cv.title}}
 
-    article.wh-cv-part(ng-repeat='part in cv', id='{{part.id}}', ng-class='part.cssClass')
+    article.wh-cv-part(ng-repeat='part in cv.parts', id='{{part.id}}', ng-class='part.cssClass', spied)
 
         header.wh-cv-part-header(ng-if='part.title')
             h4.wh-cv-part-title {{part.title}}

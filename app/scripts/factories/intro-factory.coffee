@@ -1,11 +1,12 @@
 'use strict'
 
 class Intro
-  constructor: (data) ->
+  constructor: (data, title) ->
+    @title = title
     for key of data
       @[key] = data[key]
 
-  fullname: ->
+  Intro::fullname= ->
     fullname = @name
     fullname += " #{@surname1}" if @surname1
     fullname += " #{@surname2}" if @surname2

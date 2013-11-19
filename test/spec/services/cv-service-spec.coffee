@@ -32,12 +32,14 @@ class CvServiceSpec extends ServiceSpec
 
 
         expect(typeof cv).toBe 'object'
-        expect(cv.length).toBe 2
+        expect(cv.parts.length).toBe 2
 
-        part1 = cv[0]
+        part1 = cv.parts[0]
         expect(part1 instanceof CvPart).toBeTruthy()
         expect(part1.title).toBe 'Sección 1'
         expect(part1.content).toBe 'contenido de la sección 1'
+
+        expect(cv.title).toBe 'CV'
 
     afterEach ->
       do @httpBackend.verifyNoOutstandingExpectation

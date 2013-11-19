@@ -19,5 +19,8 @@ class ControllerSpec
       @httpBackend = $httpBackend
       @q = $q
 
-      @rootScope.nav = []
+      @rootScope.header = {}
+      @rootScope.header.nav = []
+
+
 

@@ -1,5 +1,5 @@
-section.wh-intro(ng-controller="IntroCtrl", id='{{id}}')
-    h1.wh-intro-fullname
+section.wh-intro(ng-controller="IntroCtrl", id='{{id}}', spied)
+    .wh-intro-fullname
         .wh-intro-name {{intro.name}}
         .wh-intro-surname1(ng-if="intro.surname1") {{intro.surname1}}
         .wh-intro-surname2(ng-if="intro.surname2") {{intro.surname2}}

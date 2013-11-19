@@ -19,12 +19,20 @@
   overflow: hidden
 
 
+//TODO: Delete!!
 .header-container
   position: fixed
   width: 100%
   background: black
   li
     float: left
+
+.wh-header-intro-fullname
+  div
+    float: left
+    color: red
+
+
 
 .wh-header-options
   float: left
@@ -37,14 +45,30 @@
   padding: 4em 1em
 
 
-.footer-container
-  position: fixed
-  width: 100%
-  background: black
-  bottom: 0
+
+
+.wh-header-option
+  color: blue
+  &.actual
+    border-bottom: 2px solid blue
+
+
+.wh-intro,
+.wh-cv-part,
+.wh-question,
+.wh-contacts
+  margin: 100px auto
+
+
+.wh-contacts
+  margin-bottom: 400px
+
+//END Delete!!
+
+
 
 .wh-contact
-  color: white
+
   &:before
     font-family: 'whoru-icons'
     content: attr(data-wh-icon)
@@ -58,15 +82,6 @@
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased
     -moz-osx-font-smoothing: grayscale
-
-
-
-//TODO: DELETE
-.wh-header-locale
-  +transition-duration(2s)
-  +transition-property(padding)
-  &.actual
-    padding-left: 20px
 
 
 

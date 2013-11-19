@@ -16,10 +16,12 @@ class CvService
 
           $http.get(filePath)
             .then (response) ->
+              cv =
+                title : response.data.title
+                parts : []
 
-              cv = []
               for part in response.data.parts
-                cv.push new CvPart(part)
+                cv.parts.push new CvPart(part)
               cv
 
 

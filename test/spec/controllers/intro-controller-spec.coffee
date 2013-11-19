@@ -47,9 +47,10 @@ class IntroControllerSpec extends ControllerSpec
 
         it 'should attach to scope/rootScope info for the header navbar', () ->
           expect(@scope.id).toBe 'intro'
-          expect(@rootScope.nav).toEqual [
-            order : 1
-            title : fixture.intro.name + ' ' + fixture.intro.surname1
+          expect(@rootScope.header.nav).toEqual [
+            id : 'intro'
+            order : 10
+            title : fixture.title
             href : '#intro'
           ]
 
@@ -71,6 +72,18 @@ class IntroControllerSpec extends ControllerSpec
           expect(@error).toMatch('- name')
           expect(@error).toMatch('- description')
 
+
+    describe '\'locale_changed\' event broadcasted', ->
+      fixture = undefined
+
+      beforeEach ->
+        fixture = fixtures.intro.a
+        @createController fixture
+        @rootScope.$broadcast('locale_changed')
+        do @httpBackend.flush
+
+      it 'should call \'introService.get\' method', () ->
+        expect(@introService.get).toHaveBeenCalled()
 
 describe 'Controller: IntroCtrl', () -> do new IntroControllerSpec().test
 

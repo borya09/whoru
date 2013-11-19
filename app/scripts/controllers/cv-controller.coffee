@@ -13,8 +13,10 @@ angular.module('whoruApp')
         .then (cv) ->
           $scope.cv = cv
 
+          count = 0
+
           # Iterates over the parts in the cv to build the header navbar with each part
-          for part in cv
+          for part in cv.parts
 
             navInfoOpt = navInfoOptions[part.id]
 
@@ -26,11 +28,12 @@ angular.module('whoruApp')
             # Build the option for the header navbar
             else
               navInfoOpt =
-                order : 2
+                id : part.id
+                order : 2 * 10 + count++
                 title : part.title
                 href : '#' + part.id
               navInfoOptions[part.id] = navInfoOpt
-              $rootScope.nav.push navInfoOpt
+              $rootScope.header.nav.push navInfoOpt
 
 
     # Listens to 'locale_changed' event

@@ -1,21 +1,20 @@
 'use strict'
 
+
 angular.module('whoruApp')
+
+# Requiered fields of 'intro'
   .value 'CV_REQUIRED_FIELDS',
     [
       'name'
       'summary'
     ]
 
+# **Controller _'IntroCtrl'_**
   .controller 'IntroCtrl', ['$scope', '$rootScope', 'IntroService', 'CV_REQUIRED_FIELDS', ($scope, $rootScope, introService, requiredFields) ->
 
-    sectionId = 'intro'
 
-    navInfo =
-      order: 1
-      title : 'intro'
-      href : '#' + sectionId
-
+    #Checks if there is any required field
     introHasErrors = (intro)->
       error = ''
       for field in requiredFields
@@ -23,18 +22,36 @@ angular.module('whoruApp')
       error
 
 
-    $rootScope.nav.push navInfo
+    #publish in the $rootScope, info for the header navbar
+    sectionId = 'intro'
+
+    navInfo =
+      id : sectionId
+      order: 10
+      title : 'intro'
+      href : '#' + sectionId
+
+
+    $rootScope.header.nav.push navInfo
     $scope.id = sectionId
 
+    # Retrieves and publish in the $scope the intro
+    get = ->
+      introService.get()
+        .then (intro) ->
+          if errors = introHasErrors intro
+            throw new Error "Required fields:\n #{errors}"
+          else
+            navInfo.title = intro.title
+            $scope.intro = intro
+            $rootScope.header.intro = intro
 
-    introService.get()
-      .then (intro) ->
-        if errors = introHasErrors intro
-          throw new Error "Required fields:\n #{errors}"
-        else
+    # Listens to 'locale_changed' event
+    $scope.$on 'locale_changed', ->
+      do get
 
-          navInfo.title = intro.fullname()
-          $scope.intro = intro
+    # Fires initialization (get)
+    do get
 
     return
 
