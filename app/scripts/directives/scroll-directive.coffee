@@ -24,28 +24,41 @@ angular.module('whoruApp')
     link: (scope, elem, attrs) ->
 
       lastCurrentId = undefined
-      $html = $('html')
-      $header = $('.header-container')
+      $html = $ 'html'
+      $header = $ '.header-container'
+      $$window = $($window)
 
-      $($window).scroll ->
+      $$window.scroll ->
 
         scrollYPos = $window.scrollY
+        windowHeight = $$window.height()
+
+        # Finds elements which should be animated when shown in the screen(with css class '.when-shown'),
+        # applying css class '.do'
+        $toAnimateElements = $ '.when-shown:not(.do)'
+        if $toAnimateElements.length
+          $toAnimateElements.each ->
+            $this = $ this
+            a = $this.offset().top + windowHeight/2
+            b = $$window.scrollTop() + windowHeight
+            if a < b
+              $this.addClass 'do'
+
 
         # Finds if the scroll is enough low to set the header as fixed (set a css class 'header-fixed' in the html element)
-
         headerHeight = $header.height()
 
         if scrollYPos > headerHeight
-          $html.addClass('header-fixed')
+          $html.addClass 'header-fixed'
         else
-          $html.removeClass('header-fixed')
+          $html.removeClass 'header-fixed'
 
 
-        # Finds current section in the browser screnn, to set in the header navbar its option as the current one
+        # Finds current section in the browser screen, to set in the header navbar its option as the current one
         $current = null
         for $spied in $spies
 
-          if ($spied.length && pos = $spied.offset().top) - scrollYPos <= 0
+          if ($spied.length && pos = $spied.offset().top) - scrollYPos <= windowHeight/2
             $spied.pos = pos
             $current ?= $spied
 

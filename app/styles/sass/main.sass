@@ -29,6 +29,7 @@
 
 .header-fixed
   .header-container
+    z-index: 2
     box-shadow: 0 0 40px rgba(255, 0, 36, 0.28)
 
 .wh-header-intro-fullname
@@ -71,6 +72,16 @@
 //END Delete!!
 
 
+.when-shown
+  position: relative
+  &:not(.do)
+    //opacity: 0
+    left: -9999px
+  &.do
+    //opacity: 1
+    left: 0
+    @include transition-property(left)
+    @include transition-duration(.5s)
 
 .wh-contact
 
