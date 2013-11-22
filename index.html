@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory-->
-    <link rel="stylesheet" href="styles/8557f84c.main.css">
+    <link rel="stylesheet" href="styles/c30db9af.main.css">
     <script type="text/javascript">document.write('<base href="' + document.location + '" />');</script>
   </head>
   <body ng-app="whoruApp" ng-controller="MainCtrl" ng-cloak="" scroll-spy="">
@@ -94,7 +94,7 @@
     <div class="footer-container">
       <footer class="wh-footer wrapper">
         <ul ng-controller="ContactsCtrl" id="{{id}}" ng-show="contacts.length" spied="" class="wh-contacts">
-          <li ng-repeat="contact in contacts"><a ng-href="{{contact.type=='phone'?'tel:':contact.type=='mail'?'mailto:':''}}{{contact.value}}" title="{{contact.value}}" data-wh-icon="{{contact.icon}}" ng-class="contact.type" class="wh-contact">{{contact.value}}</a></li>
+          <li ng-repeat="contact in contacts"><a ng-href="{{contact.type=='phone'?'tel:':contact.type=='mail'?'mailto:':''}}{{contact.value}}" title="{{contact.value}}" data-wh-icon="{{contact.icon}}" ng-class="contact.type" class="wh-contact hide-text">{{contact.value}}</a></li>
         </ul>
       </footer>
     </div>
@@ -110,6 +110,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="scripts/b2e10d90.modules.js"></script>
-    <script src="scripts/f2330fe8.scripts.js"></script>
+    <script src="scripts/6ca82846.scripts.js"></script>
   </body>
 </html>

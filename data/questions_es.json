@@ -1,5 +1,6 @@
 {
 	"version": "0.0.1",
+	"header": "Questions",
 	"title": "Preguntas",
 	"description": "Ey!, ¿Quién eres? Veámoslo",
 	"questions": [
