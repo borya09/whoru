@@ -3,6 +3,7 @@ global.$FIXTURES = global.$FIXTURES ? {}
 global.$FIXTURES.intro =
   a:
     version: "0.0.1"
+    header: "header"
     title: "intro"
     intro:
       name: "borja"

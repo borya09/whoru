@@ -40,7 +40,7 @@ class ContactsControllerSpec extends ControllerSpec
         expect(@rootScope.header.nav).toEqual [
           id : 'contacts'
           order : 50
-          title : @contacts.title
+          title : @contacts.header
           href : '#contacts'
         ]
 

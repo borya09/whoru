@@ -24,7 +24,7 @@ class QuestionsController
           #console.log questions
 
 
-          navInfo.title = data.title
+          navInfo.title = data.header
           $scope.title = data.title
           $scope.description = data.description
           $scope.questions = []

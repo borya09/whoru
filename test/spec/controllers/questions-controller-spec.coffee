@@ -46,7 +46,7 @@ class QuestionsControllerSpec extends ControllerSpec
         expect(@rootScope.header.nav).toEqual [
           id : 'questions'
           order: 40
-          title : 'questions json'
+          title : 'header1'
           href : '#questions'
         ]
 

@@ -37,6 +37,7 @@ class CvServiceSpec extends ServiceSpec
         part1 = cv.parts[0]
         expect(part1 instanceof CvPart).toBeTruthy()
         expect(part1.title).toBe 'Sección 1'
+        expect(part1.header).toBe 'header 1'
         expect(part1.content).toBe 'contenido de la sección 1'
 
         expect(cv.title).toBe 'CV'

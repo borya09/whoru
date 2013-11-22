@@ -5,10 +5,12 @@ global.$FIXTURES.cv =
     version: '0.0.1'
     title: 'CV'
     parts: [
+      header: 'header 1'
       title: 'Sección 1'
       key: 'sec1'
       content: 'contenido de la sección 1'
     ,
+      header: 'header 2'
       title: 'Sección 2'
       key: 'sec2'
       content: 'contenido de la sección 2'

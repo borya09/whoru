@@ -41,12 +41,12 @@ class CvControllerSpec extends ControllerSpec
         expect(@rootScope.header.nav).toEqual [
           id : 'sec1'
           order : 20,
-          title : 'Sección 1'
+          title : 'header 1'
           href : '#sec1'
         ,
           id : 'sec2'
           order : 21,
-          title : 'Sección 2'
+          title : 'header 2'
           href : '#sec2'
         ]
 

@@ -42,7 +42,7 @@ angular.module('whoruApp')
           if errors = introHasErrors intro
             throw new Error "Required fields:\n #{errors}"
           else
-            navInfo.title = intro.title
+            navInfo.title = intro.header
             $scope.intro = intro
             $rootScope.header.intro = intro
 

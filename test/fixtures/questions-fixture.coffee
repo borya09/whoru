@@ -13,6 +13,7 @@ global.$FIXTURES.questions =
     ]
   b:
     version: "0.0.1"
+    header: 'header1'
     title: 'questions json'
     version: '1.0.0'
     questions: [

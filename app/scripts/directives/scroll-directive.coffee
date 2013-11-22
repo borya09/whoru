@@ -18,7 +18,7 @@ angular.module('whoruApp')
         target = $ '#' + element.id
         if target.length
           $body.animate
-            scrollTop: target.offset().top
+            scrollTop: target.offset().top - 100
           , 1000
     ]
     link: (scope, elem, attrs) ->
@@ -26,6 +26,7 @@ angular.module('whoruApp')
       lastCurrentId = undefined
       $html = $ 'html'
       $header = $ '.header-container'
+      $intro = $ '.wh-intro'
       $$window = $($window)
 
       $$window.scroll ->
@@ -52,6 +53,13 @@ angular.module('whoruApp')
           $html.addClass 'header-fixed'
         else
           $html.removeClass 'header-fixed'
+
+
+        #Finds if the #intro section has been scrolled, to set the header a css class 'header-intro-scrolled'
+        if scrollYPos > $intro.offset().top + $intro.height()
+          $html.addClass 'intro-scrolled'
+        else
+          $html.removeClass 'intro-scrolled'
 
 
         # Finds current section in the browser screen, to set in the header navbar its option as the current one

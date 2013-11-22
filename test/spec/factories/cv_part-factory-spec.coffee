@@ -13,6 +13,7 @@ class CvPartFactorySpec extends FactorySpec
 
     describe '\'constructor\' method, when called', ->
       it 'should create an object with correct params', ->
+        expect(@cvPart.header).toBe cvPart.header
         expect(@cvPart.title).toBe cvPart.title
         expect(@cvPart.cssClass).toBe cvPart.key
         expect(@cvPart.id).toBe cvPart.key

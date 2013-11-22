@@ -19,13 +19,46 @@
   overflow: hidden
 
 
-//TODO: Delete!!
+.wh-contact
+
+  &:before
+    font-family: 'whoru-icons'
+    content: attr(data-wh-icon)
+    speak: none
+    font-style: normal
+    font-weight: normal
+    font-variant: normal
+    text-transform: none
+    line-height: 1
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+
+
+
+
+
+
+//Demo styles!
+
 .header-container
   position: fixed
+  top: -80px
   width: 100%
   background: black
   li
     float: left
+  &:before,
+  &:after
+    content: ''
+    display: table
+
+.intro-scrolled .header-container
+  top: 0
+  +transition-property(top)
+  +transition-duration(1s)
+
 
 .header-fixed
   .header-container
@@ -38,7 +71,6 @@
     color: red
 
 
-
 .wh-header-options
   float: left
 
@@ -48,7 +80,6 @@
 
 .main-container
   padding: 4em 1em
-
 
 
 
@@ -69,7 +100,8 @@
 .wh-contacts
   margin-bottom: 500px
 
-//END Delete!!
+.wh-cv-title
+  text-indent: -9999px
 
 
 .when-shown
@@ -80,25 +112,5 @@
   &.do
     //opacity: 1
     left: 0
-    @include transition-property(left)
-    @include transition-duration(.5s)
-
-.wh-contact
-
-  &:before
-    font-family: 'whoru-icons'
-    content: attr(data-wh-icon)
-    speak: none
-    font-style: normal
-    font-weight: normal
-    font-variant: normal
-    text-transform: none
-    line-height: 1
-
-    /* Better Font Rendering =========== */
-    -webkit-font-smoothing: antialiased
-    -moz-osx-font-smoothing: grayscale
-
-
-
-
+    +transition-property(left)
+    +transition-duration(.5s)

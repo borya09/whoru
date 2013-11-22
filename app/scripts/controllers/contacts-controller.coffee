@@ -20,6 +20,6 @@ angular.module('whoruApp')
       .then (data) ->
         $scope.contacts = data.contacts
         $scope.title = data.title
-        navInfo.title  = data.title
+        navInfo.title  = data.header
     return
   ]

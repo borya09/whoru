@@ -1,4 +1,4 @@
 ul.wh-contacts(ng-controller="ContactsCtrl", id="{{id}}", ng-show="contacts.length", spied)
     li(ng-repeat="contact in contacts")
-        a.wh-contact(ng-href="{{contact.type=='phone'?'tel:':contact.type=='mail'?'mailto:':''}}{{contact.value}}",title="{{contact.value}}",data-wh-icon="{{contact.icon}}",ng-class="contact.type") {{contact.value}}
+        a.wh-contact.hide-text(ng-href="{{contact.type=='phone'?'tel:':contact.type=='mail'?'mailto:':''}}{{contact.value}}",title="{{contact.value}}",data-wh-icon="{{contact.icon}}",ng-class="contact.type") {{contact.value}}
 

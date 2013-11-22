@@ -23,14 +23,14 @@ angular.module('whoruApp')
             # Locale change, update the title
             # TODO: Test!
             if navInfoOpt
-              navInfoOpt.title = part.title
+              navInfoOpt.title = part.header
 
             # Build the option for the header navbar
             else
               navInfoOpt =
                 id : part.id
                 order : 2 * 10 + count++
-                title : part.title
+                title : part.header
                 href : '#' + part.id
               navInfoOptions[part.id] = navInfoOpt
               $rootScope.header.nav.push navInfoOpt

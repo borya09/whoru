@@ -45,14 +45,16 @@ class IntroControllerSpec extends ControllerSpec
           expect(@scope.intro.age).toBe fixture.intro.age
           expect(@scope.intro.description).toBe fixture.intro.description
 
-        it 'should attach to scope/rootScope info for the header navbar', () ->
-          expect(@scope.id).toBe 'intro'
-          expect(@rootScope.header.nav).toEqual [
-            id : 'intro'
-            order : 10
-            title : fixture.title
-            href : '#intro'
-          ]
+        describe 'if title for the header is defined', () ->
+
+          it 'should attach to scope/rootScope info for the header navbar', () ->
+            expect(@scope.id).toBe 'intro'
+            expect(@rootScope.header.nav).toEqual [
+              id : 'intro'
+              order : 10
+              title : fixture.header
+              href : '#intro'
+            ]
 
 
       describe 'with NO correct intro', ->
