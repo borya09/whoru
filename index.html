@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory-->
-    <link rel="stylesheet" href="styles/8253ebc1.main.css">
+    <link rel="stylesheet" href="styles/8557f84c.main.css">
     <script type="text/javascript">document.write('<base href="' + document.location + '" />');</script>
   </head>
   <body ng-app="whoruApp" ng-controller="MainCtrl" ng-cloak="" scroll-spy="">
@@ -57,7 +57,7 @@
         </section>
         <section ng-controller="CvCtrl" ng-show="cv.parts.length" class="wh-cv">
           <h3 class="wh-cv-title">{{cv.title}}</h3>
-          <article ng-repeat="part in cv.parts" id="{{part.id}}" ng-class="part.cssClass" spied="" class="wh-cv-part">
+          <article ng-repeat="part in cv.parts" id="{{part.id}}" ng-class="part.cssClass" spied="" class="wh-cv-part when-shown">
             <header ng-if="part.title" class="wh-cv-part-header">
               <h4 class="wh-cv-part-title">{{part.title}}</h4>
             </header>
@@ -110,6 +110,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="scripts/b2e10d90.modules.js"></script>
-    <script src="scripts/bebf1a74.scripts.js"></script>
+    <script src="scripts/f2330fe8.scripts.js"></script>
   </body>
 </html>
