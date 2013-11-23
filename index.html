@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory-->
-    <link rel="stylesheet" href="styles/c30db9af.main.css">
+    <link rel="stylesheet" href="styles/60c6f5ca.main.css">
     <script type="text/javascript">document.write('<base href="' + document.location + '" />');</script>
   </head>
   <body ng-app="whoruApp" ng-controller="MainCtrl" ng-cloak="" scroll-spy="">
@@ -74,8 +74,8 @@
             </ol>
           </article>
         </section>
-        <section ng-controller="QuestionsCtrl" id="{{id}}" ng-show="questions.length" spied="" class="wh-questions">
-          <h3>{{ title }}</h3>
+        <section ng-controller="QuestionsCtrl" id="{{id}}" ng-show="questions.length" spied="" class="wh-questions when-shown">
+          <h3 class="wh-questions-title">{{ title }}</h3>
           <p class="wh-questions-description">{{ description }}</p>
           <ol>
             <li ng-repeat="question in questions" class="wh-question">
@@ -93,7 +93,7 @@
     </div>
     <div class="footer-container">
       <footer class="wh-footer wrapper">
-        <ul ng-controller="ContactsCtrl" id="{{id}}" ng-show="contacts.length" spied="" class="wh-contacts">
+        <ul ng-controller="ContactsCtrl" id="{{id}}" ng-show="contacts.length" spied="" class="wh-contacts when-shown">
           <li ng-repeat="contact in contacts"><a ng-href="{{contact.type=='phone'?'tel:':contact.type=='mail'?'mailto:':''}}{{contact.value}}" title="{{contact.value}}" data-wh-icon="{{contact.icon}}" ng-class="contact.type" class="wh-contact hide-text">{{contact.value}}</a></li>
         </ul>
       </footer>
@@ -110,6 +110,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="scripts/b2e10d90.modules.js"></script>
-    <script src="scripts/6ca82846.scripts.js"></script>
+    <script src="scripts/c85f63f7.scripts.js"></script>
   </body>
 </html>
