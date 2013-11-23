@@ -1,6 +1,6 @@
 <section ng-controller="CvCtrl" ng-show="cv.parts.length" class="wh-cv">
   <h3 class="wh-cv-title">{{cv.title}}</h3>
-  <article ng-repeat="part in cv.parts" id="{{part.id}}" ng-class="part.cssClass" spied="spied" class="wh-cv-part when-shown">
+  <article ng-repeat="part in cv.parts" id="{{part.id}}" ng-class="part.cssClass" spied="spied" height-as-window="header" class="wh-cv-part when-shown">
     <header ng-if="part.title" class="wh-cv-part-header">
       <h4 class="wh-cv-part-title">{{part.title}}</h4>
     </header>
