@@ -113,6 +113,17 @@ Available dynamic css classes
 **.header-fixed** appears in the **html** element When document is scrolled more than the header navbar height
 
 
+`html.intro-scrolled`: 
+
+**.intro-scrolled** appears in the **html** element When intro section has been scrolled and is not visible, and disappears when intro is visible
+
+
+`html.when-shown.do`: 
+
+**.do** appears in elements with css class **when-shown** When the document is scrolled to that element
+
+
+
 `li.wh-header-option.current`: 
 
 **.current** appears when the displayed section in the browser represents that option in the navbar
