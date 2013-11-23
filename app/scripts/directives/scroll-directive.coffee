@@ -27,7 +27,7 @@ angular.module('whoruApp')
       $html = $ 'html'
       $header = $ '.header-container'
       $intro = $ '.wh-intro'
-      $$window = $($window)
+      $$window = $ $window
 
       $$window.scroll ->
 
