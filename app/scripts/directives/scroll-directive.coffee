@@ -18,7 +18,7 @@ angular.module('whoruApp')
         target = $ '#' + element.id
         if target.length
           $body.animate
-            scrollTop: target.offset().top - 100
+            scrollTop: target.offset().top - 50
           , 1000
     ]
     link: (scope, elem, attrs) ->
@@ -33,6 +33,7 @@ angular.module('whoruApp')
 
         scrollYPos = $window.scrollY
         windowHeight = $$window.height()
+        headerHeight = $header.height()
 
         # Finds elements which should be animated when shown in the screen(with css class '.when-shown'),
         # applying css class '.do'
@@ -47,7 +48,7 @@ angular.module('whoruApp')
 
 
         # Finds if the scroll is enough low to set the header as fixed (set a css class 'header-fixed' in the html element)
-        headerHeight = $header.height()
+
 
         if scrollYPos > headerHeight
           $html.addClass 'header-fixed'
@@ -66,7 +67,7 @@ angular.module('whoruApp')
         $current = null
         for $spied in $spies
 
-          if ($spied.length && pos = $spied.offset().top) - scrollYPos <= windowHeight/2
+          if ($spied.length && pos = $spied.offset().top) - scrollYPos <= headerHeight
             $spied.pos = pos
             $current ?= $spied
 

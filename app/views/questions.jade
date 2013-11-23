@@ -1,8 +1,8 @@
-section.wh-questions(ng-controller="QuestionsCtrl", id='{{id}}', ng-show='questions.length', spied)
-    h3 {{ title }}
+section.wh-questions.when-shown(ng-controller="QuestionsCtrl", id='{{id}}', ng-show='questions.length', spied)
+    h3.wh-questions-title {{ title }}
     p.wh-questions-description {{ description }}
     ol
-        li(ng-repeat='question in questions').wh-question
+        li.wh-question(ng-repeat='question in questions')
             h4.wh-question-statement {{ question.question }}
             ol
                 li(ng-repeat='option in question.options').wh-question-option
