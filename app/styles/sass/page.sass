@@ -79,7 +79,7 @@ body
   height: $header-mobile-height
   background: $header-background
   z-index: 2
-  padding: 0 20px
+  padding: 0 10px
   box-shadow: 0 0 15px rgba(0,0,0,0.25)
   li
     float: left
@@ -112,32 +112,27 @@ body
   font-weight: 300
 
 
-.wh-header-options-wrapper
-  height: 60px
-  line-height: 60px
+
 
 .wh-header-options
   float: right
   &.ul
     display: none
   &.select
+    width: 40%
     position: relative
     border: 1px solid black
     +border-radius(4px)
     margin-top: 14px
-    &:after
-      content: ''
-      position: absolute
-      right: 10px
-      top: 14px
-      +triangle-down($width: 5px, $color: black)
 
     select
+      text-align: center
+      width: 100%
       font-size: 14px
       font-weight: 200
       text-transform: uppercase
       cursor: pointer
-      padding: 5px 30px 5px 5px
+      padding: 5px
       -webkit-appearance: none
       background: none
       border: none
@@ -178,20 +173,22 @@ body
   position: fixed
   bottom: -50px
   right: 10px
-  border: 1px solid black
+  border: 2px solid black
   padding: 5px 10px
   opacity: .4
   +border-radius(50%)
-  +rotate(90deg)
+  width: 20px
+  height: 22px
   &:hover
     opacity: 1
     +transition-property(opacity)
     +transition-duration(.5s)
   &:after
-    color: black
-    content: '<'
-    position: relative
-    top: -2px
+    content: ''
+    +triangle-top
+    position: absolute
+    top: 6px
+    left: 5px
 
 
 // INTRO
