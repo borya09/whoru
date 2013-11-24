@@ -1,0 +1,328 @@
+@import variables
+
+//Prevent Angular template from being displayed with ugly double curly '{{ }}' (uncompiled), while the cv is being loaded.
+//http://docs.angularjs.org/api/ng.directive:ngCloak
+[ng-cloak],
+[data-ng-cloak],
+[x-ng-cloak],
+.ng-cloak,
+.x-ng-cloak
+  display: none !important
+
+
+
+
+.wh-contact
+
+  &:before
+    font-family: 'whoru-icons'
+    content: attr(data-wh-icon)
+    padding-right: 10px
+    speak: none
+    font-style: normal
+    font-weight: normal
+    font-variant: normal
+    text-transform: none
+    line-height: 1
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased
+    -moz-osx-font-smoothing: grayscale
+
+
+
+
+
+
+
+/////////////////
+// DEMO STYLES //
+/////////////////
+
+
+
+// GENERAL
+
+body
+  font-family: 'Roboto', sans-serif
+  font-weight: 300
+  height: 100%
+  min-height: 100%
+  position: relative
+  background: $body-backgorund
+
+
+.when-shown
+  position: relative
+  &:not(.do)
+    left: -9999px
+  &.do
+    left: 0
+    +transition-property(left)
+    +transition-duration(.5s)
+
+
+.wh-intro,
+.wh-cv-part,
+.wh-questions,
+.wh-contacts
+  padding: 50px 20px
+
+
+
+
+// HEADER
+.header-container
+  position: fixed
+  top: -80px
+  width: 100%
+  height: $header-mobile-height
+  background: $header-background
+  z-index: 2
+  padding: 0 20px
+  box-shadow: 0 0 15px rgba(0,0,0,0.25)
+  li
+    float: left
+
+
+.intro-scrolled
+  .header-container
+    top: 0
+    +transition-property(top)
+    +transition-duration(1s)
+  .wh-header-locales
+    display: inline-block
+  #to-top
+    +transition-property(bottom)
+    +transition-duration(.5s)
+    bottom: 10px
+
+
+.wh-header-intro-fullname
+  line-height: 60px
+  font-size: 28px
+  div
+    float: left
+
+.wh-header-intro-name
+  font-weight: 700
+
+.wh-header-intro-surname1,
+.wh-header-intro-surname2
+  font-weight: 300
+
+
+.wh-header-options-wrapper
+  height: 60px
+  line-height: 60px
+
+.wh-header-options
+  float: right
+  &.ul
+    display: none
+  &.select
+    position: relative
+    border: 1px solid black
+    +border-radius(4px)
+    margin-top: 14px
+    &:after
+      content: ''
+      position: absolute
+      right: 10px
+      top: 14px
+      +triangle-down($width: 5px, $color: black)
+
+    select
+      font-size: 14px
+      font-weight: 200
+      text-transform: uppercase
+      cursor: pointer
+      padding: 5px 30px 5px 5px
+      -webkit-appearance: none
+      background: none
+      border: none
+
+.wh-header-option
+  padding: 0 10px
+  a
+    font-size: 14px
+    text-transform: uppercase
+    font-weight: 300
+    color: black
+  &.current
+    background: black
+    position: relative
+    &:after
+      content: ''
+      position: absolute
+      height: 0
+      bottom: -10px
+      left: 50%
+      margin-left: -7.5px
+      +triangle-down($width: 10px, $color: black)
+    a
+      color: white
+
+.wh-header-locales
+  display: none
+  position: fixed
+  right: 10px
+  top:  $header-mobile-height + 10px
+
+.wh-header-locale
+  clear: both
+  &:not(.current)
+    opacity: .2
+
+#to-top
+  position: fixed
+  bottom: -50px
+  right: 10px
+  border: 1px solid black
+  padding: 5px 10px
+  opacity: .4
+  +border-radius(50%)
+  +rotate(90deg)
+  &:hover
+    opacity: 1
+    +transition-property(opacity)
+    +transition-duration(.5s)
+  &:after
+    color: black
+    content: '<'
+    position: relative
+    top: -2px
+
+
+// INTRO
+
+.wh-intro
+  background: #B3E0F2
+
+
+.wh-intro-fullname
+  width: 240px
+  margin: 0 auto
+  div
+    margin: 0 2px
+    float: left
+
+.wh-intro-name
+  background: white
+  color: black
+  font-size: 50px
+  font-weight: 700
+
+.wh-intro-surname1,
+.wh-intro-surname2
+  background: white
+  color: black
+  font-size: 50px
+  font-weight: 300
+
+.wh-intro-summary
+  padding: 20px 0
+  font-size: 25px
+  font-weight: 200
+  text-align: center
+  clear: both
+
+.wh-intro-image img
+  +border-radius(50%)
+  display: block
+  margin-left: auto
+  margin-right: auto
+
+.wh-intro-description
+  margin-top: 30px
+  text-align: center
+
+
+
+// CV
+
+.wh-cv-title
+  text-indent: -9999px
+  height: 0
+
+.wh-cv-part
+  &.presentation,
+  &.academic
+    background: #FAAF40
+  &.personal_data,
+  &.languages
+    background: #ed6e45
+  &.career,
+  &.hobbies
+    background: #97cec9
+  &.tech_skills
+    background: #f1d354
+  &.formation
+    background: #c6c865
+
+  img
+    width: 200px
+
+.wh-cv-part-title
+  +sub-title
+
+.wh-part-item
+  margin: 30px 0
+.wh-cv-part-item-title
+  font-size: 24px
+  margin: 20px 0
+  padding-bottom: 10px
+  border-bottom: 1px solid black
+
+.wh-cv-part-item-description
+  font-size: 20px
+
+.wh-part-item-content-element
+  padding: 2px 0 2px 30px
+  font-size: 18px
+
+.wh-cv-part-item-date
+  &+.wh-cv-part-item-date
+    margin-left: 10px
+
+// QUESTIONS
+
+.wh-questions
+  background: #4ced92
+
+
+.wh-questions-title
+  +sub-title
+
+.wh-questions-description
+  text-align: center
+  margin-bottom: 50px
+
+.wh-question
+  margin: 40px 0
+
+.wh-question-statement
+  font-size: 20px
+  margin: 20px 0
+  padding-bottom: 10px
+  border-bottom: 1px solid black
+
+
+
+// CONTACTS
+
+.wh-contacts
+  background: #ed73dd
+  padding-top: 150px
+  padding-bottom: 200px
+  text-align: center
+  li
+    padding: 10px 0
+
+
+.wh-contact
+  font-size: 24px
+  color: black
+
+
+

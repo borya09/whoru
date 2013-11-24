@@ -43,7 +43,7 @@ class QuestionsControllerSpec extends ControllerSpec
         @createController fixtures.questions.b
 
         expect(@scope.id).toBe 'questions'
-        expect(@rootScope.header.nav).toEqual [
+        expect(@rootScope.header.nav.options).toEqual [
           id : 'questions'
           order: 40
           title : 'header1'

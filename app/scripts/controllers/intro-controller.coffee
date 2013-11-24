@@ -32,7 +32,8 @@ angular.module('whoruApp')
       href : '#' + sectionId
 
 
-    $rootScope.header.nav.push navInfo
+    $rootScope.header.nav.init = navInfo
+    $rootScope.header.nav.options.push navInfo
     $scope.id = sectionId
 
     # Retrieves and publish in the $scope the intro

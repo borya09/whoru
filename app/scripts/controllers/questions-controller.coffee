@@ -12,7 +12,7 @@ class QuestionsController
       title : 'questions'
       href : '#' + sectionId
 
-    $rootScope.header.nav.push navInfo
+    $rootScope.header.nav.options.push navInfo
     $scope.id = sectionId
 
     setQuestions = =>

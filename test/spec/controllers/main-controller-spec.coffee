@@ -79,10 +79,12 @@ class MainControllerSpec extends ControllerSpec
         @scope.setHeaderCurrentOption opt1
         expect(opt1.current).toBeTruthy()
         expect(opt2.current).not.toBeTruthy()
+        expect(@rootScope.header.nav.current).toBe opt1
 
         @scope.setHeaderCurrentOption opt2
         expect(opt1.current).not.toBeTruthy()
         expect(opt2.current).toBeTruthy()
+        expect(@rootScope.header.nav.current).toBe opt2
 
 
 

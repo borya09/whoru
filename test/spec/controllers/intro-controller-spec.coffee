@@ -37,24 +37,26 @@ class IntroControllerSpec extends ControllerSpec
 
           @createController fixture
 
-        it 'should call \'introService.get\' method', () ->
+        it 'should call \'introService.get\' method',  ->
           expect(@introService.get).toHaveBeenCalled()
 
-        it 'should attach the intro to the scope', () ->
+        it 'should attach the intro to the scope', ->
           expect(@scope.intro.name).toBe fixture.intro.name
           expect(@scope.intro.age).toBe fixture.intro.age
           expect(@scope.intro.description).toBe fixture.intro.description
 
-        describe 'if title for the header is defined', () ->
+        describe 'if title for the header is defined', ->
 
-          it 'should attach to scope/rootScope info for the header navbar', () ->
-            expect(@scope.id).toBe 'intro'
-            expect(@rootScope.header.nav).toEqual [
+          it 'should attach to scope/rootScope info for the header navbar', ->
+            option =
               id : 'intro'
               order : 10
               title : fixture.header
               href : '#intro'
-            ]
+
+            expect(@scope.id).toBe 'intro'
+            expect(@rootScope.header.nav.init).toEqual option
+            expect(@rootScope.header.nav.options).toEqual [option]
 
 
       describe 'with NO correct intro', ->

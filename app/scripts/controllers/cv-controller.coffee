@@ -33,7 +33,7 @@ angular.module('whoruApp')
                 title : part.header
                 href : '#' + part.id
               navInfoOptions[part.id] = navInfoOpt
-              $rootScope.header.nav.push navInfoOpt
+              $rootScope.header.nav.options.push navInfoOpt
 
 
     # Listens to 'locale_changed' event

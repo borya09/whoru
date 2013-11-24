@@ -8,7 +8,9 @@ angular.module('whoruApp')
     headerCurrentOption = undefined
 
     $rootScope.header =  {}
-    $rootScope.header.nav =  []
+    $rootScope.header.nav =  {}
+    $rootScope.header.nav.options =  []
+
 
     # Publish on the $scope an array of avaiable locales
     dataTranslatorService.getAvailablesLocales()
@@ -22,10 +24,16 @@ angular.module('whoruApp')
 
     # Set header current option
     $scope.setHeaderCurrentOption = (option) ->
+
       # Disable previous one
       headerCurrentOption.current = false if headerCurrentOption
+
       # Establish current one
       headerCurrentOption = option
+
+      # publish to $rootScope
+      $rootScope.header.nav.current = option
+
       # Set 'current' property to true, which will add css class 'current'
       $scope.$apply ->
         headerCurrentOption.current = true

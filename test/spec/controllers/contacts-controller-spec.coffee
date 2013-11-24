@@ -37,7 +37,7 @@ class ContactsControllerSpec extends ControllerSpec
 
       it 'should attach to scope/rootScope info for the header navbar', () ->
         expect(@scope.id).toBe 'contacts'
-        expect(@rootScope.header.nav).toEqual [
+        expect(@rootScope.header.nav.options).toEqual [
           id : 'contacts'
           order : 50
           title : @contacts.header

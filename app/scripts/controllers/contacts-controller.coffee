@@ -13,7 +13,7 @@ angular.module('whoruApp')
       title : 'contacts'
       href : '#' + sectionId
 
-    $rootScope.header.nav.push navInfo
+    $rootScope.header.nav.options.push navInfo
     $scope.id = sectionId
 
     contactsService.get()

@@ -76,7 +76,7 @@ angular.module('whoruApp')
 
         if $current
           currentId = $current.attr('id')
-          for headerOpt in scope.header.nav
+          for headerOpt in scope.header.nav.options
             if currentId is headerOpt.id
               if lastCurrentId != currentId
 

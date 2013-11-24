@@ -20,7 +20,8 @@ class ControllerSpec
       @q = $q
 
       @rootScope.header = {}
-      @rootScope.header.nav = []
+      @rootScope.header.nav = {}
+      @rootScope.header.nav.options = []
 
 
 

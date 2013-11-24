@@ -38,7 +38,7 @@ class CvControllerSpec extends ControllerSpec
 
       it 'should attach to scope/rootScope info for the header navbar', () ->
 
-        expect(@rootScope.header.nav).toEqual [
+        expect(@rootScope.header.nav.options).toEqual [
           id : 'sec1'
           order : 20,
           title : 'header 1'
