@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory-->
-    <link rel="stylesheet" href="styles/60c6f5ca.main.css">
+    <link rel="stylesheet" href="styles/d750d24d.main.css">
     <script type="text/javascript">document.write('<base href="' + document.location + '" />');</script>
   </head>
   <body ng-app="whoruApp" ng-controller="MainCtrl" ng-cloak="" scroll-spy="">
@@ -35,13 +35,16 @@
           <div ng-if="header.intro.surname2" class="wh-header-intro-surname2">{{header.intro.surname2}}</div>
         </h1>
         <nav class="wh-header-nav">
-          <ul class="wh-header-options">
-            <li ng-repeat="option in header.nav | orderBy: 'order'" ng-class="{current: option.current}" class="wh-header-option"><a ng-click="smoothScroll(option)" href="javascript:void(0)" title="{{option.title}}">{{option.title}}</a></li>
+          <ul class="wh-header-options ul">
+            <li ng-repeat="option in header.nav.options | orderBy: 'order'" ng-class="{current: option.current}" class="wh-header-option"><a ng-click="smoothScroll(option)" href="javascript:void(0)" title="{{option.title}}">{{option.title}}</a></li>
           </ul>
+          <div class="wh-header-options select">
+            <select data-ng-model="header.nav.current" data-ng-options="option.title for option in header.nav.options" ng-click="smoothScroll(header.nav.current)"></select>
+          </div>
           <ul ng-if="locales.length &gt; 1" class="wh-header-locales">
             <li ng-repeat="locale in locales" ng-class="{current: locale.current}" class="wh-header-locale"><a ng-click="setCurrentLocale(locale)" href="javascript:void(0)" title="{{locale.text}}"><img ng-src="{{locale.image}}" title="{{locale.text}}"></a></li>
           </ul>
-        </nav>
+        </nav><a id="to-top" href="javascript:void(0)" ng-click="smoothScroll(header.nav.init)"></a>
       </header>
     </div>
     <div class="main-container">
@@ -61,17 +64,19 @@
             <header ng-if="part.title" class="wh-cv-part-header">
               <h4 class="wh-cv-part-title">{{part.title}}</h4>
             </header>
-            <p ng-if="part.description" ng-bind-html="part.description" class="wh-cv-part-description"></p>
-            <ol ng-if="part.content">
-              <li ng-repeat="item in part.content" class="wh-part-item">
-                <h5 ng-if="item.title" class="wh-cv-part-item-title">{{item.title}}</h5>
-                <div ng-if="item.when || item.from || item.until" class="wh-cv-part-item-date"><span ng-if="item.when" class="wh-cv-part-item-date-when">{{item.when}}</span><span ng-if="item.from" class="wh-cv-part-item-date-from">{{item.from}}</span><span ng-if="item.until" class="wh-cv-part-item-date-until">{{item.until}}</span></div><a ng-if="item.image" ng-href="{{item.image.link}}" title="{{item.image.link}}"><img ng-src="{{item.image.src}}" title="{{item.image.link}}"></a>
-                <p ng-if="item.description" ng-bind-html="item.description" class="wh-cv-part-item-description"></p>
-                <ol ng-if="item.content" class="wh-part-item-content">
-                  <li ng-repeat="content in item.content" class="wh-part-item-content-element">{{content}}</li>
-                </ol>
-              </li>
-            </ol>
+            <div class="wh-cv-part-content">
+              <p ng-if="part.description" ng-bind-html="part.description" class="wh-cv-part-description"></p>
+              <ol ng-if="part.content">
+                <li ng-repeat="item in part.content" class="wh-part-item">
+                  <h5 ng-if="item.title" class="wh-cv-part-item-title">{{item.title}}</h5>
+                  <div ng-if="item.when || item.from || item.until" class="wh-cv-part-item-date"><span ng-if="item.when" class="wh-cv-part-item-date when">{{item.when}}</span><span ng-if="item.from" class="wh-cv-part-item-date from">{{item.from}}</span><span ng-if="item.until" class="wh-cv-part-item-date until">{{item.until}}</span></div><a ng-if="item.image" ng-href="{{item.image.link}}" title="{{item.image.link}}"><img ng-src="{{item.image.src}}" title="{{item.image.link}}"></a>
+                  <p ng-if="item.description" ng-bind-html="item.description" class="wh-cv-part-item-description"></p>
+                  <ol ng-if="item.content" class="wh-part-item-content">
+                    <li ng-repeat="content in item.content" class="wh-part-item-content-element">{{content}}</li>
+                  </ol>
+                </li>
+              </ol>
+            </div>
           </article>
         </section>
         <section ng-controller="QuestionsCtrl" id="{{id}}" ng-show="questions.length" spied="" height-as-window="header" class="wh-questions when-shown">
@@ -110,6 +115,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="scripts/b2e10d90.modules.js"></script>
-    <script src="scripts/98e1a377.scripts.js"></script>
+    <script src="scripts/aab99da3.scripts.js"></script>
   </body>
 </html>
