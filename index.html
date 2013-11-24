@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory-->
-    <link rel="stylesheet" href="styles/88766300.main.css">
+    <link rel="stylesheet" href="styles/77a4d2c4.main.css">
     <script type="text/javascript">document.write('<base href="' + document.location + '" />');</script>
   </head>
   <body ng-app="whoruApp" ng-controller="MainCtrl" ng-cloak="" scroll-spy="">
@@ -39,7 +39,7 @@
             <li ng-repeat="option in header.nav.options | orderBy: 'order'" ng-class="{current: option.current}" class="wh-header-option"><a ng-click="smoothScroll(option)" href="javascript:void(0)" title="{{option.title}}">{{option.title}}</a></li>
           </ul>
           <div class="wh-header-options select">
-            <select data-ng-model="header.nav.current" data-ng-options="option.title for option in header.nav.options" ng-click="smoothScroll(header.nav.current)"></select>
+            <select data-ng-model="header.nav.current" data-ng-options="option.title for option in header.nav.options | orderBy:'order'" ng-change="smoothScroll(header.nav.current)"></select>
           </div>
           <ul ng-if="locales.length &gt; 1" class="wh-header-locales">
             <li ng-repeat="locale in locales" ng-class="{current: locale.current}" class="wh-header-locale"><a ng-click="setCurrentLocale(locale)" href="javascript:void(0)" title="{{locale.text}}"><img ng-src="{{locale.image}}" title="{{locale.text}}"></a></li>
