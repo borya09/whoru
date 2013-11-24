@@ -8,12 +8,13 @@ nav.wh-header-nav
             a(ng-click="smoothScroll(option)", href="javascript:void(0)", title="{{option.title}}") {{option.title}}
 
     .wh-header-options.select
-        select(data-ng-model="header.nav.current", data-ng-options="option.title for option in header.nav.options", ng-click="smoothScroll(header.nav.current)")
+        select(data-ng-model="header.nav.current", data-ng-options="option.title for option in header.nav.options | orderBy:\'order\'", ng-change="smoothScroll(header.nav.current)")
 
     ul.wh-header-locales(ng-if="locales.length > 1")
         li.wh-header-locale(ng-repeat='locale in locales', ng-class='{current: locale.current}')
             a(ng-click="setCurrentLocale(locale)", href="javascript:void(0)", title="{{locale.text}}")
                 img(ng-src="{{locale.image}}", title="{{locale.text}}")
+
 a#to-top(href="javascript:void(0)", ng-click="smoothScroll(header.nav.init)")
 
 
