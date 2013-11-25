@@ -1,5 +1,5 @@
-<section ng-controller="QuestionsCtrl" id="{{id}}" ng-show="questions.length" header-current-section="header-current-section" height-as-window="header" class="wh-questions when-shown">
-  <h3 class="wh-questions-title">{{ title }}</h3>
+<section ng-controller="QuestionsCtrl" id="{{id}}" ng-show="questions.length" header-current-section="header-current-section" height-as-window="header" class="wh-questions when-shown wh-generic-section">
+  <h3 class="wh-questions-title wh-generic-section-title">{{ title }}</h3>
   <p class="wh-questions-description">{{ description }}</p>
   <ol>
     <li ng-repeat="question in questions" class="wh-question">

@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory-->
-    <link rel="stylesheet" href="styles/d8e2927a.main.css">
+    <link rel="stylesheet" href="styles/b2cec59d.main.css">
     <script type="text/javascript">document.write('<base href="' + document.location + '" />');</script>
   </head>
   <body ng-app="whoruApp" ng-controller="MainCtrl" ng-cloak="" scroll-spy="">
@@ -60,9 +60,9 @@
         </section>
         <section ng-controller="CvCtrl" ng-show="cv.parts.length" class="wh-cv">
           <h3 class="wh-cv-title">{{cv.title}}</h3>
-          <article ng-repeat="part in cv.parts" id="{{part.id}}" ng-class="part.cssClass" header-current-section="" height-as-window="header" class="wh-cv-part when-shown">
+          <article ng-repeat="part in cv.parts" id="{{part.id}}" ng-class="part.cssClass" header-current-section="" height-as-window="header" class="wh-cv-part when-shown wh-generic-section">
             <header ng-if="part.title" class="wh-cv-part-header">
-              <h4 class="wh-cv-part-title">{{part.title}}</h4>
+              <h4 class="wh-cv-part-title wh-generic-section-title">{{part.title}}</h4>
             </header>
             <div class="wh-cv-part-content">
               <p ng-if="part.description" ng-bind-html="part.description" class="wh-cv-part-description"></p>
@@ -79,8 +79,8 @@
             </div>
           </article>
         </section>
-        <section ng-controller="QuestionsCtrl" id="{{id}}" ng-show="questions.length" header-current-section="" height-as-window="header" class="wh-questions when-shown">
-          <h3 class="wh-questions-title">{{ title }}</h3>
+        <section ng-controller="QuestionsCtrl" id="{{id}}" ng-show="questions.length" header-current-section="" height-as-window="header" class="wh-questions when-shown wh-generic-section">
+          <h3 class="wh-questions-title wh-generic-section-title">{{ title }}</h3>
           <p class="wh-questions-description">{{ description }}</p>
           <ol>
             <li ng-repeat="question in questions" class="wh-question">
@@ -99,7 +99,7 @@
     </div>
     <div class="footer-container">
       <footer class="wh-footer wrapper">
-        <ul ng-controller="ContactsCtrl" id="{{id}}" ng-show="contacts.length" header-current-section="" height-as-window="header" class="wh-contacts when-shown">
+        <ul ng-controller="ContactsCtrl" id="{{id}}" ng-show="contacts.length" header-current-section="" height-as-window="header" class="wh-contacts when-shown wh-generic-section">
           <li ng-repeat="contact in contacts"><a ng-href="{{contact.type=='phone'?'tel:':contact.type=='mail'?'mailto:':''}}{{contact.value}}" title="{{contact.value}}" data-wh-icon="{{contact.icon}}" ng-class="contact.type" class="wh-contact hide-text">{{contact.value}}</a></li>
         </ul>
       </footer>
