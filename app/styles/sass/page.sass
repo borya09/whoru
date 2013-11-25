@@ -44,12 +44,26 @@
 // GENERAL
 
 body
+  font-size: 1em
   font-family: 'Roboto', sans-serif
   font-weight: 300
   height: 100%
   min-height: 100%
   position: relative
-  background: $body-backgorund
+
+
+.background-y-position-scroll
+  background-size: cover
+
+.wh-background-image
+  background: url(http://1.bp.blogspot.com/-oWW47edvsaI/UClWcZMf3DI/AAAAAAAACCE/E4WAaDtyvfE/s1600/paisaje.jpg) no-repeat fixed
+  position: absolute
+  z-index: -1
+  top: 0
+  height: 100%
+  bottom: auto
+  left: 0
+  right: 0
 
 
 .when-shown
@@ -140,6 +154,7 @@ body
 
 .wh-header-option
   padding: 0 10px
+  height: $header-mobile-height
   a
     font-size: 14px
     text-transform: uppercase
@@ -158,6 +173,7 @@ body
       +triangle-down($width: 10px, $color: black)
     a
       color: white
+
 
 .wh-header-locales
   display: none
@@ -246,17 +262,17 @@ body
 .wh-cv-part
   &.presentation,
   &.academic
-    background: #FAAF40
+    background: rgba(250, 175, 64, 0.82)
   &.personal_data,
   &.languages
-    background: #ed6e45
+    background: rgba(237, 110, 69, 0.82)
   &.career,
   &.hobbies
-    background: #97cec9
+    background: rgba(151, 206, 201, 0.82)
   &.tech_skills
-    background: #f1d354
+    background: rgba(241, 211, 84, 0.82)
   &.formation
-    background: #c6c865
+    background: rgba(198, 200, 101, 0.82)
 
   img
     width: 200px
@@ -286,7 +302,7 @@ body
 // QUESTIONS
 
 .wh-questions
-  background: #4ced92
+  background: rgba(76, 237, 146, 0.82)
 
 
 .wh-questions-title
@@ -310,7 +326,7 @@ body
 // CONTACTS
 
 .wh-contacts
-  background: #ed73dd
+  background: rgba(237, 115, 221, 0.82)
   padding-top: 150px
   padding-bottom: 200px
   text-align: center

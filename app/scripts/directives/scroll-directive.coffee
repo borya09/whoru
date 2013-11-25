@@ -1,18 +1,22 @@
 
 'use strict'
 
-# Directive based from http://alxhill.com/blog/articles/angular-scrollspy/
+
 # TODO: TEST
 angular.module('whoruApp')
-  .directive 'scrollSpy', ($window) ->
-    $spies = []
-    restrict: 'A'
+  .directive 'body', ($window) ->
+    $headerCurrentSectionSpiedElements = []
+    $backgroundYPositionSpiedElements = []
+    restrict: 'E'
     controller: ['$rootScope', ($rootScope) ->
 
       $body = $ "body"
 
-      @addSpied = ($spied) ->
-        $spies.push $spied
+      @addHeaderCurrentSectionSpied = ($element) ->
+        $headerCurrentSectionSpiedElements.push $element
+
+      @addBackgroundYPositionScrollSpied = ($element) ->
+        $backgroundYPositionSpiedElements.push $element
 
       $rootScope.smoothScroll = (element) ->
         target = $ '#' + element.id
@@ -27,6 +31,7 @@ angular.module('whoruApp')
       $html = $ 'html'
       $header = $ '.header-container'
       $intro = $ '.wh-intro'
+      $document = $ document
       $$window = $ $window
 
       $$window.scroll ->
@@ -34,6 +39,14 @@ angular.module('whoruApp')
         scrollYPos = $window.scrollY
         windowHeight = $$window.height()
         headerHeight = $header.height()
+
+        # set a dynamic 'background-position-y' to '.background-y-position-scroll' elements when document is scrolled
+        documentHeight = $document.height()
+        percent = scrollYPos/documentHeight * 100
+        for $element in $backgroundYPositionSpiedElements
+          $element.css 'background-position-y', percent + '%'
+
+
 
         # Finds elements which should be animated when shown in the screen(with css class '.when-shown'),
         # applying css class '.do'
@@ -48,8 +61,6 @@ angular.module('whoruApp')
 
 
         # Finds if the scroll is enough low to set the header as fixed (set a css class 'header-fixed' in the html element)
-
-
         if scrollYPos > headerHeight
           $html.addClass 'header-fixed'
         else
@@ -64,15 +75,16 @@ angular.module('whoruApp')
 
 
         # Finds current section in the browser screen, to set in the header navbar its option as the current one
+        # Based on http://alxhill.com/blog/articles/angular-scrollspy/
         $current = null
-        for $spied in $spies
+        for $element in $headerCurrentSectionSpiedElements
 
-          if ($spied.length && pos = $spied.offset().top) - scrollYPos <= headerHeight
-            $spied.pos = pos
-            $current ?= $spied
+          if ($element.length && pos = $element.offset().top) - scrollYPos <= headerHeight
+            $element.pos = pos
+            $current ?= $element
 
-            if $current.pos < $spied.pos
-              $current = $spied
+            if $current.pos < $element.pos
+              $current = $element
 
         if $current
           currentId = $current.attr('id')
@@ -84,9 +96,15 @@ angular.module('whoruApp')
                 scope.setHeaderCurrentOption headerOpt
               break
 
-  .directive 'spied', ->
+  .directive 'headerCurrentSection', ->
     restrict: "A"
-    require: "^scrollSpy"
+    require: "^body"
     link: (scope, elem, attrs, affix) ->
-      affix.addSpied elem
+      affix.addHeaderCurrentSectionSpied elem
+
+  .directive 'backgroundYPositionScroll', ->
+    restrict: "C"
+    require: "^body"
+    link: (scope, elem, attrs, affix) ->
+      affix.addBackgroundYPositionScrollSpied elem
 
