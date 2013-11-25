@@ -104,7 +104,7 @@ TODO: Document font icons
 
 
 
-Available dynamic css classes
+Available dynamic css classes / data-attributes
 ------
 
 
@@ -113,20 +113,35 @@ Available dynamic css classes
 **.header-fixed** appears in the **html** element When document is scrolled more than the header navbar height
 
 
+
 `html.intro-scrolled`: 
 
 **.intro-scrolled** appears in the **html** element When intro section has been scrolled and is not visible, and disappears when intro is visible
 
 
+
 `html.when-shown.do`: 
 
 **.do** appears in elements with css class **when-shown** When the document is scrolled to that element
+To spy an element:
+* assign it css class 'when-shown'
 
+
+`.background-y-position-scroll`: 
+Sets a dynamic 'background-position-y' to elements with css class 'background-y-position-scroll' when document is scrolled
 
 
 `li.wh-header-option.current`: 
 
-**.current** appears when the displayed section in the browser represents that option in the navbar
+**.current** appears when the displayed section in the browser represents that option in the navbar. 
+To spy a section:
+* assign it data-attribute 'header-current-section'
+* add to the array $rootScope.header.nav.options next info:
+  + id : {string} id of the section
+  + order: {number} order in the header
+  + title : {string} visible title in the header
+  + href : link to the section
+
 
 
 `li.wh-header-locale.current`: 
