@@ -76,11 +76,29 @@ body
     +transition-duration(.5s)
 
 
-.wh-intro,
-.wh-cv-part,
-.wh-questions,
-.wh-contacts
+
+
+
+.wh-generic-section
   padding: 50px 20px
+  $opacity: 0.95
+  margin-bottom: 300px
+  &:nth-child(5n+0)
+    background: rgba(250, 175, 64, $opacity)
+  &:nth-child(5n+1)
+    background: rgba(237, 110, 69, $opacity)
+  &:nth-child(5n+2)
+    background: rgba(151, 206, 201, $opacity)
+  &:nth-child(5n+3)
+    background: rgba(76, 237, 146, $opacity)
+  &:nth-child(5n+4)
+    background: rgba(237, 115, 221, $opacity)
+
+
+.wh-generic-section-title
+  font-size: 2em
+  margin: 20px 0 50px 0
+  text-align: center
 
 
 
@@ -211,7 +229,9 @@ body
 // INTRO
 
 .wh-intro
-  background: #B3E0F2
+  background: #40f272
+  padding-top: 50px
+  margin-bottom: 300px
 
 
 .wh-intro-fullname
@@ -253,32 +273,20 @@ body
 
 
 
-// CV
 
+
+
+// CV
 .wh-cv-title
   text-indent: -9999px
   height: 0
 
 .wh-cv-part
-  &.presentation,
-  &.academic
-    background: rgba(250, 175, 64, 0.82)
-  &.personal_data,
-  &.languages
-    background: rgba(237, 110, 69, 0.82)
-  &.career,
-  &.hobbies
-    background: rgba(151, 206, 201, 0.82)
-  &.tech_skills
-    background: rgba(241, 211, 84, 0.82)
-  &.formation
-    background: rgba(198, 200, 101, 0.82)
-
   img
     width: 200px
 
-.wh-cv-part-title
-  +sub-title
+
+
 
 .wh-part-item
   margin: 30px 0
@@ -301,12 +309,6 @@ body
 
 // QUESTIONS
 
-.wh-questions
-  background: rgba(76, 237, 146, 0.82)
-
-
-.wh-questions-title
-  +sub-title
 
 .wh-questions-description
   text-align: center
@@ -324,12 +326,11 @@ body
 
 
 // CONTACTS
-
 .wh-contacts
-  background: rgba(237, 115, 221, 0.82)
   padding-top: 150px
   padding-bottom: 200px
   text-align: center
+  margin-bottom: 0
   li
     padding: 10px 0
 
