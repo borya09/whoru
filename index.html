@@ -15,10 +15,10 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory-->
-    <link rel="stylesheet" href="styles/b2cec59d.main.css">
+    <link rel="stylesheet" href="styles/72bf3f30.main.css">
     <script type="text/javascript">document.write('<base href="' + document.location + '" />');</script>
   </head>
-  <body ng-app="whoruApp" ng-controller="MainCtrl" ng-cloak="" scroll-spy="">
+  <body ng-app="whoruApp" ng-controller="MainCtrl" ng-cloak="">
     <!--[if lt IE 7]>
     <p class="browsehappy">You are using an<strong>outdated</strong>browser. Please<a href="http://browsehappy.com/">upgrade your browser</a>to improve your experience.</p>
     <![endif]-->
@@ -49,7 +49,7 @@
     </div>
     <div class="main-container">
       <div class="wh-main wrapper">
-        <section ng-controller="IntroCtrl" id="{{id}}" header-current-section="" height-as-window="" class="wh-intro">
+        <section ng-controller="IntroCtrl" id="{{id}}" header-current-section="" height-as-window="" class="wh-intro wh-generic-section">
           <div class="wh-intro-fullname">
             <div class="wh-intro-name">{{intro.name}}</div>
             <div ng-if="intro.surname1" class="wh-intro-surname1">{{intro.surname1}}</div>
@@ -59,17 +59,14 @@
           <p ng-if="intro.description" ng-bind-html="intro.description" class="wh-intro-description"></p>
         </section>
         <section ng-controller="CvCtrl" ng-show="cv.parts.length" class="wh-cv">
-          <h3 class="wh-cv-title">{{cv.title}}</h3>
-          <article ng-repeat="part in cv.parts" id="{{part.id}}" ng-class="part.cssClass" header-current-section="" height-as-window="header" class="wh-cv-part when-shown wh-generic-section">
-            <header ng-if="part.title" class="wh-cv-part-header">
-              <h4 class="wh-cv-part-title wh-generic-section-title">{{part.title}}</h4>
-            </header>
-            <div class="wh-cv-part-content">
+          <article ng-repeat="part in cv.parts" id="{{part.id}}" ng-class="part.cssClass" header-current-section="" height-as-window="header" class="wh-cv-part wh-generic-section when-shown">
+            <h3 ng-if="part.title" class="wh-generic-section-title">{{part.title}}</h3>
+            <div class="wh-generic-section-content">
               <p ng-if="part.description" ng-bind-html="part.description" class="wh-cv-part-description"></p>
               <ol ng-if="part.content">
                 <li ng-repeat="item in part.content" class="wh-part-item">
-                  <h5 ng-if="item.title" class="wh-cv-part-item-title">{{item.title}}</h5>
-                  <div ng-if="item.when || item.from || item.until" class="wh-cv-part-item-date"><span ng-if="item.when" class="wh-cv-part-item-date when">{{item.when}}</span><span ng-if="item.from" class="wh-cv-part-item-date from">{{item.from}}</span><span ng-if="item.until" class="wh-cv-part-item-date until">{{item.until}}</span></div><a ng-if="item.image" ng-href="{{item.image.link}}" title="{{item.image.link}}"><img ng-src="{{item.image.src}}" title="{{item.image.link}}"></a>
+                  <h4 ng-if="item.title" class="wh-cv-part-item-title">{{item.title}}</h4>
+                  <div ng-if="item.when || item.from || item.until" class="wh-cv-part-item-dates"><span ng-if="item.when" class="wh-cv-part-item-date when">{{item.when}}</span><span ng-if="item.from" class="wh-cv-part-item-date from">{{item.from}}</span><span ng-if="item.until" class="wh-cv-part-item-date until">{{item.until}}</span></div><a ng-if="item.image" ng-href="{{item.image.link}}" title="{{item.image.link}}"><img ng-src="{{item.image.src}}" title="{{item.image.link}}"></a>
                   <p ng-if="item.description" ng-bind-html="item.description" class="wh-cv-part-item-description"></p>
                   <ol ng-if="item.content" class="wh-part-item-content">
                     <li ng-repeat="content in item.content" class="wh-part-item-content-element">{{content}}</li>
@@ -79,29 +76,33 @@
             </div>
           </article>
         </section>
-        <section ng-controller="QuestionsCtrl" id="{{id}}" ng-show="questions.length" header-current-section="" height-as-window="header" class="wh-questions when-shown wh-generic-section">
-          <h3 class="wh-questions-title wh-generic-section-title">{{ title }}</h3>
-          <p class="wh-questions-description">{{ description }}</p>
-          <ol>
-            <li ng-repeat="question in questions" class="wh-question">
-              <h4 class="wh-question-statement">{{ question.question }}</h4>
-              <ol>
-                <li ng-repeat="option in question.options" class="wh-question-option">
-                  <input type="{{question.type}}" id="{{option.id}}" name="{{option.name}}" ng-model="option.checked" ng-change="questionsSubmit()">
-                  <label for="{{option.id}}">{{option.title}}</label>
-                </li>
-              </ol>
-            </li>
-          </ol>
+        <section ng-controller="QuestionsCtrl" id="{{id}}" ng-show="questions.length" header-current-section="" height-as-window="header" class="wh-questions wh-generic-section when-shown">
+          <h3 class="wh-generic-section-title">{{ title }}</h3>
+          <div class="wh-generic-section-content">
+            <p class="wh-questions-description">{{ description }}</p>
+            <ol>
+              <li ng-repeat="question in questions" class="wh-question">
+                <h4 class="wh-question-statement">{{ question.question }}</h4>
+                <ol>
+                  <li ng-repeat="option in question.options" class="wh-question-option">
+                    <input type="{{question.type}}" id="{{option.id}}" name="{{option.name}}" ng-model="option.checked" ng-change="questionsSubmit()">
+                    <label for="{{option.id}}">{{option.title}}</label>
+                  </li>
+                </ol>
+              </li>
+            </ol>
+          </div>
         </section>
       </div>
       <div class="wh-background-image background-y-position-scroll"></div>
     </div>
     <div class="footer-container">
       <footer class="wh-footer wrapper">
-        <ul ng-controller="ContactsCtrl" id="{{id}}" ng-show="contacts.length" header-current-section="" height-as-window="header" class="wh-contacts when-shown wh-generic-section">
-          <li ng-repeat="contact in contacts"><a ng-href="{{contact.type=='phone'?'tel:':contact.type=='mail'?'mailto:':''}}{{contact.value}}" title="{{contact.value}}" data-wh-icon="{{contact.icon}}" ng-class="contact.type" class="wh-contact hide-text">{{contact.value}}</a></li>
-        </ul>
+        <div ng-controller="ContactsCtrl" id="{{id}}" header-current-section="" height-as-window="header" class="wh-contacts wh-generic-section when-shown">
+          <ul ng-if="contacts.length" class="wh-generic-section-content">
+            <li ng-repeat="contact in contacts"><a ng-href="{{contact.type=='phone'?'tel:':contact.type=='mail'?'mailto:':''}}{{contact.value}}" title="{{contact.value}}" data-wh-icon="{{contact.icon}}" ng-class="contact.type" class="wh-contact hide-text">{{contact.value}}</a></li>
+          </ul>
+        </div>
       </footer>
     </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID-->

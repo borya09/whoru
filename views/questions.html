@@ -1,15 +1,17 @@
-<section ng-controller="QuestionsCtrl" id="{{id}}" ng-show="questions.length" header-current-section="header-current-section" height-as-window="header" class="wh-questions when-shown wh-generic-section">
-  <h3 class="wh-questions-title wh-generic-section-title">{{ title }}</h3>
-  <p class="wh-questions-description">{{ description }}</p>
-  <ol>
-    <li ng-repeat="question in questions" class="wh-question">
-      <h4 class="wh-question-statement">{{ question.question }}</h4>
-      <ol>
-        <li ng-repeat="option in question.options" class="wh-question-option">
-          <input type="{{question.type}}" id="{{option.id}}" name="{{option.name}}" ng-model="option.checked" ng-change="questionsSubmit()">
-          <label for="{{option.id}}">{{option.title}}</label>
-        </li>
-      </ol>
-    </li>
-  </ol>
+<section ng-controller="QuestionsCtrl" id="{{id}}" ng-show="questions.length" header-current-section="header-current-section" height-as-window="header" class="wh-questions wh-generic-section when-shown">
+  <h3 class="wh-generic-section-title">{{ title }}</h3>
+  <div class="wh-generic-section-content">
+    <p class="wh-questions-description">{{ description }}</p>
+    <ol>
+      <li ng-repeat="question in questions" class="wh-question">
+        <h4 class="wh-question-statement">{{ question.question }}</h4>
+        <ol>
+          <li ng-repeat="option in question.options" class="wh-question-option">
+            <input type="{{question.type}}" id="{{option.id}}" name="{{option.name}}" ng-model="option.checked" ng-change="questionsSubmit()">
+            <label for="{{option.id}}">{{option.title}}</label>
+          </li>
+        </ol>
+      </li>
+    </ol>
+  </div>
 </section>
