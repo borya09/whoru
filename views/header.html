@@ -13,4 +13,4 @@
   <ul ng-if="locales.length &gt; 1" class="wh-header-locales">
     <li ng-repeat="locale in locales" ng-class="{current: locale.current}" class="wh-header-locale"><a ng-click="setCurrentLocale(locale)" href="javascript:void(0)" title="{{locale.text}}"><img ng-src="{{locale.image}}" title="{{locale.text}}"></a></li>
   </ul>
-</nav><a id="to-top" href="javascript:void(0)" ng-click="smoothScroll(header.nav.init)"></a>
+</nav><a id="to-top" href="javascript:void(0)" ng-click="smoothScroll(header.nav.init)" title="top">TOP</a>
