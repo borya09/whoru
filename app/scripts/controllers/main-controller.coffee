@@ -37,5 +37,9 @@ angular.module('whoruApp')
       # Set 'current' property to true, which will add css class 'current'
       $scope.$apply ->
         headerCurrentOption.current = true
+      
+      return
+    
+    return  
   ]
 
