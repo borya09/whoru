@@ -9,3 +9,18 @@
   border-left: $width solid transparent
   border-right: $width solid transparent
   border-bottom: $width solid $color
+
+@mixin arrow-top($color: black)
+  &:before
+    content: ''
+    position: absolute
+    text-align: center
+    border-width: .1em 0 0 .1em
+    +rotate(45deg)
+    width: 1.5em
+    height: 1.5em
+    top: 1.2em
+    right: 1.7em
+    border-style: solid
+    border-color: $color
+
