@@ -1,4 +1,3 @@
-
 'use strict'
 
 
@@ -24,6 +23,10 @@ angular.module('whoruApp')
           $body.animate
             scrollTop: target.offset().top - 50
           , 1000
+          
+        return
+        
+      return 
     ]
     link: (scope, elem, attrs) ->
 
