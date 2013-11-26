@@ -1,10 +1,13 @@
-section.wh-questions.when-shown.wh-generic-section(ng-controller="QuestionsCtrl", id='{{id}}', ng-show='questions.length', header-current-section, height-as-window='header')
-    h3.wh-questions-title.wh-generic-section-title {{ title }}
-    p.wh-questions-description {{ description }}
-    ol
-        li.wh-question(ng-repeat='question in questions')
-            h4.wh-question-statement {{ question.question }}
-            ol
-                li(ng-repeat='option in question.options').wh-question-option
-                    input(type='{{question.type}}', id='{{option.id}}', name='{{option.name}}', ng-model='option.checked', ng-change='questionsSubmit()')
-                    label(for='{{option.id}}') {{option.title}}
+section.wh-questions.wh-generic-section.when-shown(ng-controller="QuestionsCtrl", id='{{id}}', ng-show='questions.length', header-current-section, height-as-window='header')
+
+    h3.wh-generic-section-title {{ title }}
+
+    .wh-generic-section-content
+        p.wh-questions-description {{ description }}
+        ol
+            li.wh-question(ng-repeat='question in questions')
+                h4.wh-question-statement {{ question.question }}
+                ol
+                    li(ng-repeat='option in question.options').wh-question-option
+                        input(type='{{question.type}}', id='{{option.id}}', name='{{option.name}}', ng-model='option.checked', ng-change='questionsSubmit()')
+                        label(for='{{option.id}}') {{option.title}}

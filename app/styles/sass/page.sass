@@ -52,55 +52,26 @@ body
   position: relative
 
 
-.background-y-position-scroll
-  background-size: cover
-
-.wh-background-image
-  background: url(http://1.bp.blogspot.com/-oWW47edvsaI/UClWcZMf3DI/AAAAAAAACCE/E4WAaDtyvfE/s1600/paisaje.jpg) no-repeat fixed
-  position: absolute
-  z-index: -1
-  top: 0
-  height: 100%
-  bottom: auto
-  left: 0
-  right: 0
-
-
-.when-shown
-  position: relative
-  &:not(.do)
-    left: -9999px
-  &.do
-    left: 0
-    +transition-property(left)
-    +transition-duration(.5s)
-
-
-
-
+@mixin wh-generic-section($child, $background-color, $opacity: 0.95)
+  &:nth-child(6n + #{$child})
+    background: rgba($background-color, $opacity)
 
 .wh-generic-section
   padding: 50px 20px
-  $opacity: 0.95
-  margin-bottom: 300px
-  &:nth-child(5n+0)
-    background: rgba(250, 175, 64, $opacity)
-  &:nth-child(5n+1)
-    background: rgba(237, 110, 69, $opacity)
-  &:nth-child(5n+2)
-    background: rgba(151, 206, 201, $opacity)
-  &:nth-child(5n+3)
-    background: rgba(76, 237, 146, $opacity)
-  &:nth-child(5n+4)
-    background: rgba(237, 115, 221, $opacity)
+
+  +wh-generic-section(1, #ED6E45)
+  +wh-generic-section(2, #4CED92)
+  +wh-generic-section(3, #97CEC9)
+  +wh-generic-section(4, #ED73DD)
+  +wh-generic-section(5, #FFAF40)
+  +wh-generic-section(6, #9c92ff)
 
 
 .wh-generic-section-title
-  font-size: 2em
-  margin: 20px 0 50px 0
+  font-size: 3em
+  margin: 20px 0 100px 0
   text-align: center
-
-
+  font-weight: 200
 
 
 // HEADER
@@ -132,7 +103,7 @@ body
 
 .wh-header-intro-fullname
   line-height: 60px
-  font-size: 28px
+  font-size: 1.75em
   div
     float: left
 
@@ -146,7 +117,6 @@ body
 
 
 
-
 .wh-header-options
   float: right
   &.ul
@@ -156,12 +126,12 @@ body
     position: relative
     border: 1px solid black
     +border-radius(4px)
-    margin-top: 14px
+    margin-top: 13px
 
     select
       text-align: center
       width: 100%
-      font-size: 14px
+      font-size: .875em
       font-weight: 200
       text-transform: uppercase
       cursor: pointer
@@ -174,7 +144,7 @@ body
   padding: 0 10px
   height: $header-mobile-height
   a
-    font-size: 14px
+    font-size: .875em
     text-transform: uppercase
     font-weight: 300
     color: black
@@ -201,6 +171,7 @@ body
 
 .wh-header-locale
   clear: both
+  margin-bottom: 6px
   &:not(.current)
     opacity: .2
 
@@ -229,29 +200,27 @@ body
 // INTRO
 
 .wh-intro
-  background: #40f272
+  background: #40f272!important
   padding-top: 50px
-  margin-bottom: 300px
 
 
 .wh-intro-fullname
-  width: 240px
+  width: 270px
   margin: 0 auto
-  div
+  > div
     margin: 2px
     float: left
+    background: white
+    color: black
+    font-size: 3em
+
+
 
 .wh-intro-name
-  background: white
-  color: black
-  font-size: 50px
   font-weight: 700
 
 .wh-intro-surname1,
 .wh-intro-surname2
-  background: white
-  color: black
-  font-size: 50px
   font-weight: 300
 
 .wh-intro-summary
@@ -277,38 +246,54 @@ body
 
 
 // CV
-.wh-cv-title
-  text-indent: -9999px
-  height: 0
 
 .wh-cv-part
   img
     width: 200px
-
-
+    +border-radius(6px)
+    margin-bottom: 10px
 
 
 .wh-part-item
   margin: 30px 0
 .wh-cv-part-item-title
-  font-size: 24px
+  font-size: 1.3em
   margin: 20px 0
   padding-bottom: 10px
   border-bottom: 1px solid black
 
 .wh-cv-part-item-description
-  font-size: 20px
+  font-size: 1.1em
+  margin: 10px 0
 
 .wh-part-item-content-element
   padding: 2px 0 2px 30px
-  font-size: 18px
+  font-size: 1em
+
+.wh-cv-part-item-dates
+  float: right
+  font-size: .75em
+  font-weight: 400
+  line-height: 20px
+
 
 .wh-cv-part-item-date
   &+.wh-cv-part-item-date
     margin-left: 10px
+    &:before
+      content: '-'
+      padding-right: 10px
+
+.wh-cv-part
+  &.hobbies,
+  &.formation
+    text-align: center
 
 // QUESTIONS
 
+.wh-questions
+  .wh-generic-section-title
+    margin-bottom: 20px
 
 .wh-questions-description
   text-align: center
@@ -318,25 +303,26 @@ body
   margin: 40px 0
 
 .wh-question-statement
-  font-size: 20px
+  font-size: 1.25em
   margin: 20px 0
   padding-bottom: 10px
   border-bottom: 1px solid black
 
-
+.wh-question-option
+  margin-bottom: 10px
 
 // CONTACTS
 .wh-contacts
   padding-top: 150px
   padding-bottom: 200px
   text-align: center
-  margin-bottom: 0
+  margin-bottom: 0!important
   li
     padding: 10px 0
 
 
 .wh-contact
-  font-size: 24px
+  font-size: 1.1em
   color: black
 
 

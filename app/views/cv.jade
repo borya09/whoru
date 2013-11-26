@@ -1,20 +1,18 @@
 section.wh-cv(ng-controller="CvCtrl", ng-show='cv.parts.length')
-    h3.wh-cv-title {{cv.title}}
 
-    article.wh-cv-part.when-shown.wh-generic-section(ng-repeat='part in cv.parts', id='{{part.id}}', ng-class='part.cssClass', header-current-section, height-as-window='header')
+    article.wh-cv-part.wh-generic-section.when-shown(ng-repeat='part in cv.parts', id='{{part.id}}', ng-class='part.cssClass', header-current-section, height-as-window='header')
 
-        header.wh-cv-part-header(ng-if='part.title')
-            h4.wh-cv-part-title.wh-generic-section-title {{part.title}}
+        h3.wh-generic-section-title(ng-if='part.title') {{part.title}}
 
-        .wh-cv-part-content
+        .wh-generic-section-content
             p.wh-cv-part-description(ng-if='part.description', ng-bind-html="part.description")
 
             ol(ng-if='part.content')
                 li.wh-part-item(ng-repeat='item in part.content')
 
-                    h5.wh-cv-part-item-title(ng-if='item.title') {{item.title}}
+                    h4.wh-cv-part-item-title(ng-if='item.title') {{item.title}}
 
-                    .wh-cv-part-item-date(ng-if='item.when || item.from || item.until')
+                    .wh-cv-part-item-dates(ng-if='item.when || item.from || item.until')
                         span.wh-cv-part-item-date.when(ng-if='item.when') {{item.when}}
                         span.wh-cv-part-item-date.from(ng-if='item.from') {{item.from}}
                         span.wh-cv-part-item-date.until(ng-if='item.until') {{item.until}}

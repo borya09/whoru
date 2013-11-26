@@ -8,13 +8,38 @@
 
 
 // GENERAL
-
 body
-  font-size: 1.2em
+  font-size: 1.1em
+
+.when-shown
+  position: relative
+  &:not(.do)
+    left: -9999px
+  &.do
+    left: 0
+    +transition-property(left)
+    +transition-duration(.5s)
+
+.background-y-position-scroll
+  background-size: cover
+
+.wh-background-image
+  background: url(http://1.bp.blogspot.com/-oWW47edvsaI/UClWcZMf3DI/AAAAAAAACCE/E4WAaDtyvfE/s1600/paisaje.jpg) no-repeat fixed
+  position: absolute
+  z-index: -1
+  top: 0
+  height: 100%
+  bottom: auto
+  left: 0
+  right: 0
+
+.wh-generic-section
+  margin-bottom: 150px
 
 // HEADER
 .header-container
   height: $header-desktop-height
+  font-size: .75em
 
 .wh-header-options
   &.ul
@@ -23,10 +48,14 @@ body
   &.select
     display: none
 
-.wh-cv-part-content,
-.wh-question
+.wh-generic-section-content
   width: 50%
   margin: 0 auto
 
 .wh-question
   margin-top: 30px
+
+.wh-contact
+  font-size: 1.25em
+
+
