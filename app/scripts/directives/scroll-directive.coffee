@@ -15,6 +15,7 @@ angular.module('whoruApp')
         $headerCurrentSectionSpiedElements.push $element
 
       @addBackgroundYPositionScrollSpied = ($element) ->
+        console.log 122, $element
         $backgroundYPositionSpiedElements.push $element
 
       $rootScope.smoothScroll = (element) ->
@@ -46,8 +47,10 @@ angular.module('whoruApp')
         # set a dynamic 'background-position-y' to '.background-y-position-scroll' elements when document is scrolled
         documentHeight = $document.height()
         percent = scrollYPos/documentHeight * 100
+        console.log 1, $backgroundYPositionSpiedElements
         for $element in $backgroundYPositionSpiedElements
-          $element.css 'background-position-y', percent + '%'
+          console.log '2'
+          $element.css 'background-position', '0 ' + percent + '%'
 
 
 
