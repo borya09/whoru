@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory-->
-    <link rel="stylesheet" href="styles/862d2350.main.css">
+    <link rel="stylesheet" href="styles/727aa299.main.css">
     <script type="text/javascript">document.write('<base href="' + document.location + '" />');</script>
   </head>
   <body ng-app="whoruApp" ng-controller="MainCtrl" ng-cloak="">
@@ -55,7 +55,8 @@
             <div ng-if="intro.surname1" class="wh-intro-surname1">{{intro.surname1}}</div>
             <div ng-if="intro.surname2" class="wh-intro-surname2">{{intro.surname2}}</div>
           </div>
-          <h2 class="wh-intro-summary">{{intro.summary}}</h2><a ng-href="{{intro.image}}" title="{{intro.fullname()}}" class="wh-intro-image"><img ng-src="{{intro.image}}" title="{{intro.fullname()}}"></a>
+          <h2 class="wh-intro-summary">{{intro.summary}}</h2>
+          <div class="wh-intro-image-wrapper"><img ng-src="{{intro.image}}" title="{{intro.fullname()}}" class="wh-intro-image"></div>
           <p ng-if="intro.description" ng-bind-html="intro.description" class="wh-intro-description"></p>
         </section>
         <section ng-controller="CvCtrl" ng-show="cv.parts.length" class="wh-cv">
@@ -117,6 +118,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="scripts/b2e10d90.modules.js"></script>
-    <script src="scripts/68962692.scripts.js"></script>
+    <script src="scripts/eb135aae.scripts.js"></script>
   </body>
 </html>
