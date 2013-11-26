@@ -9,7 +9,7 @@ angular.module('whoruApp')
     restrict: 'E'
     controller: ['$rootScope', ($rootScope) ->
 
-      $body = $ "body"
+      $bodyOrHtml = $ "body,html" # selector 'html' is a fix to firefox: http://stackoverflow.com/questions/8149155/animate-scrolltop-not-working-in-firefox
 
       @addHeaderCurrentSectionSpied = ($element) ->
         $headerCurrentSectionSpiedElements.push $element
@@ -20,10 +20,10 @@ angular.module('whoruApp')
       $rootScope.smoothScroll = (element) ->
         target = $ '#' + element.id
         if target.length
-          $body.animate
+          $bodyOrHtml.animate
             scrollTop: target.offset().top - 50
           , 1000
-          
+
         return
         
       return 
