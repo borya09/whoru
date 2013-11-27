@@ -3,7 +3,7 @@
 
 # TODO: TEST
 angular.module('whoruApp')
-  .directive 'body', ($window) ->
+  .directive 'body', () ->
     $headerCurrentSectionSpiedElements = []
     $backgroundYPositionSpiedElements = []
     restrict: 'E'
@@ -15,7 +15,6 @@ angular.module('whoruApp')
         $headerCurrentSectionSpiedElements.push $element
 
       @addBackgroundYPositionScrollSpied = ($element) ->
-        console.log 122, $element
         $backgroundYPositionSpiedElements.push $element
 
       $rootScope.smoothScroll = (element) ->
@@ -36,20 +35,18 @@ angular.module('whoruApp')
       $header = $ '.header-container'
       $intro = $ '.wh-intro'
       $document = $ document
-      $$window = $ $window
+      $window = $ window
 
-      $$window.scroll ->
+      $window.scroll ->
 
-        scrollYPos = $window.scrollY
-        windowHeight = $$window.height()
+        scrollYPos = $window.scrollTop()
+        windowHeight = $window.height()
         headerHeight = $header.height()
 
         # set a dynamic 'background-position-y' to '.background-y-position-scroll' elements when document is scrolled
         documentHeight = $document.height()
         percent = scrollYPos/documentHeight * 100
-        console.log 1, $backgroundYPositionSpiedElements
         for $element in $backgroundYPositionSpiedElements
-          console.log '2'
           $element.css 'background-position', '0 ' + percent + '%'
 
 
@@ -61,7 +58,7 @@ angular.module('whoruApp')
           $toAnimateElements.each ->
             $this = $ this
             a = $this.offset().top + windowHeight/2
-            b = $$window.scrollTop() + windowHeight
+            b = scrollYPos + windowHeight
             if a < b
               $this.addClass 'do'
 

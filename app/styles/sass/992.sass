@@ -15,7 +15,7 @@ body
   font-size: 1em
 
 .when-shown
-  position: relative
+  position: relative0
   &:not(.do)
     left: -9999px
   &.do
@@ -24,9 +24,12 @@ body
     +transition-duration(.5s)
 
 
+
+
 .wh-background-image
-  background: url(http://www.hdwallpaperstop.com/wp-content/uploads/2013/10/Landscape-Beach-HD-Wallpaper.png) no-repeat fixed
+  background: #FFFFFF url(http://www.hdwallpaperstop.com/wp-content/uploads/2013/10/Landscape-Beach-HD-Wallpaper.png) center center fixed no-repeat
   background-size: cover
+  -moz-background-size: cover
   position: absolute
   z-index: -1
   top: 0
