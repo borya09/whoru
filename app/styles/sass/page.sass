@@ -44,7 +44,7 @@
 // GENERAL
 
 body
-  font-size: 16px
+  font-size: 100%
   font-family: 'Roboto', sans-serif
   font-weight: 300
   height: 100%
@@ -52,9 +52,7 @@ body
   position: relative
 
 
-@mixin wh-generic-section($child, $background-color, $opacity: 0.95)
-  &:nth-child(6n + #{$child})
-    background: rgba($background-color, $opacity)
+
 
 .wh-generic-section
   padding: 50px 20px
@@ -107,8 +105,10 @@ body
 .wh-header-intro-fullname
   line-height: 60px
   font-size: 1.75em
+
   div
     float: left
+
 
 
 .wh-header-intro-name
@@ -174,7 +174,7 @@ body
   width: 4.7em
   height: 4.7em
   color: white
-  font-size: .7em
+  font-size: .75em
   background: black
   font-weight: 600
   text-align: center
@@ -198,9 +198,10 @@ body
 
 
 .wh-intro-fullname
-  width: 270px
   margin: 0 auto
+  display: table
   > div
+    display: inline-block
     margin: 2px
     float: left
     background: white

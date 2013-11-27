@@ -57,7 +57,38 @@ config
 
 `config/_config.json`: 
 
-Config available locales, and the default one
+Configuration of available locales, and the default one:
+
+* version: {String} version of the file
+* config: {Object}
+	* locales {Array}
+		* key: {String} key of the locale, used to identify other files of data. key: 'es' -> files: intro_es.json, cv_es.json
+		* image: {String} url of an icon to identify the locale
+		* text: {String} description of the locale
+		* default: {true|false}
+
+
+Ex.:
+
+    {
+    	"version": "0.0.1",
+    	"config": {
+    		"locales": [
+    			{
+
+    				"key": "es",
+    				"image": "http://your.image.url",
+    				"text": "ES"
+    			},
+    			{
+    				"default": true,
+    				"key": "en",
+    				"image": "http://your.image.url",
+    				"text": "EN"
+    			}
+    		]
+    	}
+    }
 
 
 ### Introduction
@@ -66,7 +97,32 @@ Config available locales, and the default one
 
 ** One file per each available locale
 
-Config basic/introductory information about the cv
+Configuration of basic/introductory information about the owner of the cv
+
+* version: {String} version of the file
+* header: {String} name of the section to be linked from the header navbar
+* intro {Object}
+	* name {String}
+	* surname1: {String|undefined}
+	* surname2: {String|undefined}
+	* summary: {String} short description
+	* image: {String|undefined}
+	* description: {String|undefined} long description
+
+Ex.:
+
+    {
+	    "version": "0.0.1",
+	    "header":"Intro",
+	    "intro":{
+	      "name": "John",
+	      "surname1": "Doe",
+	      "surname2": "II",
+	      "summary": "Nameless Dev",
+	      "image": "http://huelva24.com/upload/img/periodico/img_68805.jpg",
+	      "description": "Developer Developer Developer"
+	    }
+	  }
 
 
 ### CV
@@ -75,8 +131,62 @@ Config basic/introductory information about the cv
 
 ** One file per each available locale
 
-Config parts (groups of information) of the cv
+Configuration of the parts (groups of information) of the cv
 
+* version: {String} version of the file
+* parts {Array}
+	* header: {String} name of the cv-part to be linked from the header navbar
+	* title: {String} name of the cv-part to be shown as the title of the section
+	* key: {String} identification of the cv-part to be used as the id and css class of the section
+	* content: {Array}
+    * title: {String|undefined}
+    * description: {String|undefined}
+    * from: {String|undefined}
+    * until: {String|undefined}
+    * when: {String|undefined}
+    * image: {Object|undefined}
+      * link: {String}
+      * src: {String}
+    * description: {String|undefined}
+    * content: {Array|undefined}
+
+
+Ex.:
+
+    {
+      "version": "0.0.1",
+      "parts": [
+	      {
+	        "header": "Career",
+	        "title": "Professional Career",
+	        "key":"career",
+	        "content": [
+	          {
+	            "title": "Project manager",
+	            "description":"Planning and execution of any kind of project in <b>Google</b>",
+	            "from":"2005",
+	            "until":"currently",
+	            "image":{
+	              "link":"http://www.google.es",
+	              "src":"http://www.seomofo.com/downloads/new-google-logo-official.png"
+	            },
+	            "content":[
+	              "Planning",
+	              "Management"
+	            ]
+	          },
+	          {
+	            "title": "Junior Developer",
+	            "description":"Developer at <b>Yahoo</b>",
+	            "from":"1999",
+	            "until":"2004",
+	            "image":{
+	              "link":"http://www.yahoo.com",
+	              "src":"http://www.omicrono.com/wp-content/uploads/2012/03/yahoo-logo.jpg"
+	            }
+	          }
+	        ]
+	      }
 
 ### Questions
 
@@ -84,7 +194,47 @@ Config parts (groups of information) of the cv
 
 ** One file per each available locale
 
-Config questions to interview the interviewers
+Configuration of questions to interview the interviewers
+
+* version: {String} version of the file
+* parts {Array}
+	* header: {String} name of section to be linked from the header navbar
+	* title: {String} name of section to be shown as the title of the questions
+	* description: {String|optional} summary of the objective of the questions
+	* questions: {Array}
+		* title: {String} Questions
+		* multiple: {true|false} indicates if the visitant can choose only one answer or several
+		* answers: {Array}
+			* key-value: {String}-{Number} Answer and weight of that answer to measure the visitant
+
+Ex.:
+
+    {
+    	"version": "0.0.1",
+      "header": "Questions",
+      "title": "Questions",
+      "description": "Ey!, Who Are You? Let's see it",
+      "questions": [
+        {
+          "title": "Technologies",
+          "multiple": true,
+          "answers": {
+            "javascript": 100,
+            "java": 0,
+            "C": 20,
+            "python": 0
+          }
+        },
+        {
+          "title": "Do you consider yourself as a good place to work?",
+          "multiple": false,
+          "answers":{
+            "yes": true,
+            "no": false,
+            "maybe":false
+          }
+        },
+
 
 
 
@@ -92,15 +242,31 @@ Config questions to interview the interviewers
 
 `config/contacts.json`: 
 
-Config information about contact
-* Webs
-* RRSS
-* Mails
-* Phones
+Configuration of the information to contact the owner of the cv
 
-TODO: Document font icons 
+* version: {String} version of the file
+* header: {String} name of section to be linked from the header navbar
+* contacts: {Array}
+	* type: {'web'|'phone'|'mail'}
+	* value: {String} link
+	* icon: {String} character which represents the icon in the file of fonts (icomoon session in: 'app/fonts/whoru-icons/icomoon-selections.json') TODO: Document font icons
 
+Ex.:
 
+    {
+    	"version": "0.0.1",
+    	"header":"Contact",
+    	"contacts": [
+    		{
+    			"type": "web",
+    			"value": "http://www.JohnDoe.com",
+    			"icon": "Z"
+    		},
+        {
+          "type": "phone",
+          "value": "666999666",
+          "icon": "U"
+        }
 
 
 
@@ -153,7 +319,9 @@ To spy a section:
 
 about
 ---------
-TODO
+Javier Arnáiz González
+Borja Andrés Marroquín
+
 
 
 license

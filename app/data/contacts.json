@@ -1,7 +1,6 @@
 {
 	"version": "0.0.1",
 	"header":"Contact",
-	"title":"Contact",
 	"contacts": [
 		{
 			"type": "web",

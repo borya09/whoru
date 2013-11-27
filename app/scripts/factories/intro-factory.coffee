@@ -1,8 +1,7 @@
 'use strict'
 
 class Intro
-  constructor: (data, title, header) ->
-    @title = title
+  constructor: (data, header) ->
     @header = header
     for key of data
       @[key] = data[key]

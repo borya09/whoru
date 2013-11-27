@@ -4,8 +4,6 @@ class IntroFactorySpec extends FactorySpec
 
   test: ->
 
-    title = 'intro'
-
     header = 'header'
 
     intro1 = @fixtures.intro.c
@@ -23,7 +21,7 @@ class IntroFactorySpec extends FactorySpec
     describe '\'constructor\' method, when called', ->
 
       beforeEach ->
-        @intro = new @Intro intro1, title, header
+        @intro = new @Intro intro1, header
 
       it 'should create an object with correct params', ->
 
@@ -31,7 +29,6 @@ class IntroFactorySpec extends FactorySpec
         expect(@intro.surname1).toBe intro1.surname1
         expect(@intro.surname2).toBe intro1.surname2
         expect(@intro.summary).toBe intro1.summary
-        expect(@intro.title).toBe title
         expect(@intro.header).toBe header
 
     describe '\'fullname\' method, when called', ->

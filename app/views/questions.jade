@@ -3,7 +3,7 @@ section.wh-questions.wh-generic-section.when-shown(ng-controller="QuestionsCtrl"
     h3.wh-generic-section-title {{ title }}
 
     .wh-generic-section-content
-        p.wh-questions-description {{ description }}
+        p.wh-questions-description(ng-if='description') {{ description }}
         ol
             li.wh-question(ng-repeat='question in questions')
                 h4.wh-question-statement {{ question.question }}

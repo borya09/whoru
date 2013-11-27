@@ -34,7 +34,6 @@ class IntroServiceSpec extends ServiceSpec
 
         expect(intro instanceof Intro).toBeTruthy()
         expect(intro.name).toBe 'borja'
-        expect(intro.title).toBe 'intro'
         expect(intro.header).toBe 'header'
 
     afterEach ->

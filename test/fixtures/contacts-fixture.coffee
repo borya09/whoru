@@ -3,8 +3,7 @@ global.$FIXTURES = global.$FIXTURES ? {}
 global.$FIXTURES.contacts =
   a:
     version: "0.0.1",
-    title:"Contacts"
-    header:"Contacts2"
+    header:"Contacts"
     contacts: [
       type: "web"
       value: "http://www.google.com"

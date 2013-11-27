@@ -17,7 +17,6 @@ class CvService
           $http.get(filePath)
             .then (response) ->
               cv =
-                title : response.data.title
                 parts : []
 
               for part in response.data.parts

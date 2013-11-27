@@ -29,7 +29,6 @@ class CvControllerSpec extends ControllerSpec
         expect(@cvService.get).toHaveBeenCalled()
 
       it 'should attach the title of the cv and two parts to the scope', () ->
-        expect(@scope.cv.title).toBe 'CV'
         expect(@scope.cv.parts.length).toBe 2
         part1 = @scope.cv.parts[0]
         expect(part1 instanceof CvPart).toBeTruthy()

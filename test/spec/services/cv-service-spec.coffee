@@ -30,7 +30,6 @@ class CvServiceSpec extends ServiceSpec
 
         do @httpBackend.flush
 
-
         expect(typeof cv).toBe 'object'
         expect(cv.parts.length).toBe 2
 
@@ -40,7 +39,6 @@ class CvServiceSpec extends ServiceSpec
         expect(part1.header).toBe 'header 1'
         expect(part1.content).toBe 'contenido de la sección 1'
 
-        expect(cv.title).toBe 'CV'
 
     afterEach ->
       do @httpBackend.verifyNoOutstandingExpectation

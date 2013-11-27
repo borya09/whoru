@@ -28,7 +28,7 @@ class ContactsServiceSpec extends ServiceSpec
         @contactsService.get()
           .then (data) ->
             contacts = data.contacts
-            title = data.title
+            title = data.header
 
         do @httpBackend.flush
 

@@ -59,3 +59,7 @@
     top: .65em
     +triangle-down($width: .4em, $color: black)
 
+
+@mixin wh-generic-section($child, $background-color, $opacity: 0.95)
+  &:nth-child(6n + #{$child})
+    background: rgba($background-color, $opacity)
