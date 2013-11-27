@@ -27,11 +27,6 @@
 			"type": "mail",
 			"value": "john.doe@gmail.com",
 			"icon": "1"
-		},
-		{
-			"type": "web",
-			"value": "https://plus.google.com/+JohnDoe",
-			"icon": "6"
 		}
 	]
 }
