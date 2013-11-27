@@ -75,7 +75,10 @@ body
 
 
 // HEADER
+
+
 .header-container
+  font-size: .75em
   position: fixed
   top: -80px
   width: 100%
@@ -122,24 +125,10 @@ body
   &.ul
     display: none
   &.select
+    margin-top: 16px
     width: 40%
-    position: relative
-    border: 1px solid black
-    +border-radius(4px)
-    margin-top: 13px
+    +pretty-select
 
-    select
-      text-align: center
-      width: 100%
-      font-size: .875em
-      font-weight: 200
-      text-transform: uppercase
-      cursor: pointer
-      padding: 5px
-      -webkit-appearance: none
-
-      background: none
-      border: none
 
 .wh-header-option
   padding: 0 10px

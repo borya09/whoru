@@ -24,3 +24,38 @@
     border-style: solid
     border-color: $color
 
+@mixin pretty-select()
+  position: relative
+  border: 1px solid black
+  +border-radius(.25em)
+
+  select
+    text-align: center
+    width: 100%
+    font-size: .875em
+    font-weight: 200
+    text-transform: uppercase
+    cursor: pointer
+    padding: 0.125em
+    -webkit-appearance: none
+    background: none
+    border: none
+
+  &:before,
+  &:after
+    content: ''
+    pointer-events: none
+    position: absolute
+
+  &:before
+    right: 0.125em
+    width: 1em
+    top: 0.125em
+    bottom: 0.125em
+    background: white
+
+  &:after
+    right: .625em
+    top: .65em
+    +triangle-down($width: .4em, $color: black)
+
