@@ -21,6 +21,9 @@ Clone this repo and install the dependencies:
 
 
 * [nodejs](http://nodejs.org/)
+* [bower](http://bower.io/)
+* [karma](http://karma-runner.github.io/)
+* [grunt-cli](http://gruntjs.com/getting-started)
 * [yeoman](http://yeoman.io/index.html) **Optional
 * [Angular generator for yeoman](https://github.com/yeoman/generator-angular) **Optional
 * [Compass Core](http://compass-style.org/install/)
@@ -46,7 +49,7 @@ Builds the project and uploads it to gh-pages
 
 
 `grunt docco`: 
-Builds the documentation. Based on http://jashkenas.github.io/docco/
+Builds the documentation. Based on [docco] (http://jashkenas.github.io/docco/)
 
 
  
@@ -319,9 +322,9 @@ To spy a section:
 
 about
 ---------
-Javier Arnáiz González
+[Javier Arnáiz González] (https://github.com/jarnaiz)
 
-Borja Andrés Marroquín
+[Borja Andrés Marroquín] (https://github.com/borya09)
 
 
 
