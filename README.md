@@ -252,7 +252,7 @@ Configuration of the information to contact the owner of the cv
 * contacts: {Array}
 	* type: {'web'|'phone'|'mail'}
 	* value: {String} link
-	* icon: {String} character which represents the icon in the file of fonts (icomoon session in: 'app/fonts/whoru-icons/icomoon-selections.json') TODO: Document font icons
+	* icon: {String} character which represents the icon in the file of fonts ([icomoon](http://icomoon.io/app/#/select) session in: 'app/fonts/whoru-icons/icomoon-selections.json') TODO: Document font icons and their relation with the rrss
 
 Ex.:
 
