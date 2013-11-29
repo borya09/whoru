@@ -6,7 +6,14 @@
       <ol ng-if="part.content">
         <li ng-repeat="item in part.content" class="wh-part-item">
           <h4 ng-if="item.title" class="wh-cv-part-item-title">{{item.title}}</h4>
-          <div ng-if="item.when || item.from || item.until" class="wh-cv-part-item-dates"><span ng-if="item.when" class="wh-cv-part-item-date when">{{item.when}}</span><span ng-if="item.from" class="wh-cv-part-item-date from">{{item.from}}</span><span ng-if="item.until" class="wh-cv-part-item-date until">{{item.until}}</span></div><a ng-if="item.image" ng-href="{{item.image.link}}" title="{{item.image.link}}"><img ng-src="{{item.image.src}}" title="{{item.image.link}}"></a>
+          <div ng-if="item.when || item.from || item.until" class="wh-cv-part-item-dates"><span ng-if="item.when" class="wh-cv-part-item-date when">{{item.when}}</span><span ng-if="item.from" class="wh-cv-part-item-date from">{{item.from}}</span><span ng-if="item.until" class="wh-cv-part-item-date until">{{item.until}}</span></div>
+          <div ng-if="item.images" class="wh-cv-part-item-images-wrapper wh-slider">
+            <div ng-if="item.images.length &gt; 1" data-list="item.images" class="wh-slider-selector"></div>
+            <ul class="wh-cv-part-item-images wh-slider-list">
+              <li ng-repeat="image in item.images" ng-class="image.current || $parent.item.images.length == 1? &quot;current&quot; : &quot;&quot; " class="wh-cv-part-item-image wh-slider-item"><a ng-href="{{image.link}}" title="{{image.link}}">
+                  <div style="background-image:url({{image.src}})" class="img"></div></a></li>
+            </ul>
+          </div>
           <p ng-if="item.description" ng-bind-html="item.description" class="wh-cv-part-item-description"></p>
           <ol ng-if="item.content" class="wh-part-item-content">
             <li ng-repeat="content in item.content" class="wh-part-item-content-element">{{content}}</li>

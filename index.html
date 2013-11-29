@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory-->
-    <link rel="stylesheet" href="styles/62aad7c8.main.css">
+    <link rel="stylesheet" href="styles/44deb573.main.css">
     <script type="text/javascript">document.write('<base href="' + document.location + '" />');</script>
   </head>
   <body ng-app="whoruApp" ng-controller="MainCtrl" ng-cloak="">
@@ -67,7 +67,14 @@
               <ol ng-if="part.content">
                 <li ng-repeat="item in part.content" class="wh-part-item">
                   <h4 ng-if="item.title" class="wh-cv-part-item-title">{{item.title}}</h4>
-                  <div ng-if="item.when || item.from || item.until" class="wh-cv-part-item-dates"><span ng-if="item.when" class="wh-cv-part-item-date when">{{item.when}}</span><span ng-if="item.from" class="wh-cv-part-item-date from">{{item.from}}</span><span ng-if="item.until" class="wh-cv-part-item-date until">{{item.until}}</span></div><a ng-if="item.image" ng-href="{{item.image.link}}" title="{{item.image.link}}"><img ng-src="{{item.image.src}}" title="{{item.image.link}}"></a>
+                  <div ng-if="item.when || item.from || item.until" class="wh-cv-part-item-dates"><span ng-if="item.when" class="wh-cv-part-item-date when">{{item.when}}</span><span ng-if="item.from" class="wh-cv-part-item-date from">{{item.from}}</span><span ng-if="item.until" class="wh-cv-part-item-date until">{{item.until}}</span></div>
+                  <div ng-if="item.images" class="wh-cv-part-item-images-wrapper wh-slider">
+                    <div ng-if="item.images.length &gt; 1" data-list="item.images" class="wh-slider-selector"></div>
+                    <ul class="wh-cv-part-item-images wh-slider-list">
+                      <li ng-repeat="image in item.images" ng-class="image.current || $parent.item.images.length == 1? &quot;current&quot; : &quot;&quot; " class="wh-cv-part-item-image wh-slider-item"><a ng-href="{{image.link}}" title="{{image.link}}">
+                          <div style="background-image:url({{image.src}})" class="img"></div></a></li>
+                    </ul>
+                  </div>
                   <p ng-if="item.description" ng-bind-html="item.description" class="wh-cv-part-item-description"></p>
                   <ol ng-if="item.content" class="wh-part-item-content">
                     <li ng-repeat="content in item.content" class="wh-part-item-content-element">{{content}}</li>
@@ -80,7 +87,7 @@
         <section ng-controller="QuestionsCtrl" id="{{id}}" ng-show="questions.length" header-current-section="" height-as-window="header" class="wh-questions wh-generic-section when-shown">
           <h3 class="wh-generic-section-title">{{ title }}</h3>
           <div class="wh-generic-section-content">
-            <p class="wh-questions-description">{{ description }}</p>
+            <p ng-if="description" class="wh-questions-description">{{ description }}</p>
             <ol>
               <li ng-repeat="question in questions" class="wh-question">
                 <h4 class="wh-question-statement">{{ question.question }}</h4>
@@ -118,6 +125,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="scripts/b2e10d90.modules.js"></script>
-    <script src="scripts/eb135aae.scripts.js"></script>
+    <script src="scripts/afbf3052.scripts.js"></script>
   </body>
 </html>

@@ -1,6 +1,5 @@
 {
 	"version": "0.0.1",
-	"title": "CV",
 	"parts": [
 		{
 			"header": "Presentation",
@@ -44,10 +43,16 @@
 					"description":"Planning and execution of any kind of project in <b>Google</b>",
 					"from":"2005",
 					"until":"currently",
-					"image":{
+					"images":[{
 						"link":"http://www.google.es",
 						"src":"http://www.seomofo.com/downloads/new-google-logo-official.png"
-					},
+					},{
+						"link":"http://www.google.es",
+						"src":"http://setandbma.files.wordpress.com/2013/01/google.png"
+					},{
+						"link":"http://www.google.es",
+						"src":"http://www.virtualianet.com/wp-content/uploads/2013/07/google-.jpg"
+					}],
 					"content":[
 						"Planning",
 						"Management"
@@ -58,10 +63,10 @@
 					"description":"Developer at <b>Yahoo</b>",
 					"from":"1999",
 					"until":"2004",
-					"image":{
+					"images":[{
 						"link":"http://www.yahoo.com",
 						"src":"http://www.omicrono.com/wp-content/uploads/2012/03/yahoo-logo.jpg"
-					},
+					}],
 					"content":[
 						"Developer",
 						"Databases"
