@@ -169,10 +169,13 @@ Ex.:
 	            "description":"Planning and execution of any kind of project in <b>Google</b>",
 	            "from":"2005",
 	            "until":"currently",
-	            "image":{
+	            "images":[{
 	              "link":"http://www.google.es",
 	              "src":"http://www.seomofo.com/downloads/new-google-logo-official.png"
-	            },
+	            },{
+                "link":"http://www.google.es",
+                "src":"http://www.virtualianet.com/wp-content/uploads/2013/07/google-.jpg"
+              }],
 	            "content":[
 	              "Planning",
 	              "Management"
@@ -273,34 +276,44 @@ Ex.:
 
 
 
-Available dynamic css classes / data-attributes
+Available dynamic css classes / data-attributes / directives
 ------
 
 
-`html.header-fixed`: 
+#### `html.header-fixed`
 
 **.header-fixed** appears in the **html** element When document is scrolled more than the header navbar height
 
+* * *
 
 
-`html.intro-scrolled`: 
+#### `html.intro-scrolled`
 
 **.intro-scrolled** appears in the **html** element When intro section has been scrolled and is not visible, and disappears when intro is visible
 
 
+* * *
 
-`html.when-shown.do`: 
+
+#### `html.when-shown.do`
 
 **.do** appears in elements with css class **when-shown** When the document is scrolled to that element
 To spy an element:
 * assign it css class 'when-shown'
 
 
-`.background-y-position-scroll`: 
+* * *
+
+
+#### `.background-y-position-scroll`
+
 Sets a dynamic 'background-position-y' to elements with css class 'background-y-position-scroll' when document is scrolled
 
 
-`li.wh-header-option.current`: 
+* * *
+
+
+#### `li.wh-header-option.current`
 
 **.current** appears when the displayed section in the browser represents that option in the navbar. 
 To spy a section:
@@ -312,10 +325,38 @@ To spy a section:
   + href : link to the section
 
 
+* * *
 
-`li.wh-header-locale.current`: 
+
+#### `li.wh-header-locale.current`
 
 **.current** appears when the displayed language represents that locale in the navbar
+
+
+
+* * *
+
+
+#### directive `whSliderSelector`
+
+Directive that implements the funcionality of an slider, list of items where one of them is the current, and two buttons to navigate (rotate current one) between them
+
+* declaration: with css class **.wh-slider-selector**
+* params:
+	* data-list: Array of items (objects of sth)
+
+Ex.:
+
+      .wh-slider-selector(ng-if='item.images.length > 1', data-list='item.images')
+
+
+###### `li.wh-cv-part-item-image.current`
+
+Uses the directive `whSliderSelector`
+
+**.current** appears when, in a list of images of a cv-part, is the selected one.
+There are two buttons .next and .previous, wrapped by div.wh-list-selector, which rotates css class .current between the list of images
+These two buttons have an extra css class, `.more` or `.no-more`, which appears or disappears if there are or are not more elements of the list before or after the current one
 
 
 

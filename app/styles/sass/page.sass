@@ -31,6 +31,82 @@
 
 
 
+.wh-slider
+  overflow: hidden
+  position: relative
+
+.wh-slider-selector
+  .previous,
+  .next
+    top: 50%
+    height: 2em
+    width: 2em
+    margin-top: -.7em
+    position: absolute
+    z-index: 1
+    border: none
+    background: transparent
+    cursor: pointer
+    background: black
+    opacity: .5
+    color: white
+    display: table
+    +border-radius(100%)
+    &.no-more
+      display: none
+    &.more
+      display: inline
+
+      &:before
+        content: ''
+        display: inline-block
+      &:hover
+        +transition-duration(.5s)
+        opacity: 1
+
+    span
+      display: none
+
+  .previous
+    left: .1em
+    +transition-property(left)
+    &:before
+      +triangle-left($color:white, $width: .5em)
+      margin-right: .15em
+    &:hover
+      +transition-property(left)
+      opacity: 1
+      left: -.1em
+  .next
+    right: .1em
+    +transition-property(right)
+    &:before
+      +triangle-right($color:white, $width: .5em)
+      margin-left: .15em
+    &:hover
+      +transition-property(right)
+      right: -.1em
+
+.wh-slider-list
+  position: relative
+
+
+
+.wh-slider-item
+  position: absolute
+  top: 0
+  bottom: 0
+  width: 100%
+  &.current
+    left: 0
+    +transition-duration(.5s)
+    +transition-property(left)
+
+  &:not(.current)
+    left: -9999px
+    +transition-duration(.5s)
+    +transition-property(left)
+
 
 
 
@@ -241,11 +317,7 @@ body
 
 // CV
 
-.wh-cv-part
-  img
-    width: 200px
-    +border-radius(6px)
-    margin-bottom: 10px
+
 
 
 .wh-part-item
@@ -278,10 +350,35 @@ body
       content: '-'
       padding-right: 10px
 
+
+
+
+
+.wh-cv-part-item-images-wrapper
+  width: 100%
+  margin: 1em auto
+
+.wh-cv-part-item-images
+  margin-bottom: 10px
+  width: 100%
+  margin: 0 auto
+  height: 100px
+
+.wh-cv-part-item-image
+  .img
+    height: 100%
+    background-position: center
+    +background-size(cover)
+    +border-radius(5px)
+
+
+
 .wh-cv-part
   &.hobbies,
   &.formation
     text-align: center
+
+
 
 // QUESTIONS
 

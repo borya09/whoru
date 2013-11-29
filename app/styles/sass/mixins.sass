@@ -5,6 +5,16 @@
   border-right: $width solid transparent
   border-top: $width solid $color
 
+@mixin triangle-left($color: black, $width: 5px)
+  border-top: $width solid transparent
+  border-bottom: $width solid transparent
+  border-right: $width solid $color
+
+@mixin triangle-right($color: black, $width: 5px)
+  border-top: $width solid transparent
+  border-bottom: $width solid transparent
+  border-left: $width solid $color
+
 @mixin triangle-top($color: black, $width: 5px)
   border-left: $width solid transparent
   border-right: $width solid transparent
