@@ -157,7 +157,7 @@ body
   height: $header-mobile-height
   background: $header-background
   z-index: 2
-  padding: 0 10px
+  padding: 0 .7em
   box-shadow: 0 0 15px rgba(0,0,0,0.25)
   li
     float: left
@@ -173,16 +173,15 @@ body
   #to-top
     +transition-property(bottom)
     +transition-duration(.5s)
-    bottom: 10px
+    bottom: .7em
 
 
 .wh-header-intro-fullname
-  line-height: 60px
+  line-height: 3em
   font-size: 1.75em
 
-  div
+  > div
     float: left
-
 
 
 .wh-header-intro-name
@@ -242,7 +241,7 @@ body
 #to-top
   position: fixed
   bottom: -10em
-  right: -3px
+  right: -.1em
   opacity: .4
   +border-radius(2px)
   width: 4.7em
@@ -276,7 +275,7 @@ body
   display: table
   > div
     display: inline-block
-    margin: 2px
+    margin: .2em
     float: left
     background: white
     color: black
@@ -287,26 +286,56 @@ body
 .wh-intro-name
   font-weight: 700
 
+
 .wh-intro-surname1,
 .wh-intro-surname2
   font-weight: 300
 
+
 .wh-intro-summary
-  padding: 20px 0
+  padding: 1em 0
   font-size: 2em
   font-weight: 200
   text-align: center
   clear: both
 
+
 .wh-intro-image
   +border-radius(50%)
   display: block
-  margin-left: auto
-  margin-right: auto
+  margin: 0 auto 1em auto
 
 .wh-intro-description
-  margin-top: 2em
   text-align: center
+
+.wh-intro-fullname,
+.wh-intro-summary,
+.wh-intro-image,
+.wh-intro-description
+  position: relative
+  top: -9999px
+
+
+.wh-intro-loaded
+  .wh-intro-fullname,
+  .wh-intro-summary,
+  .wh-intro-image,
+  .wh-intro-description
+    top: 0
+    +transition-property(top)
+
+  .wh-intro-fullname
+    +transition-duration(0.5s)
+
+  .wh-intro-summary
+    +transition-duration(1s)
+
+  .wh-intro-image
+    +transition-duration(1.5s)
+
+  .wh-intro-description
+    +transition-duration(2s)
+
 
 
 

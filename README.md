@@ -361,6 +361,12 @@ Uses the directive `whSliderSelector`
 There are two buttons .next and .previous, wrapped by div.wh-list-selector, which rotates css class .current between the list of images
 These two buttons have an extra css class, `.more` or `.no-more`, which appears or disappears if there are or are not more elements of the list before or after the current one
 
+* * *
+
+###### `.wh-intro.loaded`
+
+**.loaded**  appears when the data of 'intro' controller is loaded in the scope
+
 
 
 
