@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory-->
-    <link rel="stylesheet" href="styles/b373e993.main.css">
+    <link rel="stylesheet" href="styles/f9d3dec0.main.css">
     <script type="text/javascript">document.write('<base href="' + document.location + '" />');</script>
   </head>
   <body ng-app="whoruApp" ng-controller="MainCtrl" ng-cloak="">
@@ -57,7 +57,7 @@
           </div>
           <h2 class="wh-intro-summary">{{intro.summary}}</h2>
           <div class="wh-intro-image-wrapper"><img ng-src="{{intro.image}}" title="{{intro.fullname()}}" class="wh-intro-image"></div>
-          <p ng-if="intro.description" ng-bind-html="intro.description" class="wh-intro-description"></p>
+          <p ng-show="intro.description" ng-bind-html="intro.description" class="wh-intro-description"></p>
         </section>
         <section ng-controller="CvCtrl" ng-show="cv.parts.length" class="wh-cv">
           <article ng-repeat="part in cv.parts" id="{{part.id}}" ng-class="part.cssClass" header-current-section="" height-as-window="header" class="wh-cv-part wh-generic-section when-shown">

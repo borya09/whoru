@@ -6,5 +6,5 @@
   </div>
   <h2 class="wh-intro-summary">{{intro.summary}}</h2>
   <div class="wh-intro-image-wrapper"><img ng-src="{{intro.image}}" title="{{intro.fullname()}}" class="wh-intro-image"></div>
-  <p ng-if="intro.description" ng-bind-html="intro.description" class="wh-intro-description"></p>
+  <p ng-show="intro.description" ng-bind-html="intro.description" class="wh-intro-description"></p>
 </section>
