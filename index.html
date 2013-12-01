@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory-->
-    <link rel="stylesheet" href="styles/44deb573.main.css">
+    <link rel="stylesheet" href="styles/1a2a5fef.main.css">
     <script type="text/javascript">document.write('<base href="' + document.location + '" />');</script>
   </head>
   <body ng-app="whoruApp" ng-controller="MainCtrl" ng-cloak="">
@@ -71,8 +71,10 @@
                   <div ng-if="item.images" class="wh-cv-part-item-images-wrapper wh-slider">
                     <div ng-if="item.images.length &gt; 1" data-list="item.images" class="wh-slider-selector"></div>
                     <ul class="wh-cv-part-item-images wh-slider-list">
-                      <li ng-repeat="image in item.images" ng-class="image.current || $parent.item.images.length == 1? &quot;current&quot; : &quot;&quot; " class="wh-cv-part-item-image wh-slider-item"><a ng-href="{{image.link}}" title="{{image.link}}">
-                          <div style="background-image:url({{image.src}})" class="img"></div></a></li>
+                      <li ng-repeat="image in item.images" ng-class="image.current || $parent.item.images.length == 1? &quot;current&quot; : &quot;&quot; " style="background-image:url({{image.src}})" class="wh-cv-part-item-image wh-slider-item"><a ng-if="image.link" ng-href="{{image.link}}" title="{{image.link}}" target="_blank">
+                          <h5 ng-if="image.description" class="desc">{{image.description}}</h5></a>
+                        <h5 ng-if="!image.link &amp;&amp; image.description" class="desc">{{image.description}}</h5>
+                      </li>
                     </ul>
                   </div>
                   <p ng-if="item.description" ng-bind-html="item.description" class="wh-cv-part-item-description"></p>
