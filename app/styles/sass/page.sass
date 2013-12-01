@@ -275,7 +275,7 @@ body
   display: table
   > div
     display: inline-block
-    margin: .2em
+    margin: .05em
     float: left
     background: white
     color: black
@@ -303,15 +303,16 @@ body
 .wh-intro-image
   +border-radius(50%)
   display: block
-  margin: 0 auto 1em auto
+  margin: 0 auto 2em auto
 
 .wh-intro-description
   text-align: center
+  position: relative
+  bottom: -9999px
 
 .wh-intro-fullname,
 .wh-intro-summary,
-.wh-intro-image,
-.wh-intro-description
+.wh-intro-image
   position: relative
   top: -9999px
 
@@ -319,8 +320,7 @@ body
 .wh-intro-loaded
   .wh-intro-fullname,
   .wh-intro-summary,
-  .wh-intro-image,
-  .wh-intro-description
+  .wh-intro-image
     top: 0
     +transition-property(top)
 
@@ -334,6 +334,8 @@ body
     +transition-duration(1.5s)
 
   .wh-intro-description
+    bottom: 0
+    +transition-property(bottom)
     +transition-duration(2s)
 
 
