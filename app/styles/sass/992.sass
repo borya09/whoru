@@ -15,7 +15,7 @@ body
   font-size: 1em
 
 .when-shown
-  position: relative0
+  position: relative
   &:not(.do)
     left: -9999px
   &.do
@@ -66,4 +66,26 @@ body
 
 .wh-generic-section-title
   font-size: 3em
+
+
+.wh-cv-part-item-images-wrapper
+  width: 118%
+  left: -9%
+
+.wh-cv-part-item-images
+  width: 85%
+
+.wh-cv-part-item-image
+
+  .desc
+    display: none
+
+  &:hover
+    .desc
+      display: inline-block
+      +border-radius(3px)
+      top: 0
+      height: auto
+      line-height: 10em
+
 

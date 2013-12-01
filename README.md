@@ -148,8 +148,9 @@ Configuration of the parts (groups of information) of the cv
     * until: {String|undefined}
     * when: {String|undefined}
     * image: {Object|undefined}
-      * link: {String}
       * src: {String}
+      * description: {String|undefined}
+      * link: {String|undefined}
     * description: {String|undefined}
     * content: {Array|undefined}
 
@@ -171,9 +172,11 @@ Ex.:
 	            "until":"currently",
 	            "images":[{
 	              "link":"http://www.google.es",
+	              "description":"google",
 	              "src":"http://www.seomofo.com/downloads/new-google-logo-official.png"
 	            },{
                 "link":"http://www.google.es",
+                "description":"google",
                 "src":"http://www.virtualianet.com/wp-content/uploads/2013/07/google-.jpg"
               }],
 	            "content":[

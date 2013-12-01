@@ -1,24 +1,39 @@
 
-
-@mixin triangle-down($color: black, $width: 5px)
+@mixin triangle-vertical($color: black, $width: 5px)
   border-left: $width solid transparent
   border-right: $width solid transparent
-  border-top: $width solid $color
 
-@mixin triangle-left($color: black, $width: 5px)
+@mixin triangle-horizontal($color: black, $width: 5px)
   border-top: $width solid transparent
   border-bottom: $width solid transparent
+
+
+
+@mixin triangle-down($color: black, $width: 5px)
+  +triangle-vertical($color, $width)
+  border-top: $width solid $color
+
+
+@mixin triangle-top($color: black, $width: 5px)
+  +triangle-vertical($color, $width)
+  border-bottom: $width solid $color
+
+@mixin triangle-left($color: black, $width: 5px)
+  +triangle-horizontal($color, $width)
   border-right: $width solid $color
 
 @mixin triangle-right($color: black, $width: 5px)
-  border-top: $width solid transparent
-  border-bottom: $width solid transparent
+  +triangle-horizontal($color, $width)
   border-left: $width solid $color
 
-@mixin triangle-top($color: black, $width: 5px)
-  border-left: $width solid transparent
-  border-right: $width solid transparent
-  border-bottom: $width solid $color
+
+@mixin absolute0
+  position: absolute
+  left: 0
+  right: 0
+  top: 0
+  bottom: 0
+
 
 @mixin arrow-top($color: black)
   &:before
