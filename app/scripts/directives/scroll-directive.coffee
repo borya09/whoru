@@ -44,7 +44,6 @@ angular.module('whoruApp')
         headerHeight = $header.height()
 
         # set a dynamic 'background-position-y' to '.background-y-position-scroll' elements when document is scrolled
-
         for $element in $backgroundYPositionSpiedElements
           cssStyle = ''
           elementTop = $element.position().top
