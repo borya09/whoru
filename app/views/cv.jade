@@ -1,6 +1,6 @@
 section.wh-cv(ng-controller="CvCtrl", ng-show='cv.parts.length')
 
-    article.wh-cv-part.wh-generic-section.when-shown(ng-repeat='part in cv.parts', id='{{part.id}}', ng-class='part.cssClass', header-current-section, height-as-window='header')
+    article.wh-cv-part.wh-generic-section.when-shown.background-y-position-scroll(ng-repeat='part in cv.parts', id='{{part.id}}', ng-class='part.cssClass', header-current-section, height-as-window='header')
 
         h3.wh-generic-section-title(ng-if='part.title') {{part.title}}
 

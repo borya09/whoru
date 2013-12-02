@@ -44,11 +44,18 @@ angular.module('whoruApp')
         headerHeight = $header.height()
 
         # set a dynamic 'background-position-y' to '.background-y-position-scroll' elements when document is scrolled
-        documentHeight = $document.height()
-        percent = scrollYPos/documentHeight * 100
-        for $element in $backgroundYPositionSpiedElements
-          $element.css 'background-position', '0 ' + percent + '%'
 
+        for $element in $backgroundYPositionSpiedElements
+          cssStyle = ''
+          elementTop = $element.position().top
+          elementHeight = $element.height()
+          elementBottom = elementTop + elementHeight
+          # if scroll position is between an element, calculates the progrees
+          if elementTop <= scrollYPos and scrollYPos <= elementBottom
+            percent = (scrollYPos - elementTop) / elementHeight * 100
+            cssStyle = '0 ' + percent + '%'
+
+          $element.css 'background-position', cssStyle
 
 
         # Finds elements which should be animated when shown in the screen(with css class '.when-shown'),
