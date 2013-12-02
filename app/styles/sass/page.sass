@@ -10,18 +10,18 @@
   display: none !important
 
 
-.wh-contact
+.wh-contact-icon
 
   &:before
     font-family: 'whoru-icons'
     content: attr(data-wh-icon)
-    padding-right: 10px
     speak: none
     font-style: normal
     font-weight: normal
     font-variant: normal
     text-transform: none
     line-height: 1
+    font-size: 1em
 
     /* Better Font Rendering =========== */
     -webkit-font-smoothing: antialiased
@@ -141,7 +141,7 @@ body
 
 .wh-generic-section-title
   font-size: 2.5em
-  margin: 1.2em 0 2em 0
+  margin: .7em 0 1.7em 0
   text-align: center
   font-weight: 200
 
@@ -206,6 +206,17 @@ body
 .wh-header-option
   padding: 0 10px
   height: $header-mobile-height
+  position: relative
+
+  &:after
+    content: ''
+    position: absolute
+    height: 0
+    bottom: 10px
+    left: 50%
+    margin-left: -7.5px
+    opacity: 0
+    +triangle-down($width: 10px, $color: black)
   a
     font-size: .875em
     text-transform: uppercase
@@ -213,15 +224,12 @@ body
     color: black
   &.current
     background: black
-    position: relative
     &:after
       content: ''
-      position: absolute
-      height: 0
+      opacity: 1
       bottom: -10px
-      left: 50%
-      margin-left: -7.5px
-      +triangle-down($width: 10px, $color: black)
+      +transition-property(bottom)
+      +transition-duration(.5s)
     a
       color: white
 
@@ -350,7 +358,8 @@ body
 
 
 .wh-part-item
-  margin: 2em 0
+  position: relative
+  margin: 2em 0 3em 0
 
 .wh-cv-part-item-title
   font-size: 1.3em
@@ -362,24 +371,32 @@ body
   font-size: 1.1em
   margin: .7em 0
 
+.academic
+  .wh-cv-part-item-description
+    padding-top: 1.5em
+
 .wh-part-item-content-element
   padding: .1em 0 .1em 2em
   font-size: 1em
 
 .wh-cv-part-item-dates
+  position: absolute
+  top: 0
+  right: 0
   float: right
   font-size: .75em
   font-weight: 400
   line-height: 1em
-  margin-bottom: 1em
+  margin: .5em 0
 
 
 .wh-cv-part-item-date
+  background: rgba(255,255,255,.25)
+  padding: .2em 1em
+  +border-radius(22px)
   &+.wh-cv-part-item-date
     margin-left: 10px
-    &:before
-      content: '-'
-      padding-right: 10px
+
 
 .wh-cv-part-item-images-wrapper
   width: 106%
@@ -441,17 +458,29 @@ body
 
 // CONTACTS
 .wh-contacts
-  padding-top: 8em
-  padding-bottom: 6em
+  padding-top: 3em
+  padding-bottom: 3em
   text-align: center
   margin-bottom: 0!important
-  li
-    padding: 1em 0
+
+
+
 
 
 .wh-contact
-  font-size: 1.1em
-  color: black
+  margin: 1em
 
 
+.wh-contact-icon
+  font-size: 2em
+  color: white
+  display: block
+  background: black
+  width: 2em
+  height: 2em
+  line-height: 2em
+  margin: 0 auto
+  +border-radius(50%)
 
+  span
+    display: none

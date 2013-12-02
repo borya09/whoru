@@ -39,7 +39,7 @@ body
   right: 0
 
 .wh-generic-section
-  margin-bottom: 150px
+  margin-bottom: 22em
 
 // HEADER
 .header-container
@@ -56,12 +56,6 @@ body
 .wh-generic-section-content
   width: 50%
   margin: 0 auto
-
-.wh-question
-  margin-top: 30px
-
-.wh-contact
-  font-size: 1.25em
 
 
 .wh-generic-section-title
@@ -88,4 +82,59 @@ body
       height: auto
       line-height: 10em
 
+
+
+.wh-question
+  margin-top: 2em
+
+.wh-contacts
+  overflow: hidden
+
+.wh-contact
+  &:nth-child(odd)
+    span
+      left: -1000em
+      &:after
+        left: -0.4em
+        +triangle-left($color:black, $width: .5em)
+    .wh-contact-icon
+      &:hover
+        span
+          left: 5em
+          +transition-property(left)
+          +transition-duration(.4s)
+  &:nth-child(even)
+    span
+      right: -1000em
+      &:after
+        right: -0.4em
+        +triangle-right($color:black, $width: .5em)
+    .wh-contact-icon
+      &:hover
+        span
+          right: 5em
+          +transition-property(right)
+          +transition-duration(.4s)
+
+
+.wh-contact-icon
+  position: relative
+
+
+  span
+    display: inline
+    text-indent: 0
+    font-size: .5em
+    top: 0
+    background: #000000
+    color: white
+    padding: .1em 2em
+    position: absolute
+    +border-radius(2px)
+
+    &:after
+      content: ''
+      position: absolute
+      top: 50%
+      margin-top: -0.4em
 
