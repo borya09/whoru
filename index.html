@@ -60,7 +60,7 @@
           <p ng-show="intro.description" ng-bind-html="intro.description" class="wh-intro-description"></p>
         </section>
         <section ng-controller="CvCtrl" ng-show="cv.parts.length" class="wh-cv">
-          <article ng-repeat="part in cv.parts" id="{{part.id}}" ng-class="part.cssClass" header-current-section="" height-as-window="header" class="wh-cv-part wh-generic-section when-shown">
+          <article ng-repeat="part in cv.parts" id="{{part.id}}" ng-class="part.cssClass" header-current-section="" height-as-window="header" class="wh-cv-part wh-generic-section when-shown background-y-position-scroll">
             <h3 ng-if="part.title" class="wh-generic-section-title">{{part.title}}</h3>
             <div class="wh-generic-section-content">
               <p ng-if="part.description" ng-bind-html="part.description" class="wh-cv-part-description"></p>
@@ -127,6 +127,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="scripts/b2e10d90.modules.js"></script>
-    <script src="scripts/afbf3052.scripts.js"></script>
+    <script src="scripts/487232e7.scripts.js"></script>
   </body>
 </html>
