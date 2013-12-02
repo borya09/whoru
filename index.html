@@ -15,7 +15,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory-->
-    <link rel="stylesheet" href="styles/f9d3dec0.main.css">
+    <link rel="stylesheet" href="styles/5b79b10b.main.css">
     <script type="text/javascript">document.write('<base href="' + document.location + '" />');</script>
   </head>
   <body ng-app="whoruApp" ng-controller="MainCtrl" ng-cloak="">
@@ -110,7 +110,7 @@
       <footer class="wh-footer wrapper">
         <div ng-controller="ContactsCtrl" id="{{id}}" header-current-section="" height-as-window="header" class="wh-contacts wh-generic-section when-shown">
           <ul ng-if="contacts.length" class="wh-generic-section-content">
-            <li ng-repeat="contact in contacts"><a ng-href="{{contact.type=='phone'?'tel:':contact.type=='mail'?'mailto:':''}}{{contact.value}}" title="{{contact.value}}" data-wh-icon="{{contact.icon}}" ng-class="contact.type" class="wh-contact hide-text">{{contact.value}}</a></li>
+            <li ng-repeat="contact in contacts" class="wh-contact"><a ng-href="{{contact.type=='phone'?'tel:':contact.type=='mail'?'mailto:':''}}{{contact.value}}" title="{{contact.value}}" data-wh-icon="{{contact.icon}}" ng-class="contact.type" class="wh-contact-icon"><span>{{contact.value}}</span></a></li>
           </ul>
         </div>
       </footer>
