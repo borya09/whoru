@@ -1,36 +1,41 @@
 @import compass/reset
 @import compass/css3
 @import compass/utilities
-@import reset
-@import mixins
-@import variables
-@import fonts
+
+@import "../base/mixins"
 
 
-@import page
+
+@import "reset"
+@import "mixins"
+@import "variables"
+@import "fonts"
+
+
+@import "page"
 
 //print
 @media print
-  @import print
+  @import "print"
 
 // 480px
 @media only screen and (min-width: 480px)
-  @import 480
+  @import "480"
 
 // 600px
 @media only screen and (min-width: 600px)
-  @import 600
+  @import "600"
 
 // 768px
 @media only screen and (min-width: 768px)
-  @import 768
+  @import "768"
 
 // 992px
 @media only screen and (min-width: 992px)
-  @import 992
+  @import "992"
 
 // 1382px
 @media only screen and (min-width: 1382px)
-  @import 1382
+  @import "1382"
 
 
