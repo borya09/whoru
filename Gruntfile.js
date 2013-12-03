@@ -57,7 +57,7 @@ module.exports = function (grunt) {
 				]
 			},
 			compass: {
-				files: ['<%= yeoman.app %>/styles/sass/{,*/}main.sass'],
+				files: ['<%= yeoman.app %>/styles/sass/{,*/}*.sass'],
 				tasks: ['compass:dev']
 			},
 			jade: {
