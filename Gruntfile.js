@@ -385,8 +385,7 @@ module.exports = function (grunt) {
 			dist: {                   // Target
 				options: {              // Target options
 					sassDir: '<%= yeoman.app %>/styles/sass',
-					cssDir: '<%= yeoman.dist %>/css',
-					environment: 'production'
+					cssDir: '<%= yeoman.dist %>/css'
 				}
 			},
 			dev: {                    // Another target
