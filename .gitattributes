@@ -1,2 +1,5 @@
 * text=auto
 app/styles/sass/custom merge=ours
+README.md merge=ours
+data merge=ours
+.gitattributes merge=ours
