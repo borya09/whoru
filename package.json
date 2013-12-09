@@ -42,7 +42,8 @@
     "grunt-contrib-jade": "~0.8.0",
     "grunt-minjson": "~0.1.1",
     "grunt-gh-pages": "~0.8.1",
-    "grunt-docco": "~0.3.0"
+    "grunt-docco": "~0.3.0",
+    "grunt-git": "~0.2.2"
   },
   "engines": {
     "node": ">=0.8.0"

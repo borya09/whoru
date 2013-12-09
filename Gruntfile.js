@@ -424,8 +424,15 @@ module.exports = function (grunt) {
 					output: 'docs/'
 				}
 			}
+		},
+		gitcheckout: {
+			demo: {
+				options: {
+					branch: 'demo',
+					create: false
+				}
+			}
 		}
-
 	});
 
 
@@ -501,10 +508,12 @@ module.exports = function (grunt) {
 	]);
 
 	grunt.registerTask('dist', [
-		'default',
+		'gitcheckout:demo',
+		'build',
 		'gh-pages'
 	]);
 
 	grunt.loadNpmTasks('grunt-gh-pages');
 	grunt.loadNpmTasks('grunt-docco');
+	grunt.loadNpmTasks('grunt-git');
 };
