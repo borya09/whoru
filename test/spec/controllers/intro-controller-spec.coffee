@@ -53,6 +53,7 @@ class IntroControllerSpec extends ControllerSpec
               order : 10
               title : fixture.header
               href : '#intro'
+              hidden : false
 
             expect(@scope.id).toBe 'intro'
             expect(@rootScope.header.nav.init).toEqual option

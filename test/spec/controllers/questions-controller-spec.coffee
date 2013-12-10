@@ -39,7 +39,20 @@ class QuestionsControllerSpec extends ControllerSpec
         expect(@scope.questions).not.toBeUndefined()
         expect(@scope.questions.length).toEqual 1
 
-      it 'should attach to scope/rootScope info for the header navbar', () ->
+      it 'should attach to scope/rootScope HIDDEN info for the header navbar, if there are NO questions', () ->
+        @createController fixtures.questions.k
+
+        expect(@scope.id).toBeUndefined()
+
+        expect(@rootScope.header.nav.options).toEqual [
+          id : 'questions'
+          order: 40
+          title : 'questions'
+          href : '#questions'
+          hidden : true
+        ]
+
+      it 'should attach to scope/rootScope info for the header navbar, if there are questions', () ->
         @createController fixtures.questions.b
 
         expect(@scope.id).toBe 'questions'
@@ -48,6 +61,7 @@ class QuestionsControllerSpec extends ControllerSpec
           order: 40
           title : 'header1'
           href : '#questions'
+          hidden : false
         ]
 
       it 'should transform json data to array with question title', () ->

@@ -39,6 +39,7 @@ class ContactsControllerSpec extends ControllerSpec
           order : 50
           title : @contacts.header
           href : '#contacts'
+          hidden : false
         ]
 
     afterEach ->
