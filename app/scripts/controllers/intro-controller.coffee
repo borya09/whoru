@@ -30,6 +30,7 @@ angular.module('whoruApp')
       order: 10
       title : 'intro'
       href : '#' + sectionId
+      hidden : false
 
 
     $rootScope.header.nav.init = navInfo

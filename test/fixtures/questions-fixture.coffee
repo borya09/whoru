@@ -115,4 +115,10 @@ global.$FIXTURES.questions =
         pedro: false,
         luis: true
     ]
-
+  k:
+    version: "0.0.1"
+    header: 'header1'
+    title: 'questions json'
+    version: '1.0.0'
+    questions: [
+    ]

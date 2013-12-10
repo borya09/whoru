@@ -32,6 +32,7 @@ angular.module('whoruApp')
                 order : 2 * 10 + count++
                 title : part.header
                 href : '#' + part.id
+                hidden : false
               navInfoOptions[part.id] = navInfoOpt
               $rootScope.header.nav.options.push navInfoOpt
 

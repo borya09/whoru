@@ -12,6 +12,7 @@ angular.module('whoruApp')
       order: 50
       title : 'contacts'
       href : '#' + sectionId
+      hidden : false
 
     $rootScope.header.nav.options.push navInfo
     $scope.id = sectionId

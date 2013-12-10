@@ -42,11 +42,13 @@ class CvControllerSpec extends ControllerSpec
           order : 20,
           title : 'header 1'
           href : '#sec1'
+          hidden : false
         ,
           id : 'sec2'
           order : 21,
           title : 'header 2'
           href : '#sec2'
+          hidden : false
         ]
 
 
