@@ -1,7 +1,7 @@
 @font-face {
   font-family: "whoru-icons";
-  src: url("fonts/whoru-icons/whoru.eot");
-  src: url("fonts/whoru-icons/whoru.eot?#iefix") format("embedded-opentype"), url("fonts/whoru-icons/whoru.ttf") format("truetype"), url("fonts/whoru-icons/whoru.woff") format("woff"), url("fonts/whoru-icons/whoru.svg#whoru") format("svg");
+  src: url("/styles/fonts/whoru-icons/whoru.eot");
+  src: url("/styles/fonts/whoru-icons/whoru.eot?#iefix") format("embedded-opentype"), url("/styles/fonts/whoru-icons/whoru.ttf") format("truetype"), url("/styles/fonts/whoru-icons/whoru.woff") format("woff"), url("/styles/fonts/whoru-icons/whoru.svg#whoru") format("svg");
   font-weight: normal;
   font-style: normal;
 }
