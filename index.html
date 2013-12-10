@@ -36,10 +36,10 @@
         </h1>
         <nav class="wh-header-nav">
           <ul class="wh-header-options ul">
-            <li ng-repeat="option in header.nav.options | orderBy: 'order'" ng-class="{current: option.current}" class="wh-header-option"><a ng-click="smoothScroll(option)" href="javascript:void(0)" title="{{option.title}}">{{option.title}}</a></li>
+            <li ng-repeat="option in header.nav.options | filter: {hidden: false} | orderBy: 'order'" ng-class="{current: option.current}" class="wh-header-option"><a ng-click="smoothScroll(option)" href="javascript:void(0)" title="{{option.title}}">{{option.title}}</a></li>
           </ul>
           <div class="wh-header-options select">
-            <select data-ng-model="header.nav.current" data-ng-options="option.title for option in header.nav.options | orderBy:'order'" ng-change="smoothScroll(header.nav.current)"></select>
+            <select data-ng-model="header.nav.current" data-ng-options="option.title for option in header.nav.options | filter: {hidden: false} | orderBy:'order'" ng-change="smoothScroll(header.nav.current)"></select>
           </div>
           <ul ng-if="locales.length &gt; 1" class="wh-header-locales">
             <li ng-repeat="locale in locales" ng-class="{current: locale.current}" class="wh-header-locale"><a ng-click="setCurrentLocale(locale)" href="javascript:void(0)" title="{{locale.text}}"><img ng-src="{{locale.image}}" title="{{locale.text}}"></a></li>
@@ -127,6 +127,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="scripts/b2e10d90.modules.js"></script>
-    <script src="scripts/487232e7.scripts.js"></script>
+    <script src="scripts/c9793777.scripts.js"></script>
   </body>
 </html>
