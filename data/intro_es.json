@@ -1,6 +1,7 @@
 {
 	"version": "0.0.1",
 	"header":"Intro",
+	"title":"John Doe II",
 	"intro":{
 		"name": "John",
 		"surname1": "Doe",
