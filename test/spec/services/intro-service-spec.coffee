@@ -35,6 +35,7 @@ class IntroServiceSpec extends ServiceSpec
         expect(intro instanceof Intro).toBeTruthy()
         expect(intro.name).toBe 'borja'
         expect(intro.header).toBe 'header'
+        expect(intro.title).toBe 'title'
 
     afterEach ->
       do @httpBackend.verifyNoOutstandingExpectation

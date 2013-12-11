@@ -8,7 +8,6 @@ class IntroControllerSpec extends ControllerSpec
 
     fixtures = @fixtures
 
-
     beforeEach inject (IntroService) ->
       @introService = IntroService
       spyOn(@introService, 'get').andCallThrough()
@@ -28,54 +27,37 @@ class IntroControllerSpec extends ControllerSpec
 
     describe 'initialization', ->
 
-      describe 'with correct intro', ->
+      fixture = undefined
 
-        fixture = undefined
+      beforeEach ->
+        fixture = fixtures.intro.a
 
-        beforeEach ->
-          fixture = fixtures.intro.a
+        @createController fixture
 
-          @createController fixture
+      it 'should call \'introService.get\' method',  ->
+        expect(@introService.get).toHaveBeenCalled()
 
-        it 'should call \'introService.get\' method',  ->
-          expect(@introService.get).toHaveBeenCalled()
+      it 'should attach the intro to the scope', ->
+        expect(@scope.intro.name).toBe fixture.intro.name
+        expect(@scope.intro.age).toBe fixture.intro.age
+        expect(@scope.intro.description).toBe fixture.intro.description
 
-        it 'should attach the intro to the scope', ->
-          expect(@scope.intro.name).toBe fixture.intro.name
-          expect(@scope.intro.age).toBe fixture.intro.age
-          expect(@scope.intro.description).toBe fixture.intro.description
+      it 'should attach to scope/rootScope info for the header navbar', ->
+        option =
+          id : 'intro'
+          order : 10
+          title : fixture.header
+          href : '#intro'
+          hidden : false
 
-        describe 'if title for the header is defined', ->
-
-          it 'should attach to scope/rootScope info for the header navbar', ->
-            option =
-              id : 'intro'
-              order : 10
-              title : fixture.header
-              href : '#intro'
-              hidden : false
-
-            expect(@scope.id).toBe 'intro'
-            expect(@rootScope.header.nav.init).toEqual option
-            expect(@rootScope.header.nav.options).toEqual [option]
+        expect(@scope.id).toBe 'intro'
+        expect(@rootScope.header.nav.init).toEqual option
+        expect(@rootScope.header.nav.options).toEqual [option]
 
 
-      describe 'with NO correct intro', ->
+      it 'should attach to rootScope the title', ->
 
-        beforeEach ->
-          fixture = fixtures.intro.b
-
-          @error = undefined
-
-          try
-            @createController fixture
-          catch e
-            @error = e.message
-
-        it 'should throw an exception', () ->
-
-          expect(@error).toMatch('- name')
-          expect(@error).toMatch('- description')
+        expect(@rootScope.title).toEqual 'title'
 
 
     describe '\'locale_changed\' event broadcasted', ->

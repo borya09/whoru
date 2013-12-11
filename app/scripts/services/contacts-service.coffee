@@ -11,6 +11,7 @@ class ContactsService
       $http.get(urlBase)
         .then (response) ->
           response.data
-
+        , ->
+          console.error "create \'#{urlBase}\' file !!!"
 
 angular.module('whoruApp').service 'ContactsService', ['$log', '$http', ContactsService]

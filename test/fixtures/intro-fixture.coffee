@@ -4,6 +4,7 @@ global.$FIXTURES.intro =
   a:
     version: "0.0.1"
     header: "header"
+    title: "title"
     intro:
       name: "borja"
       surname1: "andres"

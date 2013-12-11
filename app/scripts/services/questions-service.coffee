@@ -19,4 +19,9 @@ class QuestionsService
 
                 response.data
 
+              , ->
+                console.error "create \'#{filePath}\' file !!!"
+        , ->
+          console.error "without config, questions can not be loaded"
+
 angular.module('whoruApp').service 'QuestionsService', ['$log', '$http', 'DataTranslatorService', QuestionsService]

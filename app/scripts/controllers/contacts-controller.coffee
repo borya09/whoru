@@ -19,7 +19,8 @@ angular.module('whoruApp')
 
     contactsService.get()
       .then (data) ->
-        $scope.contacts = data.contacts
-        navInfo.title  = data.header
+        if data
+          $scope.contacts = data.contacts
+          navInfo.title  = data.header
     return
   ]

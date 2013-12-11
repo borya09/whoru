@@ -3,23 +3,10 @@
 
 angular.module('whoruApp')
 
-# Requiered fields of 'intro'
-  .value 'CV_REQUIRED_FIELDS',
-    [
-      'name'
-      'summary'
-    ]
 
 # **Controller _'IntroCtrl'_**
-  .controller 'IntroCtrl', ['$scope', '$rootScope', 'IntroService', 'CV_REQUIRED_FIELDS', ($scope, $rootScope, introService, requiredFields) ->
+  .controller 'IntroCtrl', ['$scope', '$rootScope', 'IntroService',  ($scope, $rootScope, introService) ->
 
-
-    #Checks if there is any required field
-    introHasErrors = (intro)->
-      error = ''
-      for field in requiredFields
-        error += if intro[field] is undefined then " - #{field}\n" else ''
-      error
 
 
     #publish in the $rootScope, info for the header navbar
@@ -41,12 +28,11 @@ angular.module('whoruApp')
     get = ->
       introService.get()
         .then (intro) ->
-          if errors = introHasErrors intro
-            throw new Error "Required fields:\n #{errors}"
-          else
-            navInfo.title = intro.header
-            $scope.intro = intro
-            $rootScope.header.intro = intro
+            if intro
+              navInfo.title = intro.header
+              $scope.intro = intro
+              $rootScope.header.intro = intro
+              $rootScope.title = intro.title
 
     # Listens to 'locale_changed' event
     $scope.$on 'locale_changed', ->

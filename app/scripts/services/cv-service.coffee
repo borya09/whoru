@@ -22,6 +22,9 @@ class CvService
               for part in response.data.parts
                 cv.parts.push new CvPart(part)
               cv
-
+            , ->
+              console.error "create \'#{filePath}\' file !!!"
+        , ->
+          console.error "without config, cv can not be loaded"
 
 angular.module('whoruApp').service 'CvService', ['$log', '$http', 'CvPart', 'DataTranslatorService', CvService]
