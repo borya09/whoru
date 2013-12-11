@@ -18,50 +18,54 @@ class QuestionsController
     setQuestions = =>
       questionsService.get()
         .then (data) =>
-          questions = data.questions
+
           $scope.questions = []
+          navInfo.hidden = true
 
-          if questions and questions.length
+          if data
 
-            navInfo.title = data.header
-            navInfo.hidden = false
+            questions = data.questions
 
-            $scope.id = sectionId
-            $scope.title = data.title
-            $scope.description = data.description
+            if questions and questions.length
+
+              navInfo.title = data.header
+              navInfo.hidden = false
+
+              $scope.id = sectionId
+              $scope.title = data.title
+              $scope.description = data.description
 
 
-            for question, qvalue of questions
-              #console.log question + ' title is ' + qvalue.title
-              #console.log question + ' multiple is ' + qvalue.multiple
-              res =
-                question: qvalue.title
-                multiple: qvalue.multiple
-                options: []
-                type: if qvalue.multiple is true then 'checkbox' else 'radio'
+              for question, qvalue of questions
+                #console.log question + ' title is ' + qvalue.title
+                #console.log question + ' multiple is ' + qvalue.multiple
+                res =
+                  question: qvalue.title
+                  multiple: qvalue.multiple
+                  options: []
+                  type: if qvalue.multiple is true then 'checkbox' else 'radio'
 
-              $scope.questions.push res
-              nameMultiple = qvalue.title.replace(' ', '');
+                $scope.questions.push res
+                nameMultiple = qvalue.title.replace(' ', '');
 
-              for answer, avalue of qvalue.answers
-                #console.log res
-                #console.log answer + ' are pondered ' + avalue
-                #console.log typeof avalue
-                #check if is a boolean and then pondered to 100 or 0
-                if typeof avalue isnt 'number'
-                  avalue = if avalue is true then 100 else 0
-                #console.log 'qvalue.multiple ' + qvalue.multiple
-                ansewrObj =
-                  id: answer.replace(' ', '')
-                  name: if qvalue.multiple is false then nameMultiple else answer
-                  title: answer
-                  checked: false
-                  pondered: avalue
+                for answer, avalue of qvalue.answers
+                  #console.log res
+                  #console.log answer + ' are pondered ' + avalue
+                  #console.log typeof avalue
+                  #check if is a boolean and then pondered to 100 or 0
+                  if typeof avalue isnt 'number'
+                    avalue = if avalue is true then 100 else 0
+                  #console.log 'qvalue.multiple ' + qvalue.multiple
+                  ansewrObj =
+                    id: answer.replace(' ', '')
+                    name: if qvalue.multiple is false then nameMultiple else answer
+                    title: answer
+                    checked: false
+                    pondered: avalue
 
-                res.options.push ansewrObj
+                  res.options.push ansewrObj
 
-          else
-            navInfo.hidden = true
+
 
 
     $scope.questionsSubmit = ->

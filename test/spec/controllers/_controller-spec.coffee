@@ -4,11 +4,7 @@ class ControllerSpec
 
     @fixtures = global.$FIXTURES
 
-    beforeEach module("whoruApp", ($provide) ->
-      $provide.value 'CV_REQUIRED_FIELDS', [
-        'name'
-        'description'
-      ]
+    beforeEach module("whoruApp", ->
       undefined
     )
 

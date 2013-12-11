@@ -14,7 +14,8 @@ class DataTranslatorService
     # Initializes this service, and resolves a promise(loadingPromise) when done, so consumers have to wait until it
     @init = ->
       deferred = $q.defer()
-      $http.get("#{dataBasePath}/#{configFile}")
+      filePath = "#{dataBasePath}/#{configFile}"
+      $http.get(filePath)
         .then (response) =>
           @config = response.data.config
           for locale in @config.locales
@@ -22,6 +23,9 @@ class DataTranslatorService
               @setLocale(locale)
               break
           do deferred.resolve
+        , ->
+          console.error "create \'#{filePath}\' file !!!"
+          deferred.reject 'config file not found'
 
       @loadingPromise = deferred.promise
 

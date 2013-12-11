@@ -11,30 +11,31 @@ angular.module('whoruApp')
     get = ->
       cvService.get()
         .then (cv) ->
-          $scope.cv = cv
+          if cv
+            $scope.cv = cv
 
-          count = 0
+            count = 0
 
-          # Iterates over the parts in the cv to build the header navbar with each part
-          for part in cv.parts
+            # Iterates over the parts in the cv to build the header navbar with each part
+            for part in cv.parts
 
-            navInfoOpt = navInfoOptions[part.id]
+              navInfoOpt = navInfoOptions[part.id]
 
-            # Locale change, update the title
-            # TODO: Test!
-            if navInfoOpt
-              navInfoOpt.title = part.header
+              # Locale change, update the title
+              # TODO: Test!
+              if navInfoOpt
+                navInfoOpt.title = part.header
 
-            # Build the option for the header navbar
-            else
-              navInfoOpt =
-                id : part.id
-                order : 2 * 10 + count++
-                title : part.header
-                href : '#' + part.id
-                hidden : false
-              navInfoOptions[part.id] = navInfoOpt
-              $rootScope.header.nav.options.push navInfoOpt
+              # Build the option for the header navbar
+              else
+                navInfoOpt =
+                  id : part.id
+                  order : 2 * 10 + count++
+                  title : part.header
+                  href : '#' + part.id
+                  hidden : false
+                navInfoOptions[part.id] = navInfoOpt
+                $rootScope.header.nav.options.push navInfoOpt
 
 
     # Listens to 'locale_changed' event
