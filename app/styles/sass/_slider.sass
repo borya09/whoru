@@ -1,0 +1,77 @@
+/////////  SLIDER
+
+.wh-slider
+  overflow: hidden
+  position: relative
+
+.wh-slider-selector
+  .previous,
+  .next
+    top: 50%
+    height: 2.5em
+    width: 2.5em
+    margin-top: -1.2em
+    position: absolute
+    z-index: 1
+    border: none
+    background: transparent
+
+    background: black
+    opacity: .7
+    color: white
+    display: table
+    +border-radius(100%)
+
+    &:before
+      content: ''
+      display: inline-block
+
+    &.no-more
+      opacity: .3
+    &.more
+      cursor: pointer
+      &:hover
+        +transition-duration(.5s)
+        opacity: 1
+
+    span
+      display: none
+
+  .previous
+    left: .7em
+    +transition-property(left)
+    &:before
+      +triangle-left($color:white, $width: .5em)
+      margin-right: .15em
+    &.more:hover
+      +transition-property(left)
+      left: 0em
+  .next
+    right: .7em
+    +transition-property(right)
+    &:before
+      +triangle-right($color:white, $width: .5em)
+      margin-left: .15em
+    &.more:hover
+      +transition-property(right)
+      right: 0em
+
+.wh-slider-list
+  position: relative
+
+
+.wh-slider-item
+  position: absolute
+  top: 0
+  bottom: 0
+  width: 100%
+  &.current
+    left: 0
+    +transition-duration(.5s)
+    +transition-property(left)
+
+  &:not(.current)
+    left: -9999px
+    +transition-duration(.5s)
+    +transition-property(left)
+

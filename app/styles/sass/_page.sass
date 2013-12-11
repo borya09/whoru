@@ -1,0 +1,369 @@
+
+
+// GENERAL
+
+body
+  font-size: 100%
+  font-family: 'Roboto', sans-serif
+  font-weight: 300
+  height: 100%
+  min-height: 100%
+  position: relative
+
+
+
+
+.wh-generic-section
+  padding: 3em 1.2em
+
+  +wh-generic-section(1, #ED6E45)
+  +wh-generic-section(2, #4CED92)
+  +wh-generic-section(3, #97CEC9)
+  +wh-generic-section(4, #ED73DD)
+  +wh-generic-section(5, #FFAF40)
+  +wh-generic-section(6, #9c92ff)
+
+
+.wh-generic-section-title
+  font-size: 2.5em
+  margin: .7em 0 1.7em 0
+  text-align: center
+  font-weight: 200
+
+
+
+// HEADER
+
+
+.header-container
+  font-size: .75em
+  position: fixed
+  top: -80px
+  width: 100%
+  height: $header-mobile-height
+  background: $header-background
+  z-index: 2
+  padding: 0 .7em
+  box-shadow: 0 0 15px rgba(0,0,0,0.25)
+  li
+    float: left
+
+
+.intro-scrolled
+  .header-container
+    top: 0
+    +transition-property(top)
+    +transition-duration(1s)
+  .wh-header-locales
+    display: inline-block
+  #to-top
+    +transition-property(bottom)
+    +transition-duration(.5s)
+    bottom: .7em
+
+
+.wh-header-intro-fullname
+  line-height: 2em
+  font-size: 1.75em
+
+  > div
+    float: left
+
+
+.wh-header-intro-name
+  font-weight: 700
+
+.wh-header-intro-surname1,
+.wh-header-intro-surname2
+  font-weight: 300
+
+
+
+.wh-header-options
+  float: right
+  &.ul
+    display: none
+  &.select
+    margin-top: 1em
+    width: 40%
+    +pretty-select
+
+
+.wh-header-option
+  padding: 0 10px
+  height: $header-mobile-height
+  position: relative
+
+  &:after
+    content: ''
+    position: absolute
+    height: 0
+    bottom: 10px
+    left: 50%
+    margin-left: -7.5px
+    opacity: 0
+    +triangle-down($width: 10px, $color: black)
+  a
+    font-size: .875em
+    text-transform: uppercase
+    font-weight: 300
+    color: black
+  &.current
+    background: black
+    &:after
+      content: ''
+      opacity: 1
+      bottom: -10px
+      +transition-property(bottom)
+      +transition-duration(.5s)
+    a
+      color: white
+
+
+.wh-header-locales
+  display: none
+  position: fixed
+  right: 0.75em
+  top:  $header-mobile-height + 1em
+
+.wh-header-locale
+  clear: both
+  margin-bottom: 0.5em
+  &:not(.current)
+    opacity: .2
+
+#to-top
+  position: fixed
+  bottom: -10em
+  right: -.1em
+  opacity: .4
+  +border-radius(2px)
+  width: 4.7em
+  height: 4.7em
+  color: white
+  font-size: .75em
+  background: black
+  font-weight: 600
+  text-align: center
+  line-height: 6.5em
+
+  +arrow-top($color: white)
+
+  &:hover
+    opacity: 1
+    +transition-property(opacity)
+    +transition-duration(.5s)
+
+
+
+
+// INTRO
+
+.wh-intro
+  background: #40f272!important
+  padding-top: 4em
+
+
+.wh-intro-fullname
+  margin: 0 auto
+  display: table
+  > div
+    display: inline-block
+    margin: .05em
+    float: left
+    background: white
+    color: black
+    font-size: 3em
+
+
+
+.wh-intro-name
+  font-weight: 700
+
+
+.wh-intro-surname1,
+.wh-intro-surname2
+  font-weight: 300
+
+
+.wh-intro-summary
+  padding: 1em 0
+  font-size: 2em
+  font-weight: 200
+  text-align: center
+  clear: both
+
+
+.wh-intro-image
+  +border-radius(50%)
+  display: block
+  margin: 0 auto 2em auto
+
+.wh-intro-description
+  text-align: center
+  position: relative
+  bottom: -9999px
+
+.wh-intro-fullname,
+.wh-intro-summary,
+.wh-intro-image
+  position: relative
+  top: -9999px
+
+
+.wh-intro-loaded
+  .wh-intro-fullname,
+  .wh-intro-summary,
+  .wh-intro-image
+    top: 0
+    +transition-property(top)
+
+  .wh-intro-fullname
+    +transition-duration(0.5s)
+
+  .wh-intro-summary
+    +transition-duration(1s)
+
+  .wh-intro-image
+    +transition-duration(1.5s)
+
+  .wh-intro-description
+    bottom: 0
+    +transition-property(bottom)
+    +transition-duration(2s)
+
+
+
+
+
+
+
+// CV
+
+
+
+
+.wh-part-item
+  position: relative
+  margin: 2em 0 3em 0
+
+.wh-cv-part-item-title
+  font-size: 1.3em
+  margin: 1.3em 0
+  padding-bottom: .7em
+  border-bottom: 1px solid black
+
+.wh-cv-part-item-description
+  font-size: 1.1em
+  margin: .7em 0
+
+.academic
+  .wh-cv-part-item-description
+    padding-top: 1.5em
+
+.wh-part-item-content-element
+  padding: .1em 0 .1em 2em
+  font-size: 1em
+
+.wh-cv-part-item-dates
+  position: absolute
+  top: 0
+  right: 0
+  float: right
+  font-size: .75em
+  font-weight: 400
+  line-height: 1em
+  margin: .5em 0
+
+
+.wh-cv-part-item-date
+  background: rgba(255,255,255,.25)
+  padding: .2em 1em
+  +border-radius(1.4em)
+  &+.wh-cv-part-item-date
+    margin-left: 0.75em
+
+
+.wh-cv-part-item-images-wrapper
+  width: 106%
+  left: -3%
+  margin: 1em auto
+
+.wh-cv-part-item-images
+  width: 94%
+  margin: 0 auto
+  height: 10em
+
+.wh-cv-part-item-image
+  height: 100%
+  background-position: center
+  +background-size(cover)
+  +border-radius(3px)
+  text-align: center
+
+  .desc
+    display: inline-block
+    color: white
+    background: rgba(0,0,0,.7)
+    +border-bottom-radius(3px)
+    +absolute0
+    top: auto
+    height: 2em
+    line-height: 2em
+
+
+
+.wh-cv-part
+  &.hobbies,
+  &.formation
+    text-align: center
+
+
+
+// QUESTIONS
+
+.wh-questions
+  .wh-generic-section-title
+    margin-bottom: .4em
+
+.wh-questions-description
+  text-align: center
+  margin-bottom: 4em
+
+.wh-question
+  margin: 3em 0
+
+.wh-question-statement
+  font-size: 1.25em
+  margin: 1em 0
+  padding-bottom: .7em
+  border-bottom: 1px solid black
+
+.wh-question-option
+  margin-bottom: .7em
+
+// CONTACTS
+.wh-contacts
+  padding-top: 3em
+  padding-bottom: 3em
+  text-align: center
+  margin-bottom: 0!important
+
+
+.wh-contact
+  margin: 1em
+
+
+.wh-contact-icon
+  font-size: 2em
+  color: white
+  display: block
+  background: black
+  width: 2em
+  height: 2em
+  line-height: 2em
+  margin: 0 auto
+  +border-radius(50%)
+
+  span
+    display: none
