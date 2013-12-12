@@ -324,7 +324,7 @@ module.exports = function (grunt) {
 				'jade',
 				'coffee:dist',
 				'copy:styles',
-				'compass:dev',
+				'compass:dev'
 			],
 			dist: [
 				'coffee',
