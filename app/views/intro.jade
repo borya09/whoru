@@ -4,6 +4,6 @@ section.wh-intro.wh-generic-section(ng-controller="IntroCtrl", id='{{id}}', head
         .wh-intro-surname1(ng-if="intro.surname1") {{intro.surname1}}
         .wh-intro-surname2(ng-if="intro.surname2") {{intro.surname2}}
     h2.wh-intro-summary {{intro.summary}}
-    .wh-intro-image-wrapper
+    .wh-intro-image-wrapper(ng-if="intro.image")
         img.wh-intro-image(ng-src="{{intro.image}}", title="{{intro.fullname()}}")
     p.wh-intro-description(ng-show="intro.description", ng-bind-html="intro.description")
