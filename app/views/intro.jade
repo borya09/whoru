@@ -6,4 +6,4 @@ section.wh-intro.wh-generic-section(ng-controller="IntroCtrl", id='{{id}}', head
     h2.wh-intro-summary {{intro.summary}}
     .wh-intro-image-wrapper(ng-if="intro.image")
         img.wh-intro-image(ng-src="{{intro.image}}", title="{{intro.fullname()}}")
-    p.wh-intro-description(ng-if="intro.description", ng-bind-html="intro.description")
+    p.wh-intro-description(ng-show="intro.description", ng-bind-html="intro.description")
