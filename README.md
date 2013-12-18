@@ -12,6 +12,7 @@ demo
 -------
 http://borya09.github.io/whoru/
 
+src on branch [*demo*](https://github.com/borya09/whoru/tree/demo)
 
 
 installation from this repo
