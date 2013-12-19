@@ -103,7 +103,7 @@ angular.module('whoruApp')
 
                 lastCurrentId = currentId
                 scope.setHeaderCurrentOption headerOpt
-                $html.prop 'data-wh-current-section', headerOpt.id
+                $html.attr 'data-wh-current-section', headerOpt.id
               break
 
   .directive 'spyCurrentSection', ->
