@@ -1,7 +1,8 @@
-h1.title.wh-header-intro-fullname
-    .wh-header-intro-name {{header.intro.name}}
-    .wh-header-intro-surname1(ng-if="header.intro.surname1") {{header.intro.surname1}}
-    .wh-header-intro-surname2(ng-if="header.intro.surname2") {{header.intro.surname2}}
+h1.title.wh-header-fullname
+    a(href="javascript:void(0)", ng-click="smoothScroll(header.nav.init)", title="top")
+        .wh-header-name {{header.intro.name}}
+        .wh-header-surname1(ng-if="header.intro.surname1") {{header.intro.surname1}}
+        .wh-header-surname2(ng-if="header.intro.surname2") {{header.intro.surname2}}
 nav.wh-header-nav
     ul.wh-header-options.ul
         li.wh-header-option(ng-repeat='option in header.nav.options | filter: {hidden: false} | orderBy: \'order\'', ng-class='{current: option.current}')
