@@ -31,8 +31,9 @@ class DataTranslatorServiceSpec extends ServiceSpec
         it 'should return a promise with an array of two locales', ->
           @dataTranslatorService.getAvailablesLocales()
             .then (locales) ->
-              expect(locales).toBe fixture.config.locales
               expect(locales.length).toBe 2
+              expect(locales[0].key).toBe fixture.config.locales[0].key
+              expect(locales[1].key).toBe fixture.config.locales[1].key
 
 
       describe 'with NO locales configured', ->
@@ -62,16 +63,13 @@ class DataTranslatorServiceSpec extends ServiceSpec
           @httpBackend.when('GET', /data\/config.json$/).respond fixtures.config.d
           do @httpBackend.flush
 
-        it 'should change current locale from \'EN\' to \'ES\'', ->
+        it 'should change current locale from \'EN\' to \'ES\' and to \'EN\' again', ->
           expect(@dataTranslatorService.getLocale().key).toBe 'en'
-          expect(localeES.current).not.toBeTruthy()
-          expect(localeEN.current).toBeTruthy()
-
           @dataTranslatorService.setLocale localeES
-
           expect(@dataTranslatorService.getLocale().key).toBe 'es'
-          expect(localeES.current).toBeTruthy()
-          expect(localeEN.current).not.toBeTruthy()
+          @dataTranslatorService.setLocale localeEN
+          expect(@dataTranslatorService.getLocale().key).toBe 'en'
+
 
 
     describe '\'getDataFilePath\' method', ->
