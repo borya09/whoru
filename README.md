@@ -321,12 +321,20 @@ Sets a dynamic 'background-position-y' to elements with css class 'background-y-
 
 **.current** appears when the displayed section in the browser represents that option in the navbar. 
 To spy a section:
-* assign it data-attribute 'header-current-section'
+* assign it data-attribute 'spy-current-section'
 * add to the array $rootScope.header.nav.options next info:
   + id : {string} id of the section
   + order: {number} order in the header
   + title : {string} visible title in the header
   + href : link to the section
+
+
+#### `html[data-wh-current-section={CURRENT_SECTION_ID}]`
+
+**data-wh-current-section={CURRENT_SECTION_ID}** where {CURRENT_SECTION_ID} is the configured key of the displayed section
+To spy a section:
+* assign it data-attribute 'spy-current-section'
+
 
 
 * * *

@@ -1,4 +1,4 @@
-section.wh-intro.wh-generic-section(ng-controller="IntroCtrl", id='{{id}}', header-current-section, height-as-window, ng-class='intro.name.length? "wh-intro-loaded" : "" ')
+section.wh-intro.wh-generic-section(ng-controller="IntroCtrl", id='{{id}}', spy-current-section, height-as-window, ng-class='intro.name.length? "wh-intro-loaded" : "" ')
     .wh-intro-fullname
         .wh-intro-name {{intro.name}}
         .wh-intro-surname1(ng-if="intro.surname1") {{intro.surname1}}

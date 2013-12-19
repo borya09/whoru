@@ -4,15 +4,15 @@
 # TODO: TEST
 angular.module('whoruApp')
   .directive 'body', () ->
-    $headerCurrentSectionSpiedElements = []
+    $currentSectionSpiedElements = []
     $backgroundYPositionSpiedElements = []
     restrict: 'E'
     controller: ['$rootScope', ($rootScope) ->
 
       $bodyOrHtml = $ "body,html" # selector 'html' is a fix to firefox: http://stackoverflow.com/questions/8149155/animate-scrolltop-not-working-in-firefox
 
-      @addHeaderCurrentSectionSpied = ($element) ->
-        $headerCurrentSectionSpiedElements.push $element
+      @addCurrentSectionSpied = ($element) ->
+        $currentSectionSpiedElements.push $element
 
       @addBackgroundYPositionScrollSpied = ($element) ->
         $backgroundYPositionSpiedElements.push $element
@@ -83,10 +83,10 @@ angular.module('whoruApp')
           $html.removeClass 'intro-scrolled'
 
 
-        # Finds current section in the browser screen, to set in the header navbar its option as the current one
+        # Finds current section in the browser screen, to set in the header navbar its option as the current one, and data atributte 'data-wh-current-section' in the html element
         # Based on http://alxhill.com/blog/articles/angular-scrollspy/
         $current = null
-        for $element in $headerCurrentSectionSpiedElements
+        for $element in $currentSectionSpiedElements
 
           if ($element.length && pos = $element.offset().top) - scrollYPos <= headerHeight
             $element.pos = pos
@@ -103,13 +103,14 @@ angular.module('whoruApp')
 
                 lastCurrentId = currentId
                 scope.setHeaderCurrentOption headerOpt
+                $html.prop 'data-wh-current-section', headerOpt.id
               break
 
-  .directive 'headerCurrentSection', ->
+  .directive 'spyCurrentSection', ->
     restrict: "A"
     require: "^body"
     link: (scope, elem, attrs, affix) ->
-      affix.addHeaderCurrentSectionSpied elem
+      affix.addCurrentSectionSpied elem
 
   .directive 'backgroundYPositionScroll', ->
     restrict: "C"
