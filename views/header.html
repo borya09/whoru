@@ -1,8 +1,7 @@
-<h1 class="title wh-header-intro-fullname">
-  <div class="wh-header-intro-name">{{header.intro.name}}</div>
-  <div ng-if="header.intro.surname1" class="wh-header-intro-surname1">{{header.intro.surname1}}</div>
-  <div ng-if="header.intro.surname2" class="wh-header-intro-surname2">{{header.intro.surname2}}</div>
-</h1>
+<h1 class="title wh-header-fullname"><a href="javascript:void(0)" ng-click="smoothScroll(header.nav.init)" title="top">
+    <div class="wh-header-name">{{header.intro.name}}</div>
+    <div ng-if="header.intro.surname1" class="wh-header-surname1">{{header.intro.surname1}}</div>
+    <div ng-if="header.intro.surname2" class="wh-header-surname2">{{header.intro.surname2}}</div></a></h1>
 <nav class="wh-header-nav">
   <ul class="wh-header-options ul">
     <li ng-repeat="option in header.nav.options | filter: {hidden: false} | orderBy: 'order'" ng-class="{current: option.current}" class="wh-header-option"><a ng-click="smoothScroll(option)" href="javascript:void(0)" title="{{option.title}}">{{option.title}}</a></li>
