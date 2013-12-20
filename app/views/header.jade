@@ -5,7 +5,7 @@ h1.title.wh-header-fullname
         .wh-header-surname2(ng-if="header.intro.surname2") {{header.intro.surname2}}
 nav.wh-header-nav
     ul.wh-header-options.ul
-        li.wh-header-option(ng-repeat='option in header.nav.options | filter: {hidden: false} | orderBy: \'order\'', ng-class='{current: option.current}')
+        li.wh-header-option(ng-repeat='option in header.nav.options | filter: {hidden: false} | orderBy: \'order\'', class='{{option.id}}', ng-class='{current: option.current}')
             a(ng-click="smoothScroll(option)", href="javascript:void(0)", title="{{option.title}}") {{option.title}}
 
     .wh-header-options.select
