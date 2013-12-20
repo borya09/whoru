@@ -1,5 +1,5 @@
 .wh-contacts.wh-generic-section.when-shown(ng-controller="ContactsCtrl", id="{{id}}", spy-current-section, height-as-window='header')
-    ul.wh-generic-section-content(ng-if="contacts.length")
+    ul.wh-generic-section-content(ng-show="contacts.length")
         li.wh-contact(ng-repeat="contact in contacts")
             a.wh-contact-icon(ng-href="{{contact.type=='phone'?'tel:':contact.type=='mail'?'mailto:':''}}{{contact.value}}",title="{{contact.value}}",data-wh-icon="{{contact.icon}}",ng-class="contact.type")
                 span {{contact.value}}
