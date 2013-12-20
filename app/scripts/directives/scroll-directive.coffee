@@ -95,16 +95,18 @@ angular.module('whoruApp')
             if $current.pos < $element.pos
               $current = $element
 
+        $html.attr 'data-wh-current-section', undefined
         if $current
           currentId = $current.attr('id')
           for headerOpt in scope.header.nav.options
             if currentId is headerOpt.id
               if lastCurrentId != currentId
-
                 lastCurrentId = currentId
                 scope.setHeaderCurrentOption headerOpt
                 $html.attr 'data-wh-current-section', headerOpt.id
               break
+
+
 
   .directive 'spyCurrentSection', ->
     restrict: "A"
