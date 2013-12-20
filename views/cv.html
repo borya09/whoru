@@ -1,5 +1,5 @@
 <section ng-controller="CvCtrl" ng-show="cv.parts.length" class="wh-cv">
-  <article ng-repeat="part in cv.parts" id="{{part.id}}" ng-class="part.cssClass" header-current-section="header-current-section" height-as-window="header" class="wh-cv-part wh-generic-section when-shown background-y-position-scroll">
+  <article ng-repeat="part in cv.parts" id="{{part.id}}" ng-class="part.cssClass" spy-current-section="spy-current-section" height-as-window="header" class="wh-cv-part wh-generic-section when-shown background-y-position-scroll">
     <h3 ng-if="part.title" class="wh-generic-section-title">{{part.title}}</h3>
     <div class="wh-generic-section-content">
       <p ng-if="part.description" ng-bind-html="part.description" class="wh-cv-part-description"></p>

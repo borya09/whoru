@@ -35,7 +35,7 @@
     </div>
     <div class="main-container">
       <div class="wh-main wrapper">
-        <section ng-controller="IntroCtrl" id="{{id}}" header-current-section="" height-as-window="" ng-class="intro.name.length? &quot;wh-intro-loaded&quot; : &quot;&quot; " class="wh-intro wh-generic-section">
+        <section ng-controller="IntroCtrl" id="{{id}}" spy-current-section="" height-as-window="" ng-class="intro.name.length? &quot;wh-intro-loaded&quot; : &quot;&quot; " class="wh-intro wh-generic-section">
           <div class="wh-intro-fullname">
             <div class="wh-intro-name">{{intro.name}}</div>
             <div ng-if="intro.surname1" class="wh-intro-surname1">{{intro.surname1}}</div>
@@ -46,7 +46,7 @@
           <p ng-show="intro.description" ng-bind-html="intro.description" class="wh-intro-description"></p>
         </section>
         <section ng-controller="CvCtrl" ng-show="cv.parts.length" class="wh-cv">
-          <article ng-repeat="part in cv.parts" id="{{part.id}}" ng-class="part.cssClass" header-current-section="" height-as-window="header" class="wh-cv-part wh-generic-section when-shown background-y-position-scroll">
+          <article ng-repeat="part in cv.parts" id="{{part.id}}" ng-class="part.cssClass" spy-current-section="" height-as-window="header" class="wh-cv-part wh-generic-section when-shown background-y-position-scroll">
             <h3 ng-if="part.title" class="wh-generic-section-title">{{part.title}}</h3>
             <div class="wh-generic-section-content">
               <p ng-if="part.description" ng-bind-html="part.description" class="wh-cv-part-description"></p>
@@ -72,7 +72,7 @@
             </div>
           </article>
         </section>
-        <section ng-controller="QuestionsCtrl" id="{{id}}" ng-show="questions.length" header-current-section="" height-as-window="header" class="wh-questions wh-generic-section when-shown">
+        <section ng-controller="QuestionsCtrl" id="{{id}}" ng-show="questions.length" spy-current-section="" height-as-window="header" class="wh-questions wh-generic-section when-shown">
           <h3 class="wh-generic-section-title">{{ title }}</h3>
           <div class="wh-generic-section-content">
             <p ng-if="description" class="wh-questions-description">{{ description }}</p>
@@ -94,7 +94,7 @@
     </div>
     <div class="footer-container">
       <footer class="wh-footer wrapper">
-        <div ng-controller="ContactsCtrl" id="{{id}}" header-current-section="" height-as-window="header" class="wh-contacts wh-generic-section when-shown">
+        <div ng-controller="ContactsCtrl" id="{{id}}" spy-current-section="" height-as-window="header" class="wh-contacts wh-generic-section when-shown">
           <ul ng-if="contacts.length" class="wh-generic-section-content">
             <li ng-repeat="contact in contacts" class="wh-contact"><a ng-href="{{contact.type=='phone'?'tel:':contact.type=='mail'?'mailto:':''}}{{contact.value}}" title="{{contact.value}}" data-wh-icon="{{contact.icon}}" ng-class="contact.type" class="wh-contact-icon"><span>{{contact.value}}</span></a></li>
           </ul>
@@ -113,6 +113,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="scripts/c92c0a98.modules.js"></script>
-    <script src="scripts/19809c31.scripts.js"></script>
+    <script src="scripts/6dc945d9.scripts.js"></script>
   </body>
 </html>

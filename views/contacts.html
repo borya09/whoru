@@ -1,4 +1,4 @@
-<div ng-controller="ContactsCtrl" id="{{id}}" header-current-section="header-current-section" height-as-window="header" class="wh-contacts wh-generic-section when-shown">
+<div ng-controller="ContactsCtrl" id="{{id}}" spy-current-section="spy-current-section" height-as-window="header" class="wh-contacts wh-generic-section when-shown">
   <ul ng-if="contacts.length" class="wh-generic-section-content">
     <li ng-repeat="contact in contacts" class="wh-contact"><a ng-href="{{contact.type=='phone'?'tel:':contact.type=='mail'?'mailto:':''}}{{contact.value}}" title="{{contact.value}}" data-wh-icon="{{contact.icon}}" ng-class="contact.type" class="wh-contact-icon"><span>{{contact.value}}</span></a></li>
   </ul>
