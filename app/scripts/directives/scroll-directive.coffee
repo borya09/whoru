@@ -17,7 +17,6 @@ angular.module('whoruApp')
       @addBackgroundYPositionScrollSpied = ($element) ->
         $backgroundYPositionSpiedElements.push $element
 
-
       $header = $ '.header-container'
       $rootScope.smoothScroll = (element) ->
         target = $ '#' + element.id
