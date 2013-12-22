@@ -4,7 +4,7 @@
     <div ng-if="header.intro.surname2" class="wh-header-surname2">{{header.intro.surname2}}</div></a></h1>
 <nav class="wh-header-nav">
   <ul class="wh-header-options ul">
-    <li ng-repeat="option in header.nav.options | filter: {hidden: false} | orderBy: 'order'" ng-class="{current: option.current}" class="wh-header-option"><a ng-click="smoothScroll(option)" href="javascript:void(0)" title="{{option.title}}">{{option.title}}</a></li>
+    <li ng-repeat="option in header.nav.options | filter: {hidden: false} | orderBy: 'order'" ng-class="{current: option.current}" class="wh-header-option {{option.id}}"><a ng-click="smoothScroll(option)" href="javascript:void(0)" title="{{option.title}}">{{option.title}}</a></li>
   </ul>
   <div class="wh-header-options select">
     <select data-ng-model="header.nav.current" data-ng-options="option.title for option in header.nav.options | filter: {hidden: false} | orderBy:'order'" ng-change="smoothScroll(header.nav.current)"></select>

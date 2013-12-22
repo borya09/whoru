@@ -22,7 +22,7 @@
             <div ng-if="header.intro.surname2" class="wh-header-surname2">{{header.intro.surname2}}</div></a></h1>
         <nav class="wh-header-nav">
           <ul class="wh-header-options ul">
-            <li ng-repeat="option in header.nav.options | filter: {hidden: false} | orderBy: 'order'" ng-class="{current: option.current}" class="wh-header-option"><a ng-click="smoothScroll(option)" href="javascript:void(0)" title="{{option.title}}">{{option.title}}</a></li>
+            <li ng-repeat="option in header.nav.options | filter: {hidden: false} | orderBy: 'order'" ng-class="{current: option.current}" class="wh-header-option {{option.id}}"><a ng-click="smoothScroll(option)" href="javascript:void(0)" title="{{option.title}}">{{option.title}}</a></li>
           </ul>
           <div class="wh-header-options select">
             <select data-ng-model="header.nav.current" data-ng-options="option.title for option in header.nav.options | filter: {hidden: false} | orderBy:'order'" ng-change="smoothScroll(header.nav.current)"></select>
@@ -95,7 +95,7 @@
     <div class="footer-container">
       <footer class="wh-footer wrapper">
         <div ng-controller="ContactsCtrl" id="{{id}}" spy-current-section="" height-as-window="header" class="wh-contacts wh-generic-section when-shown">
-          <ul ng-if="contacts.length" class="wh-generic-section-content">
+          <ul ng-show="contacts.length" class="wh-generic-section-content">
             <li ng-repeat="contact in contacts" class="wh-contact"><a ng-href="{{contact.type=='phone'?'tel:':contact.type=='mail'?'mailto:':''}}{{contact.value}}" title="{{contact.value}}" data-wh-icon="{{contact.icon}}" ng-class="contact.type" class="wh-contact-icon"><span>{{contact.value}}</span></a></li>
           </ul>
         </div>
@@ -113,6 +113,6 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="bower_components/angular/angular.js"></script>
     <script src="scripts/c92c0a98.modules.js"></script>
-    <script src="scripts/6dc945d9.scripts.js"></script>
+    <script src="scripts/5829c128.scripts.js"></script>
   </body>
 </html>
