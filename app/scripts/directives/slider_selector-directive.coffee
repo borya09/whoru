@@ -51,8 +51,12 @@ angular.module('whoruApp')
         do setIfMore
       ]
       template: '''
-        <button class="previous" ng-class="morePrev? 'more' : 'no-more' " ng-click="previous()">‹</button>
-        <button class="next" ng-class="moreNext? 'more' : 'no-more' " ng-click="next()">‹</button>
+        <button class="previous" ng-class="morePrev? 'more' : 'no-more' " ng-click="previous()">
+          <span>‹</span>
+        </button>
+        <button class="next" ng-class="moreNext? 'more' : 'no-more' " ng-click="next()">
+          <span>›</span>
+        </button>
       '''
     }
   )
