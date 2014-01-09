@@ -390,3 +390,7 @@ about
 license
 --------
 TODO
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/borya09/whoru/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
